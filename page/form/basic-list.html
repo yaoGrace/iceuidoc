@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>基本表单</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">基本表单</div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="group-form">
+                    <div class="group-label">文章标题</div>
+                    <div class="group-content w5">
+                        <input type="text" class="form-control" placeholder="请输入" />
+                        <small class="help">建议50个字符以内</small>
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label">Tag标签</div>
+                    <div class="group-content w5">
+                        <input type="text" class="form-control" placeholder="请输入" />
+                        <small class="help">用空格隔开</small>
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label">文章简介</div>
+                    <div class="group-content w5">
+                        <textarea class="form-control" placeholder="请输入"></textarea>
+                        <small class="help">默认截取300字做为简介</small>
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label">所属分类</div>
+                    <div class="group-content w5">
+                        <select class="select">
+                            <option value="1">红袖天香</option>
+                            <option value="2" selected>断桥残雪</option>
+                            <option value="3">墨染双蕊</option>
+                            <option value="4">悠悠我心</option>
+                            <option value="5">镜花水月</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label">时间选择</div>
+                    <div class="group-content w5">
+                        <input type="text" name="time" id="time" placeholder="默认为当前创建时间" />
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label">属性操作</div>
+                    <div class="group-value w5">
+                        <div class="checkbox">
+                            <input type="checkbox" id="d1-1" value="1" checked />
+                            <label for="d1-1">免费</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="d2-1" value="2" />
+                            <label for="d2-1">推荐</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="d3-1" value="3" />
+                            <label for="d3-1">热门</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="d4-1" value="4" />
+                            <label for="d4-1">最新</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label">活动管理</div>
+                    <div class="group-value w5">
+                        <div class="radio">
+                            <input type="radio" name="d2" id="d1-2" value="1" checked />
+                            <label for="d1-2">首页推广</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="d2" id="d2-2" value="2" />
+                            <label for="d2-2">分类推广</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-form">
+                    <div class="group-label"></div>
+                    <div class="group-content w5">
+                        <div class="btn bg-green" onclick="submit();">提交</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            ice.date({ id: 'time', format: 'y-m-d h:i:s' });
+        </script>
+    </template>
+</body>
+</html>

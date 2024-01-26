@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fieldset方式表单</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">fieldset方式表单</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">组合表单在视觉上更加清晰，对用户来说更能分辨出需要填写的表单类目，在这里我们举例几种情况，提供表单模板，大家可直接拿来即用。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="title-l">Fieldset方式</div>
+				<fieldset>
+					<legend>用户信息</legend>
+					<div class="row">
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">姓名</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="姓名" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">出生</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="出生" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">籍贯</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="籍贯" value="" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">出生地</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="出生地" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">邮箱</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="邮箱" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">电话</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="电话" value="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend class="bg-blue">问卷作答</legend>
+					<div class="row">
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">您的爱好</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="爱好" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">编程语言</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="编程语言" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">个人强项</div>
+								<div class="group-content">
+									<input type="text" class="group-input" name="fieldset1" placeholder="个人强项" value="" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">是否会数据挖掘</div>
+								<div class="group-value">
+									<div class="radio">
+										<input type="radio" name="d1" id="d1-1" value="1" checked="">
+										<label for="d1-1">会</label>
+									</div>
+									<div class="radio">
+										<input type="radio" name="d1" id="d2-1" value="2">
+										<label for="d2-1">不会</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">是否会RUST</div>
+								<div class="group-value">
+									<div class="radio">
+										<input type="radio" name="d2" id="d2-1" value="1" checked="">
+										<label for="d2-1">会</label>
+									</div>
+									<div class="radio">
+										<input type="radio" name="d2" id="d2-2" value="2">
+										<label for="d2-2">不会</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="w4">
+							<div class="group-form">
+								<div class="group-label">是否会Docker</div>
+								<div class="group-value">
+									<div class="radio">
+										<input type="radio" name="d3" id="d3-1" value="1" checked="">
+										<label for="d3-1">会</label>
+									</div>
+									<div class="radio">
+										<input type="radio" name="d3" id="d3-2" value="2">
+										<label for="d3-2">不会</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<div class="text-center mt40">
+					<div class="btn">提交</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

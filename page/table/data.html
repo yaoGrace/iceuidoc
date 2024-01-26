@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Table数据表格</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">Table数据表格</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="doc-intro">
+                    表格是后台最常用的组件之一，很多报表都会用到她，甚至是文章管理、新闻管理，数据列表类型的都会用到她，ICEUI中的数据表格十分方便，重要的是表格全程动态生成，并数据绑定，没有丝毫多余的data属性存在，这完全遵循ICEUI的高简洁高清纯的理念，可以右键查看源代码审查html，返回来再看一下DevUI、MiniUI甚至LayUI的，你会发现暴露着大量的data绑定信息，当然这不影响功能的使用，一般没人在意表格的内部源码结构是怎样的，但是作为作者，ICEUI的清纯与简洁实际上是我代码洁癖的一种表现，ICEUI不仅仅是外观干净优美，内心「内部代码」也保持了绝对的清澈。
+                </div>
+                <div class="doc-intro">
+                    当然了，ICEUI的数据表格的使用上更是最大化的保持了简洁性，尤其是一体化的自定义模板方式，无需像MiniUI和LayUI那种方式去单独绑定，我将这块着重的重新设计了一番，有别于其它框架的数据表格，并加入了独有的js语法，可以很灵活的自定义内容，具体可查看<a
+                        href="../../../page/table/doc.html" class="a-line">Table的文档说明</a>。</div>
+                <div class="doc-intro">该功能还在不断的扩展和优化，如有问题请及时反馈。</div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="title-l">数据表格示例：</div>
+                <div class="row">
+                    <div class="w6">
+                        <div class="btn" id="btn1">全选</div>
+                        <div class="btn" id="btn2">反选</div>
+                        <div class="btn" id="btn3">取消选择</div>
+                        <div class="btn" id="btn4">打印选择的数据</div>
+                        <div class="btn" id="btn5">删除</div>
+                    </div>
+                    <form action="#" data-table="table" class="w6">
+                        <div class="group-input">
+                            <div class="group-label">名称查询</div>
+                            <input type="text" name="title" placeholder="请输入">
+                            <button type="submit" class="group-label btn">查询</button>
+                        </div>
+                    </form>
+                </div>
+                <table id="table" data-size="10" data-type="get" data-highlight="true" data-url="../../data/table.json"
+                    class="table table-border table-hover">
+                    <thead>
+                        <tr>
+                            <th data-type="checkbox">
+                                多选
+                            </th>
+                            <th data-type="order" data-sorts="true">
+                                序号
+                            </th>
+                            <th data-field="user">
+                                用户
+                            </th>
+                            <th data-field="title">
+                                标题
+                            </th>
+                            <th data-field="content">
+                                内容
+                            </th>
+                            <th>
+                                信息
+                                <template>索引:{index+''} 总数:{list.length}</template>
+                            </th>
+                            <th data-field="views" data-sorts="true">
+                                浏览量
+                            </th>
+                            <th data-width=280 data-nowrap="true">
+                                操作
+                                <template>
+                                    <span class="btn" data-click="edit">编辑</span>
+                                    <span class="btn" data-click="del">删除</span>
+                                    <span class="btn" data-click="view">查看</span>
+                                </template>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="title-l">悬浮列演示</div>
+                <div style="width:50%">
+                    <table id="table-fixed" class="table table-border table-hover"></table>
+                </div>
+            </div>
+        </div>
+        <script>
+            //运行代码
+            ice.run()
+            //编辑按钮
+            function edit(e) {
+                ice.alert({ content: '确定编辑「' + e.data.title + '」这片文章？' });
+            }
+            //删除按钮
+            function del(e) {
+                var that = this;
+                ice.prompt({
+                    content: '确定删除这条数据？删除后无法恢复哦！',
+                    btn: ['取消', '确认'],
+                    yes: function () {
+                        that.del(e.index);
+                    }
+                })
+            }
+            //查看按钮
+            function view(e) {
+                ice.alert({ content: '确定查看「' + e.data.title + '」这片文章？' });
+            }
+            ice.table({
+                id: 'table',
+                success: function (e) {
+                    console.log(e);
+                    ice('#btn1').click(function () {
+                        e.checkall();
+                    });
+                    ice('#btn2').click(function () {
+                        e.inverse();
+                    });
+                    ice('#btn3').click(function () {
+                        e.deselect();
+                    });
+                    ice('#btn4').click(function () {
+                        console.log(e.getCheckbox());
+                    });
+                    //删除操作
+                    //按照正常的业务流程，删除时应该使用ajax，通过e.getCheckbox()可以
+                    //获取到所有选中的数据，通过遍历获得所有的数据id，将需要删除的id提交
+                    //给后台，然后返回删除成功的状态，这时候调用this.render()方法重新加
+                    //载数据。
+                    ice('#btn5').click(function () {
+                        ice.each(e.getCheckbox(), function () {
+                            e.del(this.index);
+                        })
+                    });
+                }
+            });
+            ice.table({
+                id: 'table-fixed',
+                url: '../../data/table.json',
+                type: 'get',
+                size: 30,
+                thead: [
+                    { type: 'checkbox', width: 63, fixed: true, align: 'center' },
+                    { type: 'order', name: '序号', width: 60 },
+                    { field: 'user', name: '用户' },
+                    { field: 'title', name: '标题' },
+                    { field: 'content', name: '内容' },
+                    { field: 'views', name: '浏览量' },
+                    { field: 'time', name: '时间' },
+                    {
+                        name: '操作', width: 260, fixed: true, template() {
+                            return `
+                        <span class="btn" data-click="edit">编辑</span>
+                        <span class="btn" data-click="del">删除</span>
+                        <span class="btn" data-click="view">查看</span>`}
+                    },
+                ],
+            })
+        </script>
+    </template>
+</body>
+</html>

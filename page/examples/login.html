@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>ICEUI前端框架-登录页</title>
+
+    <meta name="keywords" content="ICEUI,html5,html5框架,html5模板,html5自适应,css3响应式,前端框架,后端框架,后台框架,js组件"/>
+    <meta name="description" content="ICEUI是一款高效的前端框架，她的灵魂来自于自身顶级艺术的设计风格，像冰一样清明，像玉一样纯洁，以其独特的艺术表现及丰富的内涵特征向人们诠释了一个全新的前端框架理念，纯原生开发，无任何依赖，冰清玉洁，高贵典雅！"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo-black.png"/>
+    <link rel="stylesheet" href="../../../iceui/src/ui/ui.css" />
+    <link rel="stylesheet" href="../../adminXL/adminXL.css" />
+    <script type="text/JavaScript" src="../../../iceui/src/ice.js"></script>
+    <script type="text/JavaScript" src="../../../iceui/src/ui/ui.js"></script>
+</head>
+<body class="adminXL-login-body">
+    <div class="adminXL-login">
+        <div class="adminXL-login-form">
+            <div class="adminXL-login-title">adminXL登录</div>
+            <div class="adminXL-login-row">
+                <i class="adminXL-login-icon icon ice-user"></i>
+                <input type="text" id="username" class="adminXL-login-input name" placeholder="账号"/>
+            </div>
+            <div class="adminXL-login-row">
+                <i class="adminXL-login-icon icon ice-password"></i>
+                <input type="password" id="password" class="adminXL-login-input pass" placeholder="密码"/>
+            </div>
+            <div class="adminXL-login-row">
+                <i class="adminXL-login-icon icon ice-opera"></i>
+                <input type="text" id="code" class="adminXL-login-code" placeholder="验证码"/>
+                <img src="../../../code.gif" class="adminXL-login-codeimg"/>
+            </div>
+            <div class="adminXL-login-row">
+                <div class="checkbox">
+                    <input type="checkbox" id="d1-1" value="1" checked="">
+                    <label for="d1-1">记住密码</label>
+                </div>
+                <div class="right"><a href="../../../index.html">忘记密码</a></div>
+            </div>
+            <button type="button" class="adminXL-login-submit" onclick="submit();">登陆</button>
+            <div class="adminXL-login-row">
+                <div class="adminXL-login-other">
+                    <span>其它方式登录</span>
+                    <a href="../../../index.html"><i class="icon ice-cel"></i></a>
+                    <a href="../../../index.html"><i class="icon ice-qq"></i></a>
+                    <a href="../../../index.html"><i class="icon ice-weixin"></i></a>
+                    <a href="../../../index.html"><i class="icon ice-xinlangweibo"></i></a>
+                    <a href="../../../index.html"><i class="icon ice-renren"></i></a>
+                </div>
+            </div>
+            <div class="adminXL-login-signup"><a href="../../../index.html" class="a-line">注册账号</a></div>
+        </div>
+    </div>
+    <script>
+        var isRemember = ice.localData('isRemember') === 1 ? 1 : 0;
+        var username = ice('#username'), password = ice('#password');
+        if(ice.localData('username')){
+            username.val(ice.localData('username'));
+        }
+        if(ice.localData('password')){
+            password.val(ice.localData('password'));
+        }
+        if(isRemember){
+            ice('#remember')[0].checked = true;
+        }
+        username.on('input',function(){
+            if(isRemember){
+                ice.localData('username',username.val());
+            }
+        });
+        password.on('input',function(){
+            if(isRemember){
+                ice.localData('password',password.val());
+            }
+        });
+        //记住密码
+        function remember(e){
+            isRemember = e;
+            if(e){
+                ice.localData('isRemember',1);
+                ice.localData('username',username.val());
+                ice.localData('password',password.val());
+            }else{
+                ice.localData('isRemember',0);
+                localStorage.removeItem('username');
+                localStorage.removeItem('password');
+            }
+        }
+        //提交
+        function submit(){
+            ice('.adminXL-login-submit').addCss('processing');
+            var user = username.val().trim();
+            var pass = password.val().trim();
+            if(!user.length) {
+                ice('.adminXL-login-submit').delCss('processing');
+                return ice.pop('账号不能为空');
+            }
+            if(!pass.length) {
+                ice('.adminXL-login-submit').delCss('processing');
+                return ice.pop('密码不能为空');
+            }
+            ice.ajax({
+                url:'https://iceui.cn/form/login',
+                data:{'username':user,'password':pass},
+                success(res){
+                    ice.pop(res.data);
+                },
+                complete(){
+                    ice('.adminXL-login-submit').delCss('processing');
+                }
+            });
+        }
+        //回车提交
+        document.onkeydown = function (e) {
+            var theEvent = window.event || e;
+            var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+            if (code == 13) {
+                submit();
+            }
+        }
+    </script>
+</body>
+</html>

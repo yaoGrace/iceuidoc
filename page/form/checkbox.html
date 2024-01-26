@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Checkbox复选框</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Checkbox复选框</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">复选框是表单中必不可缺少的组件，在iceui中，复选框使用原生的checkbox类型input，这一切对于前端开发者来说是很亲切的，这里并没有复杂化，完全用纯CSS实现的，比起传统的js控制方式无疑更加丝滑，并且保持了代码的简洁性，可以查看本页文档的代码示例，复选框的结构与「单选」「Toggle开关」完全统一。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">原生的checkbox类型input样式</div>
+							<div class="checkbox">
+								<input type="checkbox" id="d1-1" value="1" checked />
+								<label for="d1-1">置顶</label>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="d2-1" value="2" />
+								<label for="d2-1">推荐</label>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="d3-1" value="3" />
+								<label for="d3-1">热门</label>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="d4-1" value="4" />
+								<label for="d4-1">最新</label>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="d5-1" value="5" checked disabled />
+								<label for="d5-1">禁止</label>
+							</div>
+							<div class="checkbox">
+								<input type="checkbox" id="d6-1" value="6" disabled />
+								<label for="d6-1">禁止</label>
+							</div>
+
+							<div class="title-l">盒子样式，添加class<code>pub-box</code>，等同单选框</div>
+							<div class="checkbox pub-box">
+								<input type="checkbox" id="d1-2" value="1" checked />
+								<label for="d1-2">置顶</label>
+							</div>
+							<div class="checkbox pub-box">
+								<input type="checkbox" id="d2-2" value="2" />
+								<label for="d2-2">推荐</label>
+							</div>
+							<div class="checkbox pub-box">
+								<input type="checkbox" id="d3-2" value="3" />
+								<label for="d3-2">热门</label>
+							</div>
+							<div class="checkbox pub-box">
+								<input type="checkbox" id="d4-2" value="4" />
+								<label for="d4-2">最新</label>
+							</div>
+							<div class="checkbox pub-box">
+								<input type="checkbox" id="d5-2" value="5" checked disabled />
+								<label for="d5-2">禁止</label>
+							</div>
+							<div class="checkbox pub-box">
+								<input type="checkbox" id="d6-2" value="6" disabled />
+								<label for="d6-2">禁止</label>
+							</div>
+
+							<div class="title-l">组合样式，添加class<code>pub-group</code>，等同单选框</div>
+							<div class="checkbox pub-group">
+								<input type="checkbox" id="d1-3" value="1" checked />
+								<label for="d1-3">置顶</label>
+								<input type="checkbox" id="d2-3" value="2" />
+								<label for="d2-3">推荐</label>
+								<input type="checkbox" id="d3-3" value="3" />
+								<label for="d3-3">热门</label>
+								<input type="checkbox" id="d4-3" value="4" />
+								<label for="d4-3">最新</label>
+								<input type="checkbox" id="d5-3" value="5" checked disabled />
+								<label for="d5-3">禁止</label>
+								<input type="checkbox" id="d6-3" value="6" disabled />
+								<label for="d6-3">禁止</label>
+							</div>
+
+							<div class="title-l">实心的组合样式，添加class<code>pub-group-solid</code>，等同单选框</div>
+							<div class="checkbox pub-group-solid">
+								<input type="checkbox" id="d1-4" value="1" checked />
+								<label for="d1-4">置顶</label>
+								<input type="checkbox" id="d2-4" value="2" />
+								<label for="d2-4">推荐</label>
+								<input type="checkbox" id="d3-4" value="3" />
+								<label for="d3-4">热门</label>
+								<input type="checkbox" id="d4-4" value="4" />
+								<label for="d4-4">最新</label>
+								<input type="checkbox" id="d5-4" value="5" checked disabled />
+								<label for="d5-4">禁止</label>
+								<input type="checkbox" id="d6-4" value="6" disabled />
+								<label for="d6-4">禁止</label>
+							</div>
+
+							<div class="title-l">
+								实心的复选框组合支持主题颜色<code>bg-color</code>，但是需要加<code>no-hover</code>哦，不然鼠标经过背景色会发生改变，只要你不嫌晃眼的话。
+							</div>
+							<div class="checkbox pub-group-solid bg-red no-hover">
+								<input type="checkbox" id="d1-5" value="1" checked />
+								<label for="d1-5">置顶</label>
+								<input type="checkbox" id="d2-5" value="2" />
+								<label for="d2-5">推荐</label>
+								<input type="checkbox" id="d3-5" value="3" />
+								<label for="d3-5">热门</label>
+								<input type="checkbox" id="d4-5" value="4" />
+								<label for="d4-5">最新</label>
+								<input type="checkbox" id="d5-5" value="5" checked disabled />
+								<label for="d5-5">禁止</label>
+								<input type="checkbox" id="d6-5" value="6" disabled />
+								<label for="d6-5">禁止</label>
+							</div>
+							<div class="checkbox pub-group-solid bg-green no-hover">
+								<input type="checkbox" id="d1-6" value="1" checked />
+								<label for="d1-6">置顶</label>
+								<input type="checkbox" id="d2-6" value="2" />
+								<label for="d2-6">推荐</label>
+								<input type="checkbox" id="d3-6" value="3" />
+								<label for="d3-6">热门</label>
+								<input type="checkbox" id="d4-6" value="4" />
+								<label for="d4-6">最新</label>
+								<input type="checkbox" id="d5-6" value="5" checked disabled />
+								<label for="d5-6">禁止</label>
+								<input type="checkbox" id="d6-6" value="6" disabled />
+								<label for="d6-6">禁止</label>
+							</div>
+							<div class="checkbox pub-group-solid bg-blue no-hover">
+								<input type="checkbox" id="d1-7" value="1" checked />
+								<label for="d1-7">置顶</label>
+								<input type="checkbox" id="d2-7" value="2" />
+								<label for="d2-7">推荐</label>
+								<input type="checkbox" id="d3-7" value="3" />
+								<label for="d3-7">热门</label>
+								<input type="checkbox" id="d4-7" value="4" />
+								<label for="d4-7">最新</label>
+								<input type="checkbox" id="d5-7" value="5" checked disabled />
+								<label for="d5-7">禁止</label>
+								<input type="checkbox" id="d6-7" value="6" disabled />
+								<label for="d6-7">禁止</label>
+							</div>
+
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

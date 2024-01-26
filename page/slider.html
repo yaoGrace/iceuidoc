@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Slider轮播图</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<style>.slider .div1 {
+				color: #fff;
+				width: 100%;
+				height: 100%;
+				padding: 140px 10px;
+				text-align: center;
+				font-size: 30px;
+				background: #2196F3;
+			}
+
+			.slider .div2 {
+				color: #fff;
+				width: 100%;
+				height: 100%;
+				padding: 140px 10px;
+				text-align: center;
+				font-size: 30px;
+				background: #009688;
+			}
+
+			.slider .div3 {
+				color: #fff;
+				width: 100%;
+				height: 100%;
+				padding: 140px 10px;
+				text-align: center;
+				font-size: 30px;
+				background: #3F51B5;
+			}
+
+			.slider .div4 {
+				color: #fff;
+				width: 100%;
+				height: 100%;
+				padding: 140px 10px;
+				text-align: center;
+				font-size: 30px;
+				background: #FF9800;
+			}
+
+			.slider .div5 {
+				color: #fff;
+				width: 100%;
+				height: 100%;
+				padding: 140px 10px;
+				text-align: center;
+				font-size: 30px;
+				background: #E91E63;
+			}
+
+			.box.slider {
+				border: 50px solid #d5d5d5;
+			}
+		</style>
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Slider轮播图</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">ICEUI框架中集成了轮播图功能，无需js控制，只需要简单的几行html就能实现。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="doc">
+					<div class="title-l">HTML基本结构</div>
+					<template class="iceCode:html">
+						<div class="slider">
+							<div class="slider-item"><img src="../img/banner1.jpg" /></div>
+							<div class="slider-item"><img src="../img/banner2.jpg" /></div>
+						</div>
+					</template>
+				</div>
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">标准风格</div>
+							<div class="slider">
+								<div class="slider-item"><img src="../img/banner1.jpg" alt="" /></div>
+								<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+							</div>
+							<div class="slider mt40" data-slider-time="999000">
+								<div class="slider-item div1">人生无需太多，半盏清茗，一曲清音</div>
+								<div class="slider-item div2">闲煮时光，沿着季节的尘烟，安静的行走</div>
+								<div class="slider-item div3">晨间的烟雨还泛着薄凉，只是轩窗外风的一声轻唤</div>
+								<div class="slider-item div4">时光清浅，芳草纤绵，时间终究会过滤掉一切繁杂</div>
+								<div class="slider-item div5">就在安静里倾城，慈悲里生暖，尘烟里温柔而立</div>
+							</div>
+
+							<div class="title-l">上下滚动 <code>data-slider-ani="ud"</code></div>
+							<div class="slider" data-slider-ani="ud">
+								<div class="slider-box">
+									<div class="slider-list">
+										<div class="slider-item"><img src="../img/banner1.jpg" alt="" /></div>
+										<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="title-l">淡入淡出 <code>data-slider-ani="fade"</code></div>
+							<div class="slider" data-slider-ani="fade">
+								<div class="slider-box">
+									<div class="slider-list">
+										<div class="slider-item"><img src="../img/banner1.jpg" alt="" /></div>
+										<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="title-l">滚动时间设置，例如5秒 <code>data-slider-time="5000"</code></div>
+							<div class="slider" data-slider-time="5000">
+								<div class="slider-box">
+									<div class="slider-list">
+										<div class="slider-item"><img src="../img/banner1.jpg" alt="" /></div>
+										<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="title-l">隐藏左右箭头控制 <code>data-slider-arrow="false"</code></div>
+							<div class="slider" data-slider-arrow="false">
+								<div class="slider-box">
+									<div class="slider-list">
+										<div class="slider-item"><img src="../img/banner1.jpg" alt="" /></div>
+										<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="title-l">隐藏下面的指示器 <code>data-slider-button="false"</code></div>
+							<div class="slider" data-slider-button="false">
+								<div class="slider-box">
+									<div class="slider-list">
+										<div class="slider-item"><img src="../img/banner1.jpg" alt="" /></div>
+										<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="title-l">box面板中使用</div>
+							<div class="box slider">
+								<div class="box-title">
+									<div class="left">轮播图</div>
+									<div class="slider-button"></div>
+								</div>
+								<div class="box-content slider-box">
+									<div class="slider-list">
+										<div class="slider-item active"><img src="../img/banner1.jpg" alt=""></div>
+										<div class="slider-item"><img src="../img/banner2.jpg" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="doc">
+								<div class="title-l"><span>slider-轮播</span></div>
+								<div class="doc-box">
+									<div class="doc-title">使用说明</div>
+									<div class="doc-list">
+										<p>该轮播无需使用js方法启动，只需要添加class<span class="tag bg-green">.slider</span><span
+												class="tag bg-green">.slider-item</span>即可。</p>
+										<p>具体功能和展示方式写法只需要添加attr属性，具体如下</p>
+									</div>
+									<div class="doc-list">
+										<p class="t1">class属性设置，具体如下</p>
+										<div class="mb20">
+											<table class="doc-table table">
+												<thead>
+													<tr>
+														<th nowrap>class</th>
+														<th nowrap>是否必须添加</th>
+														<th nowrap>说明</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="text-center" nowrap>slider</td>
+														<td class="text-center" nowrap>必须</td>
+														<td>轮播的主容器</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>slider-item</td>
+														<td class="text-center" nowrap>必须</td>
+														<td>轮播项，里面可以为图片或者文字，具体宽高随轮播的内容，需放置在slider中</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>slider-prev</td>
+														<td class="text-center" nowrap>可选</td>
+														<td>上一张轮播的按钮，需放置在slider中</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>slider-next</td>
+														<td class="text-center" nowrap>可选</td>
+														<td>下一张轮播的按钮，需放置在slider中</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>slider-button</td>
+														<td class="text-center" nowrap>可选</td>
+														<td>存放小圆点的容器，需放置在slider中</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="tip bg-red">提示：应该设置其中一个.slider-item为默认展示，需添加一个.action，这不会导致页面初步加载时闪烁！
+										</div>
+									</div>
+									<div class="doc-list">
+										<p class="t1">attr属性设置，具体如下</p>
+										<div class="mb20">
+											<table class="doc-table table">
+												<thead>
+													<tr>
+														<th nowrap>attr</th>
+														<th nowrap>类型</th>
+														<th nowrap>默认</th>
+														<th nowrap>说明</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="text-center" nowrap>data-slider-ani</td>
+														<td class="text-center" nowrap>string</td>
+														<td class="text-center" nowrap>lr</td>
+														<td>动画类型，有效值为lr(左右轮播) ud(上下轮播) fade(淡入淡出)</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>data-slider-time</td>
+														<td class="text-center" nowrap>int</td>
+														<td class="text-center" nowrap>3000</td>
+														<td>动画轮播间隔时间，单位为毫秒，1秒=1000</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>data-slider-arrow</td>
+														<td class="text-center" nowrap>bool</td>
+														<td class="text-center" nowrap>true</td>
+														<td>左右箭头控制是否显示</td>
+													</tr>
+													<tr>
+														<td class="text-center" nowrap>data-slider-button</td>
+														<td class="text-center" nowrap>bool</td>
+														<td class="text-center" nowrap>true</td>
+														<td>底部指示器是否显示</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

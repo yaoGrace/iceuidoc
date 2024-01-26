@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Table数据表格</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">Table数据表格</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="doc-intro">数据表格的使用有两种方式，一种是表头由html控制，一种是表头由js来控制，只需绑定表格的id即可，具体使用方式如下</div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="title-l">方式一，表头由html编写</div>
+                <template id="run-1" class="iceCode:html">
+                    <table id="table" data-size="10" data-url="/data/table.json" class="table table-border table-hover">
+                        <thead>
+                            <tr>
+                                <th data-type="checkbox">
+                                    多选
+                                </th>
+                                <th data-type="order" data-sorts="true">
+                                    序号
+                                </th>
+                                <th data-field="title">
+                                    标题
+                                </th>
+                                <th data-field="content">
+                                    内容
+                                </th>
+                                <th data-field="views" data-sorts="true">
+                                    浏览量
+                                </th>
+                                <th data-width=280>
+                                    操作
+                                    <template>
+                                        <span class="btn" data-click="edit">编辑</span>
+                                        <span class="btn" data-click="del">删除</span>
+                                        <span class="btn" data-click="view">查看</span>
+                                    </template>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        //渲染表格，绑定id
+                        ice.table({id:'table'});
+                        //编辑按钮
+                        function edit(e){
+                            ice.alert({content:'确定编辑「'+e.data.title+'」这片文章？'});
+                        }
+                        //删除按钮
+                        function del(e){
+                            var that = this;
+                            ice.alert({
+                                content:'确定删除这条数据？删除后无法恢复哦！',
+                                btn:['取消','确认'],
+                                yes:function(){
+                                    that.del(e.index);
+                                }
+                            })
+                        }
+                        //查看按钮
+                        function view(e){
+                            ice.alert({content:'确定查看「'+e.data.title+'」这片文章？'});
+                        }
+                    </script>
+                </template>
+                <div data-run="#run-1" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+                <div class="title-l">方式二，表头由js编写</div>
+                <template id="run-2" class="iceCode:html">
+                    <table id="table" data-size="10" data-url="../../data/table.json" class="table table-border table-hover"></table>
+                    <script>
+                        //渲染表格，绑定id
+                        ice.table({
+                            id: 'table',
+                            thead:[
+                                {type:'order',name:'序号'},
+                                {field:'title',name:'标题'},
+                                {field:'content',name:'内容'},
+                                {field:'views',name:'浏览量'},
+                                {name:'操作',width:280,template:`
+                                    <span class="btn" data-click="edit">编辑</span>
+                                    <span class="btn" data-click="del">删除</span>
+                                    <span class="btn" data-click="view">查看</span>
+                                `},
+                            ]
+                        });
+                        //编辑按钮
+                        function edit(e){
+                            ice.alert({content:'确定编辑「'+e.data.title+'」这片文章？'});
+                        }
+                        //删除按钮
+                        function del(e){
+                            var that = this;
+                            ice.alert({
+                                content:'确定删除这条数据？删除后无法恢复哦！',
+                                btn:['取消','确认'],
+                                yes:function(){
+                                    that.del(e.index);
+                                }
+                            })
+                        }
+                        //查看按钮
+                        function view(e){
+                            ice.alert({content:'确定查看「'+e.data.title+'」这片文章？'});
+                        }
+                    </script>
+                </template>
+                <div data-run="#run-2" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+                <div class="doc-intro">以上是表格的两种使用方式，具体的参数设置html方式与js方式的字段名完全一致，唯一的区别就是html是通过设置属性data来实现的，例如table标签中设置列宽data-width="300"</div>
+
+                <div class="doc">
+                    <div class="title-l">API-ice.table方法的json传参设置</div>
+                    <div class="doc-box">
+                        <div class="doc-list">
+
+                            <p><b>ice.table的json传参设置</b></p>
+                            <table class="doc-table table">
+                                <thead>
+                                    <tr>
+                                        <th nowrap>名称</th>
+                                        <th nowrap>类型</th>
+                                        <th nowrap>必填</th>
+                                        <th nowrap>默认</th>
+                                        <th nowrap>说明</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">id</td>
+                                        <td class="text-center">String</td>
+                                        <td class="text-center">是</td>
+                                        <td class="text-center">-</td>
+                                        <td>用于渲染该表格的id</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">url</td>
+                                        <td class="text-center">String</td>
+                                        <td class="text-center">是</td>
+                                        <td class="text-center">-</td>
+                                        <td>异步数据请求的链接</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">type</td>
+                                        <td class="text-center">String</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">post</td>
+                                        <td>ajax异步请求的类型，有效值：post、get</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">size</td>
+                                        <td class="text-center">Number</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">10</td>
+                                        <td>每页数据条数</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">paging</td>
+                                        <td class="text-center">Bool</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">true</td>
+                                        <td>是否显示分页</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">param</td>
+                                        <td class="text-center">Json</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>接口传参，格式为key、value形式</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">thead</td>
+                                        <td class="text-center">Json</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">true</td>
+                                        <td>
+                                            <p>table标签中如果没有thead标签，此处必填</p>
+                                            <p>thead格式：</p>
+                                            <template class="iceCode:js">
+                                                {
+                                                    name     : {String}  表头名称
+                                                    field    : {String}  数据的字段名称，注意：当type类型为radio或checkbox时，该字段表示为是否为选中状态
+                                                    nowrap   : {Boolean} 是否强制不换号
+                                                    align    : {String}  对齐方式，默认居中对齐，仅支持的参数：left、center、right
+                                                    type     : {String}  类型，仅支持的参数：radio(单选框)、checkbox(复选框)、order(序号)
+                                                    width    : {String}  表格的宽度，需要填写px或%单位，例如：300px
+                                                    sorts    : {Boolean} 是否开启排序
+                                                    fixed    : {Boolean} 是否开启悬浮列，目前只实现了两端列的悬浮，并且需要设置width才行
+                                                    el       : {Boolean} 内容是否溢出隐藏显示三个点，默认宽度为200px，如需自定义宽度，请设置width属性
+                                                    template : {String | Function} 自定义模板，如果为Function类型，需要return返回html数据，具体说明请看下面的数据模板
+                                                }
+                                            </template>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">data</td>
+                                        <td class="text-center">Json</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>如果不需要通过url来请求数据，可直接通过该参数赋值数据</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">parseData</td>
+                                        <td class="text-center">Json</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>
+                                            <p>如果你的接口返回数据格式不符合 table 的默认规定格式，可以通过该参数重新定义error、count、hidden、list、message</p>
+                                            <p>table默认规定格式：</p>
+                                            <template class="iceCode:js">
+                                                {
+                                                    "error": false, //错误
+                                                    "message": "",  //消息
+                                                    "count": 0,     //总页数
+                                                    "hidden": "",   //隐藏某列，用逗号‘,’分割，不是必传的
+                                                    "list": []      //数据列表
+                                                }
+                                            </template>
+                                            <p>例如你的接口返回信息并不是上面的默认格式，如下：</p>
+                                            <template class="iceCode:js">
+                                                {
+                                                    "success": false,   //错误
+                                                    "msg": "",          //消息
+                                                    "data": {
+                                                        "total": 0,     //总页数
+                                                        "list" : []     //数据列表
+                                                    }          
+                                                }
+                                            </template>
+                                            <p>那么你可以通过parseData来解析成 table 需要的参数：</p>
+                                            <template class="iceCode:js">
+                                                ice.table({
+                                                    id:'table',
+                                                    parseData:{
+                                                        error: 'success',
+                                                        message: 'msg',
+                                                        count: 'data.total',
+                                                        list: 'data.list'
+                                                    }
+                                                });
+                                            </template>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">highlight</td>
+                                        <td class="text-center">Bool</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">true</td>
+                                        <td>是否高亮当前选中的行</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">click</td>
+                                        <td class="text-center">Function</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>点击当前行的回调方法名称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">form</td>
+                                        <td class="text-center">Function</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>表单查询后的回调函数</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">checkbox</td>
+                                        <td class="text-center">Function</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>
+                                            <p>复选框选中的回调函数</p>
+                                            <template class="iceCode:js">
+                                                //回调函数
+                                                checkbox(e){
+                                                    //this: 当前ice.table的对象
+                                                    //e: 选中的数据集合，如下
+                                                    // [{
+                                                    //     index : 当前这条数据的下标
+                                                    //     data  : 当前这条数据对象
+                                                    //     list  : 当前数据列表对象
+                                                    //     res   : 整个接口返回的数据
+                                                    // },……]
+                                                    console.log(e);
+                                                }
+                                            </template>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">radio</td>
+                                        <td class="text-center">Function</td>
+                                        <td class="text-center">否</td>
+                                        <td class="text-center">-</td>
+                                        <td>
+                                            <p>单选框选中的回调函数</p>
+                                            <template class="iceCode:js">
+                                                //回调函数
+                                                radio(e){
+                                                    //this: 当前ice.table的对象
+                                                    //e: 选中的数据对象，与checkbox不同的是它不是集合，如下
+                                                    // {
+                                                    //     index : 当前这条数据的下标
+                                                    //     data  : 当前这条数据对象
+                                                    //     list  : 当前数据列表对象
+                                                    //     res   : 整个接口返回的数据
+                                                    // }
+                                                    console.log(e);
+                                                }
+                                            </template>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="mt40"><b>以上所有的回调方法说明：</b></p>
+                            <template class="iceCode:js">
+                                //ice.table传参中，radio、heckbox、success回调函数中的this指向ice.table自身对象，值如下：
+                                // this指向table对象，如下
+                                // this.url            接口地址
+                                // this.page           当前页
+                                // this.count          数据条数
+                                // this.size           每页数据条数
+                                // this.data           渲染的数据
+                                // this.thead          表头
+                                // this.list           数据列表
+                                // this.res            接口返回来的所有数据
+                                // this.param          传参
+                                // this.tr             表格所有的tr对象集合
+                                // this.table          表格元素对象
+                                // this.tableBox       table表格元素的父级对象
+                                // this.tableMain      tableBox元素的父级对象
+                                // this.paging         分页对象
+                                // this.radio          单选对象
+                                // this.checkbox       多选对象
+                                // this.load           加载中元素对象
+                                // this的方法：
+                                // this.getRadio()     获取单选数据
+                                // this.getCheckbox()  获取多选数据
+                                // this.render()       重载表格
+                                // this.checkall()     复选框全选
+                                // this.inverse()      复选框反选
+                                // this.deselect()     复选框全不选
+                                // this.openLoad()     打开加载中的蒙层动画
+                                // this.closeLoad()    关闭加载中
+                                // this.del(index)     删除指定下标的数据，不传下标删除所有
+
+                                //thead参数template中data-click指定的点击事件，例如data-click="edit"
+                                function edit(e){
+                                    // this指向table对象，参考上面
+                                    console.log(this);
+
+                                    //e指向当前条数据，值如下：
+                                    //index : 当前这条数据的下标
+                                    //data  : 当前这条数据对象
+                                    //list  : 当前数据列表对象
+                                    //res   : 整个接口返回的数据
+                                    console.log(e.data);
+                                }
+                            </template>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title-l">绑定表单</div>
+                <p>数据表格支持绑定多个form表单，她的使用是非常简洁的，只需要给form添加data-table为table的id即可，例如你的数据表格id是<code>table</code>，那么form元素上将<code>data-table</code>设为table的id<code>table</code>，绑定表单后，查询数据时，ajax异步请求的数据会自动带上表单的参数，例如你的表单定义了一个input输入框用来搜索数据，input的name为search，输入的内容为周杰伦，那么提交表单后，数据表格会劫持该表单的请求，并把search等于周杰伦的数据自动附加到当前的表格请求中，接下来我们先看一下绑定的form表单形式。</p>
+                <p class="tip bg-red">提示：form表单的编写与原生一样，能正常提交表单即可，所以按钮的类型type应该为submit，唯一不同的地方就是form标签的action属性不用写提交表单的地址，可以用#号来代替，或者干脆不写。</p>
+                <template id="run-3" class="iceCode:html">
+
+                    <!-- form表单的data-table需要设定为数据表格的id -->
+                    <form action="#" data-table="table">
+                        <div class="group-input">
+                            <div class="group-label">名称查询</div>
+                            <input type="text" name="title" placeholder="请输入">
+                            <button type="submit" class="group-label btn">查询</button>
+                        </div>
+                    </form>
+
+                    <!-- 可以自定义多个表单 -->
+                    <form action="#" data-table="table">
+                        <div class="group-input">
+                            <div class="group-label">内容查询</div>
+                            <input type="text" name="content" placeholder="请输入">
+                            <button type="submit" class="group-label btn">查询</button>
+                        </div>
+                    </form>
+
+                    <!-- 数据表格 -->
+                    <table id="table" data-url="../../data/table.json" class="table table-border table-hover">
+                        <thead>
+                            <tr>
+                                <th data-type="order" data-sorts="true">
+                                    序号
+                                </th>
+                                <th data-field="user">
+                                    用户
+                                </th>
+                                <th data-field="content">
+                                    内容
+                                </th>
+                                <th data-field="views" data-sorts="true">
+                                    浏览量
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <!-- 数据表格的js部分 -->
+                    <script>
+                        //渲染表格
+                        ice.table({
+                            id:'table',
+                            form: function(res){
+                                //表单查询成功后的回调
+                                console.log(res);
+                            },
+                        });
+                    </script>
+                </template>
+                <div data-run="#run-3" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+                <div class="title-l">数据操作</div>
+                <p>关于数据操作，咱们的Table妹内置了一些非常方便的方法和返回值，让你自由的操作每条数据，每个字段。</p>
+                <p>我本人在做这个数据表格之前曾花费了很大的精力研究了一下很多第三方的数据表格，最后抛去各种不便和编写方式，定制了一套属于我们iceui女神自己标准的数据表格，该方式目前是前无仅有的，一些灵感也来源于我前不久开发的iceView模板引擎（类似vue，比vue更简洁），在语法上拥有独立的环境变量。</p>
+                <template id="run-4" class="iceCode:html">
+                    <div class="mb20 mt40">
+                        <div class="btn" id="btn1">全选</div>
+                        <div class="btn" id="btn2">反选</div>
+                        <div class="btn" id="btn3">取消选择</div>
+                        <div class="btn" id="btn4">打印选择的数据</div>
+                        <div class="btn" id="btn5">删除</div>
+                    </div>
+                    <table id="table" data-size="10"  data-highlight="true" data-url="../../data/table.json" class="table table-border table-hover">
+                        <thead>
+                            <tr>
+                                <th data-type="checkbox">
+                                    多选
+                                </th>
+                                <th data-type="order" data-sorts="true">
+                                    序号
+                                </th>
+                                <th data-field="user">
+                                    用户
+                                </th>
+                                <th data-field="content">
+                                    内容
+                                </th>
+                                <th data-field="views" data-sorts="true">
+                                    浏览量
+                                </th>
+                                <th data-width=280>
+                                    操作
+                                    <template>
+                                        <span class="btn" data-click="edit">编辑</span>
+                                        <span class="btn" data-click="del">删除</span>
+                                        <span class="btn" data-click="render">刷新</span>
+                                    </template>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        //编辑按钮
+                        function edit(e){
+                            ice.alert({content:'确定编辑「'+e.data.title+'」这片文章？'});
+                        }
+                        //删除按钮
+                        function del(e){
+                            var that = this;
+                            ice.alert({
+                                content:'确定删除这条数据？删除后无法恢复哦！',
+                                btn:['取消','确认'],
+                                yes:function(){
+                                    that.del(e.index);
+                                }
+                            })
+                        }
+                        //重新加载
+                        function render(e){
+                            this.render();
+                        }
+                        //渲染数据表格
+                        ice.table({
+                            id: 'table',
+                            success: function(e){
+                                console.log(e);
+                                ice('#btn1').click(function(){
+                                    e.checkall();
+                                });
+                                ice('#btn2').click(function(){
+                                    e.inverse();
+                                });
+                                ice('#btn3').click(function(){
+                                    e.deselect();
+                                });
+                                ice('#btn4').click(function(){
+                                    console.log(e.getCheckbox());
+                                });
+                                //删除操作
+                                //按照正常的业务流程，删除时应该使用ajax，通过e.getCheckbox()可以
+                                //获取到所有选中的数据，通过遍历获得所有的数据id，将需要删除的id提交
+                                //给后台，然后返回删除成功的状态，这时候调用this.render()方法重新加
+                                //载数据。
+                                ice('#btn5').click(function(){
+                                    ice.each(e.getCheckbox(),function(){
+                                        e.del(this.index);
+                                    })
+                                });
+                            }
+                        });
+                    </script>
+                </template>
+                <div data-run="#run-4" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+                <div class="title-l">数据模板template</div>
+                <p>最大的一个亮点就是数据模板了，咱家的Table美眉将数据模板做的非常简洁（各种赞美省略五万字……直奔主题吧！），你可以在表头中直接定义需要展示的数据模板，用<code>template</code>标签表示，也可以在js的thead中的template参数中设置，这两者是完全统一的，语法拥有独立的环境变量，可使用js原生的语法来写，非常的方便，内置了this、index、list等变量。</p>
+                <div class="item-disc">
+                    <p>js语法在花括号中表示</p>
+                    <p>单行语法使用一对花括号： { js语言 }，例如：{this.title} 输出当前这条数据title字段的内容</p>
+                    <p>多行语法使用一对花括号+%符号： {% js语言 %}，如下：</p>
+                </div>
+                <template class="iceCode:html">
+                    {%
+                        if(this.type == 0){
+                            '免费'
+                        }else if(this.type == 1){
+                            '试看'
+                        }else if(this.type == 2){
+                            '收费'
+                        }
+                    %}
+                </template>
+                <p>js中传参的方式，template还支持传递一个function，你可以在function中return返回自定义的html哦。</p>
+                <template class="iceCode:js">
+                    //thead中的template参数使用示例
+                    //-----------------------------------
+                    //info  : 当前这条数据对象
+                    //index : 当前这条数据的下标
+                    //list  : 当前数据列表对象
+                    template: function(info, index, list){
+
+                        //说明：标签中的data-click是table独有的属性，当它被定义时，会给该标签添加点击事件，当
+                        //用户点击时会执行定义的方法
+                        return `<span class="btn bg-gray" data-click="edit">编辑</span>`;
+                    }
+
+                    //上面data-click中自定义的点击事件
+                    function edit(e){
+                        // this指向table对象，参考以上文档
+                        console.log(this);
+
+                        //e指向当前条数据，值如下：
+                        //index : 当前这条数据的下标
+                        //data  : 当前这条数据对象
+                        //list  : 当前数据列表对象
+                        //res   : 整个接口返回的数据
+                        console.log(e.data);
+                    }
+                </template>
+
+                <div class="title-l">数据模板使用示例</div>
+                <template id="run-5" class="iceCode:html">
+                    <table id="table" data-url="../../data/table.json" class="table table-border table-hover">
+                        <thead>
+                            <tr>
+                                <th data-type="order" data-sorts="true">
+                                    序号
+                                </th>
+                                <th>
+                                    标题
+                                    <template>
+                                        <a href="views/%7Bthis.id%7D.html">{this.title}</a>
+                                    </template>
+                                </th>
+                                <th>
+                                    类型
+                                    <template>
+                                        {%
+                                            if(this.type == 0){
+                                                '免费'
+                                            }else if(this.type == 1){
+                                                '试看'
+                                            }else if(this.type == 2){
+                                                '收费'
+                                            }
+                                        %}
+                                    </template>
+                                </th>
+                                <th data-field="views" data-sorts="true">
+                                    浏览量
+                                </th>
+                                <th data-width=280>
+                                    操作
+                                    <template>
+                                        <span class="btn" data-click="edit">编辑</span>
+                                        <span class="btn" data-click="del">删除</span>
+                                        <span class="btn" data-click="view">查看</span>
+                                    </template>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        //编辑按钮
+                        function edit(e){
+                            ice.alert({content:'确定编辑「'+e.data.title+'」这片文章？'});
+                        }
+                        //删除按钮
+                        function del(e){
+                            var that = this;
+                            ice.alert({
+                                content:'确定删除这条数据？删除后无法恢复哦！',
+                                btn:['取消','确认'],
+                                yes:function(){
+                                    that.del(e.index);
+                                }
+                            })
+                        }
+                        //查看按钮
+                        function view(e){
+                            ice.alert({content:'确定查看「'+e.data.title+'」这片文章？'});
+                        }
+                        //渲染数据表格
+                        ice.table({id: 'table'});
+                    </script>
+                </template>
+                <div data-run="#run-5" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+                <table id="tab2" data-size="3" data-highlight="true" data-click="test" data-url="../../data/table.json"  class="table table-border table-responsive table-hover">
+                </table>
+
+                <div class="title-l">上面html中的template等同下面的js设置方式</div>
+                <template class="iceCode:js">
+                    //渲染数据表格
+                    //templated 参数设置我个人喜欢用反引号（`）来声明多行字符串，不需要拼接，简单易懂，更直观
+                    ice.table({
+                        id: 'tab2',
+                        thead:[
+                            {type:'order',name:'序号'},
+                            {name:'标题',template:
+                                //可以为字符串或者function，当前数据使用this表示
+                                '<a href="views/%7Bthis.id%7D.html">{this.title}</a>'
+                            },
+                            {name:'标题',template:function(){
+                                //等效于上面的template，当前数据使用this表示
+                                return `<a href="views/$%7Bthis.id%7D.html">${this.title}</a>`
+                            }},
+                            {name:'类型',template:`
+                                {%
+                                    if(this.type == 0){
+                                        '免费'
+                                    }else if(this.type == 1){
+                                        '试看'
+                                    }else if(this.type == 1){
+                                        '收费'
+                                    }
+                                %}
+                            `},
+                            {field:'views',name:'浏览量',sorts:true},
+                            {name:'操作',width:280,template:`
+                                <span class="btn" data-click="edit">编辑</span>
+                                <span class="btn" data-click="del">删除</span>
+                                <span class="btn" data-click="render">刷新</span>
+                            `},
+                        ]
+                    });
+                </template>
+
+                <div class="title-l">通过实时修改url来重新渲染表格数据</div>
+                <template class="iceCode:js">
+                    // 将ice.table中的对象赋值给变量t，也可以在
+                    var t = ice.table({
+                        id: 'tab2',
+                        url: '../../data/table.json',
+                        thead:[
+                            {type:'order',name:'序号'},
+                            {field:'title',name:'标题'}
+                        ],
+                        success(){
+                            // 或者从这里获取this的对象赋值给变量t
+                            // t = this;
+                        }
+                    });
+
+                    //重新渲染表格数据
+                    function set(){
+                        //设置分页，不需要的话默认为当前页码
+                        t.page = 3;
+
+                        //设置请求参数，不指定时，为当前请求参数
+                        t.param = {
+                            userId: 10,
+                            type: 2
+                        };
+
+                        //重新设置url
+                        t.url = '../../data/table.json';
+
+                        //重新渲染表格
+                        t.render();
+                    }
+                </template>
+            </div>
+        </div>
+    </template>
+</body>
+</html>
+<script>
+	//运行代码
+	ice.run()
+</script>

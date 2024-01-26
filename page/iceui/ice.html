@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ICE库文档</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="doc-nav">
+			<div class="doc-main doc">
+				<div class="doc-head">ICE库文档<span class="doc-version">v1.01</span></div>
+				<div class="title-l">ICE介绍</div>
+				<div class="p">
+					<p>iceui是一款前后端框架，核心主要分两部分组成，ice和ui，需要通过这两大模块来充分介绍iceui，第一部分是一个单独的ice.js，第二部分是需要依赖ice.js的ui.js。</p>
+					<p>ice.js是一个快速、简洁的JavaScript框架，它封装了JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互，如果你很熟悉jQuery的话，那么本文档对你来说是非常易懂的。</p>
+					<p>ice的核心特性可以总结为：</p>
+					<ul>
+						<li>具有高效灵活的元素选择器</li>
+						<li>具有灵活的链式语法，减少代码量</li>
+						<li>封装了常用的功能方法，简单易用</li>
+					</ul>
+					<p>是不是跟jQuery一样？其实jq已经很出色了，但是对我来说我具有强烈的代码洁癖，甚至已经到了匪夷所思的地步，我也不清楚我为什么会变成这样，我喜欢完美，代码整洁，如果用jQuery做一套框架的话，感觉不像是自己的亲生孩子，甚至可能会引发版权问题，以至于我自己开发了一套JavaScript框架，我取名为ice，「冰」的意思，你可以看成是冰清玉洁的意思，最后经过很长一段时间的迭代，如今已经很稳定，经过大量的性能测试，ice的性能要比jQuery快速的多，没错，ice吸取了众多框架的优点，完美的集聚于一身，ice封装了常用的功能，大家甚至可以像使用jQuery一样来使用ice，例如你想要获取某个元素的对象，可以这么做：ice('.item div')，动态添加淡入效果：ice('.item div').fadeIn()</p>
+					<p>ice会吸取其它框架的优点，并不会搞的那么另类那么唯我独尊，至少让你使用上会很方便。</p>
+					<p>ice更加简洁，运行更快，文件更小，min版不到30k，而jq(3.5.1)差不多90k。</p>
+					<p>解释到这里大家就明白了，ice.js是iceui的内核；一套使用非常便捷的JavaScript框架</p>
+				</div>
+				<div class="title-l">ice.js 方法介绍</div>
+				<div class="doc-box">
+					<div class="doc-title">ice 选择器</div>
+					<div class="doc-list">
+						<p><b>语法：</b>ice(string,object)</p>
+						<p><b>说明：</b>使用方式与jQuery一样，支持各种组合方式，方法返回文档中匹配指定CSS选择器的所有元素，例如：</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>string</td>
+										<td nowrap>string|function</td>
+										<td width=100%>元素的class或者名称，如果为function，则页面加载完成后执行</td>
+									</tr>
+									<tr>
+										<td nowrap>object</td>
+										<td nowrap>object</td>
+										<td width=100%>DOM对象，用于获取该对象下的元素</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							//选择器-具体也可参照原生的querySelectorAll
+							ice('a',object)				//获取object对象下的所有a标签对象
+							ice('.test')				//类选择器
+							ice('#test')				//ID选择器
+							ice('#test span') 			//组合选择器
+							ice('#test .demo') 			//组合选择器
+							ice('.demo span') 			//组合选择器
+							ice('#test .demo a')		//组合选择器
+							ice('div.item') 			//获取文档中所有 class="item" 的div元素
+							ice('div[data-active]') 	//获取文档中包含 "data-active" 属性的div元素
+							ice('div[data-active="1"]') //获取文档中包含 "data-active=1" 属性的div元素
+							ice('input[type=text]') 	//获取文档中type类型为text的input元素
+							ice('input[name=demo]') 	//获取文档中name类型为demo的input元素
+							ice('div > p') 				//获取每个父元素为div里的p元素
+							ice('div,p,span') 			//获取所有的div，p，span元素
+
+							//加载完成-页面加载完成后，执行该方法，等同ice.ready()方法！
+							ice(function(){
+								console.log('hello world！');
+							})
+						</template>
+					</div>
+				</div>
+				<div class="title-s"><span>ice选择器的继承对象</span></div>
+
+				<!-- each -->
+				<div class="title-l">each 遍历</div>
+				<div class="doc-box">
+					<div class="doc-title">each 遍历</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).each(function(index,element))</p>
+						<p>提示：function的this指的遍历的当前对象</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>function(index,element,elementAll,length)</td>
+										<td nowrap>function</td>
+										<td width=100%>必需，为每个匹配元素规定运行的函数。
+											<ul class="li-disc">
+												<li><i>index</i> - 选择器的 index 位置。</li>
+												<li><i>element</i> - 当前的元素（也可使用 "this" 选择器）。</li>
+												<li><i>elementAll</i> - 当前遍历的元素集合。</li>
+												<li><i>length</i> - 元素集合的总长度。</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							ice('.demo p').each(function(i,el){
+								//i 为当前对象的索引值
+								//el 为当前对象，等同于this
+
+								//给第三个p元素下的span元素添加点击事件
+								if(i == 2){
+									//此时的this为当前的p元素对象
+									ice('span',this).click(funciton(){
+										//此时的this为当前的span元素对象，不要混淆哦！
+										console.log(this);
+									});
+								}
+							});
+						</template>
+					</div>
+				</div>
+
+
+				<!-- s -->
+				<div class="title-l">s 获取指定索引的对象</div>
+				<div class="doc-box">
+					<div class="doc-title">s 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).s(index)</p>
+						<p>提示：s()方法会用集合中的一个元素构造一个新的ice对象</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>index</td>
+										<td nowrap>int</td>
+										<td width=100%>整数，指示元素的位置（最小为 0）。<br/>如果是负数，则从集合中的最后一个元素往回计数。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							//获取第三个p元素的html
+							ice('.demo p').s(2).html();
+						</template>
+					</div>
+				</div>
+
+				<!-- val -->
+				<div class="title-l">val 获取或设置对象的值</div>
+				<div class="doc-box">
+					<div class="doc-title">val 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).val(value)</p>
+						<p>提示：元素的值是通过 value 属性设置的。该方法大多用于 input 元素。但也支持select和textarea！</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>value</td>
+										<td nowrap>mix</td>
+										<td width=100%>可选，获取或设置对象的值</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							//获取值
+							ice('#input').val();
+							//设置值
+							ice('#input').val('hello world');
+						</template>
+					</div>
+				</div>
+
+				<!-- html -->
+				<div class="title-l">html 获取或设置html</div>
+				<div class="doc-box">
+					<div class="doc-title">html 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).html(content)</p>
+						<p>提示：获取集合中第一个匹配元素的HTML内容 或 设置每一个匹配元素的html内容。</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>mix</td>
+										<td width=100%>可选，获取或设置html</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							//获取该对象的html内容
+							ice('.demo').html();
+							//设置该对象的html内容
+							ice('.demo').html('<div>hello world</div>');
+							//设置该对象的html内容，可传入动态创建的DOM
+							var div = ice.c('div');
+							div.innerHTML = 'hello world';
+							ice('.demo').html(div);
+						</template>
+					</div>
+				</div>
+
+				<!-- text -->
+				<div class="title-l">text 获取或设置text</div>
+				<div class="doc-box">
+					<div class="doc-title">text 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).text(content)</p>
+						<p>提示：获取集合中第一个匹配元素的text内容 或 设置每一个匹配元素的text内容。</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>mix</td>
+										<td width=100%>可选，获取或设置text</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							//获取该对象的text内容
+							ice('.demo').text();
+							//设置该对象的text内容
+							ice('.demo').text('hello world');
+						</template>
+					</div>
+				</div>
+
+				<!-- form -->
+				<div class="title-l">form 获取该对象下的表单内容，序列化name：value</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.form 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).form()</p>
+						<template class="iceCode:html">
+							<div id="demo">
+								<input type="text" name="title" value="标题"/>
+								<textarea name="content" rows="3" cols="20">内容</textarea>
+							</div>
+							<script>
+								console.log(ice('#demo').form());
+								//结果返回json格式对象
+								//{
+								//	title: "标题",
+								//	content: "内容"
+								//}
+							</script>
+						</template>
+					</div>
+				</div>
+
+				<!-- log -->
+				<div class="title-l">log 打印对象</div>
+				<div class="doc-box">
+					<div class="doc-title">log 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).log()</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>object</td>
+										<td width=100%>打印对象</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							ice('.demo').log();
+						</template>
+					</div>
+				</div>
+
+				<!-- append -->
+				<div class="title-l">append 方法在被选元素的结尾插入内容（仍然在该元素的内部）</div>
+				<div class="doc-box">
+					<div class="doc-title">append 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).append(content)</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>mix</td>
+										<td width=100%>DOM元素，文本节点，HTML字符串。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							ice('.demo').append('<div>hello world</div>');
+						</template>
+					</div>
+				</div>
+
+				<!-- prepend -->
+				<div class="title-l">prepend 方法在被选元素的开头插入内容（仍然在该元素的内部）</div>
+				<div class="doc-box">
+					<div class="doc-title">prepend 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).prepend(content)</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>mix</td>
+										<td width=100%>DOM元素，文本节点，HTML字符串。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							ice('.demo').prepend('<div>hello world</div>');
+						</template>
+					</div>
+				</div>
+
+				<!-- before -->
+				<div class="title-l">before 方法在被选元素之前插入内容（在该元素的外面，紧挨着）</div>
+				<div class="doc-box">
+					<div class="doc-title">before 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).before(content)</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>mix</td>
+										<td width=100%>DOM元素，文本节点，HTML字符串。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							ice('.demo').before('<div>hello world</div>');
+						</template>
+					</div>
+				</div>
+
+				<!-- after -->
+				<div class="title-l">after 方法在被选元素之后插入内容（在该元素的外面，紧挨着）</div>
+				<div class="doc-box">
+					<div class="doc-title">after 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).after(content)</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>content</td>
+										<td nowrap>mix</td>
+										<td width=100%>DOM元素，文本节点，HTML字符串。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							ice('.demo').after('<div>hello world</div>');
+						</template>
+					</div>
+				</div>
+
+				<!-- page -->
+				<div class="title-l">page 获取对象距离窗口页面的顶部和左部的距离</div>
+				<div class="doc-box">
+					<div class="doc-title">page 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).page()</p>
+						<template class="iceCode:js">
+							ice('.demo').page();
+						</template>
+					</div>
+				</div>
+
+				<!-- checkall -->
+				<div class="title-l">checkall 复选框全选</div>
+				<div class="doc-box">
+					<div class="doc-title">checkall 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).checkall()</p>
+					</div>
+				</div>
+
+				<!-- inverse -->
+				<div class="title-l">inverse 复选框反选</div>
+				<div class="doc-box">
+					<div class="doc-title">inverse 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).inverse()</p>
+					</div>
+				</div>
+
+				<!-- getCss -->
+				<div class="title-l">getCss 获取css设置的样式属性</div>
+				<div class="doc-box">
+					<div class="doc-title">getCss 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).getCss(attr)</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>attr</td>
+										<td nowrap>string</td>
+										<td width=100%>例如width、height，如果遇到line-height这种写法，请转为驼峰方式：lineHeight。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<template class="iceCode:js">
+							//获取该对象的左外边距
+							ice('.demo').getCss('marginLeft');
+						</template>
+					</div>
+				</div>
+
+				<!-- del -->
+				<div class="title-l">del 删除对象</div>
+				<div class="doc-box">
+					<div class="doc-title">del 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).del()</p>
+						<template class="iceCode:html">
+							<div class="demo">
+								<p>我爱php</p>
+								<p>我爱java</p>
+								<p>我爱c++</p>
+							</div>
+						</template>
+						<template class="iceCode:js">
+							//删除class为demo元素下的第二个p
+							ice('.demo p').s(1).del();
+
+							//删除class为demo元素下的所有p
+							ice('.demo p').del();
+						</template>
+					</div>
+				</div>
+
+				<!-- offset -->
+				<div class="title-l">offset 获取对象距离屏幕的偏移量</div>
+				<div class="doc-box">
+					<div class="doc-title">offset 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).offset()</p>
+						<p>返回：object格式 {left:x, top:y}</p>
+					</div>
+				</div>
+
+				<!-- css -->
+				<div class="title-l">css 设置或获取对象style的属性值</div>
+				<div class="doc-box">
+					<div class="doc-title">css 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).css(name, value)</p>
+					</div>
+				</div>
+
+				<!-- attr -->
+				<div class="title-l">attr 设置或获取对象Attribute的属性值</div>
+				<div class="doc-box">
+					<div class="doc-title">attr 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).attr(name, value)</p>
+					</div>
+				</div>
+
+				<!-- delAttr -->
+				<div class="title-l">delAttr 删除Attribute属性</div>
+				<div class="doc-box">
+					<div class="doc-title">delAttr 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).delAttr(name)</p>
+					</div>
+				</div>
+
+				<!-- delCss -->
+				<div class="title-l">delCss 删除对象class</div>
+				<div class="doc-box">
+					<div class="doc-title">delCss 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).delCss(name)</p>
+					</div>
+				</div>
+
+				<!-- click -->
+				<div class="title-l">click 给对象添加点击事件</div>
+				<div class="doc-box">
+					<div class="doc-title">click 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).click(fn)</p>
+					</div>
+				</div>
+
+				<!-- dblclick -->
+				<div class="title-l">dblclick 给对象添加双击事件</div>
+				<div class="doc-box">
+					<div class="doc-title">dblclick 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).dblclick(fn)</p>
+					</div>
+				</div>
+
+				<!-- change -->
+				<div class="title-l">change 当元素的值发生改变时触发事件</div>
+				<div class="doc-box">
+					<div class="doc-title">change 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).change(fn)</p>
+					</div>
+				</div>
+
+				<!-- input -->
+				<div class="title-l">input 输入值时触发事件</div>
+				<div class="doc-box">
+					<div class="doc-title">input 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).input(fn)</p>
+					</div>
+				</div>
+
+				<!-- on -->
+				<div class="title-l">on 给对象添加事件</div>
+				<div class="doc-box">
+					<div class="doc-title">on 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).on(type, fn, bool)</p>
+					</div>
+				</div>
+
+				<!-- find -->
+				<div class="title-l">find 返回被选元素的后代元素</div>
+				<div class="doc-box">
+					<div class="doc-title">find 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).find(selector)</p>
+					</div>
+				</div>
+
+				<!-- children -->
+				<div class="title-l">children 返回被选元素的所有直接子元素</div>
+				<div class="doc-box">
+					<div class="doc-title">children 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).children(selector)</p>
+					</div>
+				</div>
+
+				<!-- childrens -->
+				<div class="title-l">childrens 返回被选元素的所有子元素</div>
+				<div class="doc-box">
+					<div class="doc-title">childrens 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).childrens()</p>
+					</div>
+				</div>
+
+				<!-- siblings -->
+				<div class="title-l">siblings 获得匹配集合中每个元素的兄弟节点</div>
+				<div class="doc-box">
+					<div class="doc-title">siblings 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).siblings(selector)</p>
+					</div>
+				</div>
+
+				<!-- prev -->
+				<div class="title-l">prev 获取上一个兄弟节点</div>
+				<div class="doc-box">
+					<div class="doc-title">prev 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).prev(selector)</p>
+					</div>
+				</div>
+
+				<!-- next -->
+				<div class="title-l">next 获取下一个兄弟节点</div>
+				<div class="doc-box">
+					<div class="doc-title">next 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).next(selector)</p>
+					</div>
+				</div>
+
+				<!-- parent -->
+				<div class="title-l">parent 查找当前的祖先元素</div>
+				<div class="doc-box">
+					<div class="doc-title">parent 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).parent()</p>
+						<p>返回：所有的祖先元素</p>
+					</div>
+				</div>
+
+				<!-- parents -->
+				<div class="title-l">parents 查找所有的祖先元素</div>
+				<div class="doc-box">
+					<div class="doc-title">parents 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).parents()</p>
+						<p>返回：所有的祖先元素</p>
+					</div>
+				</div>
+
+				<!-- addCss -->
+				<div class="title-l">addCss 给对象添加class</div>
+				<div class="doc-box">
+					<div class="doc-title">addCss 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).addCss(name)</p>
+					</div>
+				</div>
+
+				<!-- hasCss -->
+				<div class="title-l">hasCss 判断对象是否存在class</div>
+				<div class="doc-box">
+					<div class="doc-title">hasCss 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).hasCss(name)</p>
+					</div>
+				</div>
+
+				<!-- hasStyle -->
+				<div class="title-l">hasStyle 判断对象是否存在style</div>
+				<div class="doc-box">
+					<div class="doc-title">hasStyle 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).hasStyle(name)</p>
+					</div>
+				</div>
+
+				<!-- toggleCss -->
+				<div class="title-l">toggleCss 如果对象存在指定的css，则删除，不存在则创建</div>
+				<div class="doc-box">
+					<div class="doc-title">toggleCss 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).toggleCss(nameA,nameB,fnA,fnB)</p>
+					</div>
+				</div>
+
+				<!-- show -->
+				<div class="title-l">show 显示对象</div>
+				<div class="doc-box">
+					<div class="doc-title">show 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).show()</p>
+					</div>
+				</div>
+
+				<!-- hide -->
+				<div class="title-l">hide 隐藏对象</div>
+				<div class="doc-box">
+					<div class="doc-title">hide 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).hide()</p>
+					</div>
+				</div>
+
+				<!-- opacity -->
+				<div class="title-l">opacity 设置元素透明度(0-1)</div>
+				<div class="doc-box">
+					<div class="doc-title">opacity 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).opacity(s)</p>
+					</div>
+				</div>
+
+
+				<!-- fadeIn -->
+				<div class="title-l">fadeIn 动画：淡入效果</div>
+				<div class="doc-box">
+					<div class="doc-title">fadeIn 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).fadeIn(speed, callback)</p>
+					</div>
+				</div>
+
+				<!-- fadeOut -->
+				<div class="title-l">fadeOut 动画：淡出效果</div>
+				<div class="doc-box">
+					<div class="doc-title">fadeOut 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).fadeOut(speed, callback)</p>
+					</div>
+				</div>
+
+
+				<!-- fadeToggle -->
+				<div class="title-l">fadeToggle 动画：如果已显示，则淡出隐藏</div>
+				<div class="doc-box">
+					<div class="doc-title">fadeToggle 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).fadeToggle(speed, callback)</p>
+					</div>
+				</div>
+
+				<!-- slideDown -->
+				<div class="title-l">slideDown 动画：向下滑动显示</div>
+				<div class="doc-box">
+					<div class="doc-title">slideDown 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).slideDown(speed, callback)</p>
+					</div>
+				</div>
+
+				<!-- slideUp -->
+				<div class="title-l">slideUp 动画：向上滑动隐藏</div>
+				<div class="doc-box">
+					<div class="doc-title">slideUp 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).slideUp(speed, callback)</p>
+					</div>
+				</div>
+
+				<!-- slideToggle -->
+				<div class="title-l">slideToggle 动画：如果已显示，则向上滑动隐藏</div>
+				<div class="doc-box">
+					<div class="doc-title">slideToggle 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).slideToggle(speed, callback)</p>
+					</div>
+				</div>
+
+				<!-- animate -->
+				<div class="title-l">animate 动画</div>
+				<div class="doc-box">
+					<div class="doc-title">animate 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice(selector).animate(json,options)</p>
+						<div class="mb20">
+							<table class="doc-table table">
+								<thead>
+									<tr>
+										<th nowrap>参数</th>
+										<th nowrap>类型</th>
+										<th nowrap>描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td nowrap>json</td>
+										<td nowrap>json</td>
+										<td width=100%>需要修改的属性，例如：{height:'80px',width:'120px'}</td>
+									</tr>
+									<tr>
+										<td nowrap>options</td>
+										<td nowrap>json</td>
+										<td width=100%>json格式如下：
+											<ul class="li-disc">
+												<li><i>duration</i> - 运动时间（默认：500，单位：ms，提示：1s=1000ms）</li>
+												<li><i>easing</i> - 运动方式（默认：linear，提示：匀速=linear、加速=ease-in、减速=ease-out）</li>
+												<li><i>callback</i> - 运动完成后的回调函数</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="title-s">ice的内置方法</div>
+				<div class="tip">注意，ice选择器的继承方法都可以单独使用，例如ice.addCss(el, 'active')，所有的第一个参数都是对象，之后的入参与选择器继承对象一样。</div>
+
+				<!-- ice.c -->
+				<div class="title-l">ice.c 创建节点</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.c 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.c(tagName)</p>
+					</div>
+				</div>
+
+				<!-- ice.jsonDecode -->
+				<div class="title-l">ice.jsonDecode 解析json</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.jsonDecode 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.jsonDecode(str, bool)</p>
+					</div>
+				</div>
+
+				<!-- ice.sp -->
+				<div class="title-l">ice.sp 阻止冒泡</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.sp 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.sp(event)</p>
+					</div>
+				</div>
+
+				<!-- ice.pd -->
+				<div class="title-l">ice.pd 阻止默认行为</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.pd 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.pd(event)</p>
+					</div>
+				</div>
+
+				<!-- ice.mouseWheel -->
+				<div class="title-l">ice.mouseWheel 监听某个元素的滚动条</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.mouseWheel 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.mouseWheel(obj, fn)</p>
+					</div>
+				</div>
+
+				<!-- ice.data -->
+				<div class="title-l">ice.data 设置浏览器数据存储，相当于sessionStorage</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.data 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.data(name,value)</p>
+						<p>提示：本方法利用sessionStorage存储数据数据，生命周期为当前窗口或标签页，一旦窗口或标签页被永久关闭了，那么所有通过sessionStorage存储的数据也就会被清空。</p>
+						<p>本方法的设计初衷是为了更加方便的使用，同时最主要的是打破sessionStorage的存储方式界限，可以存储类型的值，而不在是单纯的字符串，可以为number数字，array数组，object对象，function方法，请看下面使用示例：</p>
+						<template class="iceCode:js">
+							/**
+							* 重要提示：赋值完全等于取值，如果赋值数字类型，那么取值时也为数字类型
+							* 如果赋值为json对象，那么取值也为对象，array数组和function方法同理
+							*/
+							
+							//获取整个sessionStorage
+							ice.data();
+
+							//获取t1值
+							ice.data('t1');
+
+							//设置t1值
+							ice.data('t1',123);
+
+							//设置t1值，也可以为function方法，任何数据类型都支持
+							ice.data('t1',function(e){
+								console.log(e)
+							});
+							ice.data('t1')('我是function'); //打印出：我是function
+
+							//设置t1值，获取后也是该对象，不是字符串哦，如果你设置字符串类型的json，那么获取到的也是字符串类型的json
+							ice.data('t1',{t2:123,t3:456});
+
+							//同时设置t1、t2、t3值，
+							ice.data({t1:123, t2:456, t3:789});
+						</template>
+					</div>
+				</div>
+
+				<!-- ice.localData -->
+				<div class="title-l">ice.localData 设置浏览器数据存储，相当于localStorage</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.localData 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.localData(name,value)</p>
+						<p>提示：本方法利用localStorage存储数据数据，生命周期是永久的，无时间限制，除非用户手动清除本地缓存。</p>
+						<p>使用方式同ice.data，数据存储方式也一样的。</p>
+					</div>
+				</div>
+
+				<!-- ice.setCookie -->
+				<div class="title-l">ice.setCookie 设置cookie</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.setCookie 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.setCookie(name,value,day)</p>
+					</div>
+				</div>
+
+				<!-- ice.getCookie -->
+				<div class="title-l">ice.getCookie 获取cookie</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.getCookie 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.getCookie(name)</p>
+					</div>
+				</div>
+
+				<!-- ice.delCookie -->
+				<div class="title-l">ice.delCookie 移除cookie</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.delCookie 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.delCookie(name)</p>
+					</div>
+				</div>
+
+				<!-- ice.isMobile -->
+				<div class="title-l">ice.isMobile 判断当前设备是否为移动端</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.isMobile 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.isMobile()</p>
+					</div>
+				</div>
+
+				<!-- ice.obj2str -->
+				<div class="title-l">ice.obj2str 对象转为字符串，包括function</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.obj2str 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.obj2str(object)</p>
+					</div>
+				</div>
+
+				<!-- ice.delTag -->
+				<div class="title-l">ice.delTag 去掉所有的html标记</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.delTag 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.delTag(str)</p>
+					</div>
+				</div>
+
+				<!-- ice.toSize -->
+				<div class="title-l">ice.toSize 格式化字节单位</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.toSize 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.toSize(bytes)</p>
+						<p>返回：B、KB、MB、GB、TB、PB、EB、ZB、YB等单位</p>
+					</div>
+				</div>
+
+				<!-- ice.ready -->
+				<div class="title-l">ice.ready 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.ready 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.ready(fn)</p>
+					</div>
+				</div>
+
+				<!-- ice.ajax -->
+				<div class="title-l">ice.ajax ajax请求</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.ajax 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.ajax(json)</p>
+						<template class="iceCode:js">
+							/**
+							* json说明：
+							* url：请求地址
+							* type：请求类型，默认为post，可选值：post，get
+							* header：请求头设置
+							* timeout：网络超时，默认为15000毫秒
+							* form：用于绑定需要提交表单的容器，传class或id，默认绑定id：form
+							*		如果该参数存在，无需使用data传参
+							* data：要求为Object或String类型的参数，发送到服务器的数据。
+							* json：是否将请求过来的数据自动转为json对象，默认为true，
+							* success：请求成功之后的回调函数
+							* error：请求失败之后的回调函数
+							* complete：不管请求成功还是失败，都会调用
+							*/
+							ice.ajax({
+								url:'/iceui/login.html',
+								type:'post',
+								data:{'username':ice('#username').val(),'password':ice('#password').val()},
+								success:function(res){
+									if(!res.code){
+										iceui.pop(res.message);
+										ice.delCss(_thsi,'processing');
+									}else{
+										location.href='/admin/index.html';
+									}
+								}
+							});
+						</template>
+					</div>
+				</div>
+
+				<!-- ice.scroll -->
+				<div class="title-l">ice.scroll 获取滚动条的偏移量</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.scroll 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.scroll(pos)</p>
+						<p>返回：{x,y}</p>
+					</div>
+				</div>
+
+				<!-- ice.setScrollT -->
+				<div class="title-l">ice.setScrollT 自动将滚动条至于最顶部</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.setScrollT 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.setScrollT()</p>
+					</div>
+				</div>
+
+				<!-- ice.setScrollB -->
+				<div class="title-l">ice.setScrollB 自动将滚动条至于最底部</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.setScrollB 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.setScrollB(str)</p>
+					</div>
+				</div>
+
+				<!-- ice.keydown -->
+				<div class="title-l">ice.keydown 按键回调</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.keydown 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.keydown(key, callback)</p>
+						<template class="iceCode:js">
+							//第一种方式，监听指定的按键
+							ice.keydown(13,function(){
+								console.log('我按了回车键');
+							})
+							//第一种方式也可以这么来
+							function hi(a=11){
+								console.log('我是'+a);
+							}
+							ice.keydown(13,hi);
+							ice.keydown(13,'hi(123)');
+
+							//第二种方式，监听所有的按键
+							ice.keydown(function(key){
+								console.log('我按了键盘，键盘码为:',key);
+							})
+						</template>
+					</div>
+				</div>
+
+				<!-- ice.web -->
+				<div class="title-l">ice.web 页面视口的高宽</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.web 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.web(str)</p>
+						<p>返回：{w,h}</p>
+					</div>
+				</div>
+
+				<!-- ice.getRandom -->
+				<div class="title-l">ice.getRandom 生成随机数</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.getRandom 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.getRandom(min, max)</p>
+					</div>
+				</div>
+
+				<!-- ice.cid -->
+				<div class="title-l">ice.cid 生成一个唯一的id</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.cid 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.cid(str)</p>
+					</div>
+				</div>
+
+				<!-- ice.randStr -->
+				<div class="title-l">ice.randStr 随机生成指定位数的字符串</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.randStr 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.randStr(num)</p>
+					</div>
+				</div>
+
+				<!-- ice.jump -->
+				<div class="title-l">ice.jump 跳转网页</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.jump 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.jump(url)</p>
+					</div>
+				</div>
+
+				<!-- ice.setDisplay -->
+				<div class="title-l">ice.setDisplay 设置默认display</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.setDisplay 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.setDisplay(el)</p>
+					</div>
+				</div>
+
+				<!-- ice.getDisplay -->
+				<div class="title-l">ice.getDisplay 获取默认display</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.getDisplay 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.getDisplay(el)</p>
+					</div>
+				</div>
+
+				<!-- ice.animationFrame -->
+				<div class="title-l">ice.animationFrame 动画帧</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.animationFrame 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.animationFrame(el)</p>
+					</div>
+				</div>
+
+				<!-- ice.time -->
+				<div class="title-l">ice.time 将Date转化为指定格式的String</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.time 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.time(param, format)</p>
+						<template class="iceCode:js">
+							/**
+							* 将time转化为指定格式的String
+							* Date 2019-01-05
+							* param {string|int|empty} 时间戳|字符串类型时间戳|y-m-d格式|y-m-d格式的时间|为空将返回现在时间
+							* 说明：本函数的时间戳可以为10位或者13位，对于兼容10位因为对于时间的格式化，毫秒没有任何意义，只需要精确到秒即可
+							*/
+
+							ice.time();
+							//结果：返回当前时间 2016-11-29 10:18:18(默认为y-m-d h:i:s格式)
+
+							ice.time(1480385898);
+							//结果：返回时间戳时间 2016-11-29 10:18:18
+
+							ice.time(1480385898,'y年m月d日');
+							//结果：返回时间戳时间 2016年11月29日
+
+							ice.time('y-m-d');
+							//结果：返回当前时间 2016-11-29
+
+							//结果：返回重新格式化后的时间 2016/11/29
+							ice.time('2016-11-29 10:18:18','y/m/d');
+						</template>
+					</div>
+				</div>
+
+				<!-- ice.scrollAni -->
+				<div class="title-l">ice.scrollAni 滚动条平滑滚动到该对象位置</div>
+				<div class="doc-box">
+					<div class="doc-title">ice.scrollAni 使用说明</div>
+					<div class="doc-list">
+						<p>语法：ice.scrollAni(el, offset, duration)</p>
+					</div>
+				</div>
+			</div>
+			<div class="doc-menu">
+				<div class="doc-menu-title">文档目录</div>
+				<ul></ul>
+			</div>	
+		</div>
+		<script>
+			//初始化文档
+			docInit();
+		</script>
+	</template>
+</body>
+</html>

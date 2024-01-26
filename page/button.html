@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Button按钮</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<style>.btn+.btn {
+				margin-bottom: 10px;
+				vertical-align: top;
+			}
+		</style>
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Button按钮</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">具体示例如下。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">颜色设置</div>
+							<div class="doc-intro">按钮的颜色的支持<a class="a-line active"
+									href="../index.html">主体颜色列表</a>，实体颜色使用<code>bg-color</code>，边框颜色使用<code>border-color</code>！
+							</div>
+							<div class="color-list">
+								<span class="bg-red">bg-red</span>
+								<span class="bg-orange">bg-orange</span>
+								<span class="bg-yellow">bg-yellow</span>
+								<span class="bg-green">bg-green</span>
+								<span class="bg-cyan">bg-cyan</span>
+								<span class="bg-blue">bg-blue</span>
+								<span class="bg-purple">bg-purple</span>
+								<span class="bg-gray">bg-gray</span>
+								<span class="bg-black">bg-black</span>
+							</div>
+
+							<div class="color-list">
+								<span class="border-red">border-red</span>
+								<span class="border-orange">border-orange</span>
+								<span class="border-yellow">border-yellow</span>
+								<span class="border-green">border-green</span>
+								<span class="border-cyan">border-cyan</span>
+								<span class="border-blue">border-blue</span>
+								<span class="border-purple">border-purple</span>
+								<span class="border-gray">border-gray</span>
+								<span class="border-black">border-black</span>
+							</div>
+							<div class="title-l">文本按钮</div>
+							<a href="javascript:;" class="a-line mr20">文本按钮</a>
+							<span class="a-line mr20">文本按钮</span>
+							<span class="a-line active mr20">文本按钮</span>
+							<span class="a-icon-1">文本按钮</span>
+
+							<div class="title-l">普通按钮</div>
+							<button type="button" class="btn">按钮</button>
+							<button type="button" class="btn bg-red">按钮</button>
+							<button type="button" class="btn bg-orange">按钮</button>
+							<button type="button" class="btn bg-yellow">按钮</button>
+							<button type="button" class="btn bg-green">按钮</button>
+							<button type="button" class="btn bg-cyan">按钮</button>
+							<button type="button" class="btn bg-blue">按钮</button>
+							<button type="button" class="btn bg-purple">按钮</button>
+							<button type="button" class="btn bg-gray">按钮</button>
+							<button type="button" class="btn bg-black">按钮</button>
+							<button type="button" class="btn btn-disabled">disabled</button>
+
+							<div class="title-l">边框按钮(btn)</div>
+							<button type="button" class="btn border-default">按钮</button>
+							<button type="button" class="btn border-red">按钮</button>
+							<button type="button" class="btn border-orange">按钮</button>
+							<button type="button" class="btn border-yellow">按钮</button>
+							<button type="button" class="btn border-green">按钮</button>
+							<button type="button" class="btn border-cyan">按钮</button>
+							<button type="button" class="btn border-blue">按钮</button>
+							<button type="button" class="btn border-purple">按钮</button>
+							<button type="button" class="btn border-gray">按钮</button>
+							<button type="button" class="btn border-black">按钮</button>
+							<button type="button" class="btn btn-disabled border-default">disabled</button>
+
+							<div class="title-l">阴影按钮(btn-shadow)</div>
+							<button type="button" class="btn btn-shadow">按钮</button>
+							<button type="button" class="btn bg-black btn-shadow">按钮</button>
+							<button type="button" class="btn bg-gray btn-shadow">按钮</button>
+							<button type="button" class="btn bg-disabled btn-shadow">disabled</button>
+
+							<div class="title-l">圆角按钮(btn-radius)</div>
+							<button type="button" class="btn btn-radius">按钮</button>
+							<button type="button" class="btn bg-black btn-radius">按钮</button>
+							<button type="button" class="btn bg-gray btn-radius">按钮</button>
+
+							<div class="title-l">图标按钮</div>
+							<button type="button" class="btn"><i class="icon ice-doughnut-chart"></i></button>
+							<button type="button" class="btn bg-red"><i class="icon ice-div-color"></i>按钮</button>
+							<button type="button" class="btn bg-green"><i class="icon ice-set-up"></i>按钮</button>
+							<button type="button" class="btn bg-blue"><i class="icon ice-download"></i>按钮</button>
+							<button type="button" class="btn bg-black"><i class="icon ice-qq"></i>按钮</button>
+
+							<div class="title-l">动态按钮(btn-ani)</div>
+							<button type="button" class="btn btn-ani"><span>按钮<i></i></span></button>
+							<button type="button" class="btn bg-black btn-ani"><span>按钮<i></i></span></button>
+							<button type="button" class="btn bg-red btn-ani"><span>按钮<i></i></span></button>
+							<button type="button" class="btn bg-green btn-ani"><span>按钮<i></i></span></button>
+							<button type="button" class="btn bg-blue btn-ani"><span>按钮<i></i></span></button>
+
+							<div class="title-l">100%宽按钮(btn-block)</div>
+							<p><button type="button" class="btn btn-block">按钮</button></p>
+							<p><button type="button" class="btn bg-black btn-block">按钮</button></p>
+							<p><button type="button" class="btn bg-gray btn-block">按钮</button></p>
+
+							<div class="title-l">按钮大小</div>
+							<button type="button" class="btn bg-red min">最小</button>
+							<button type="button" class="btn bg-red small">小号</button>
+							<button type="button" class="btn bg-red">标准</button>
+							<button type="button" class="btn bg-red big">大号</button>
+							<button type="button" class="btn bg-red max">最大</button>
+
+							<div class="title-l">最小按钮(min)</div>
+							<p><code><span class="btn bg-green min">最小按钮</span></code></p>
+							<button type="button" class="btn bg-red min">按钮</button>
+							<button type="button" class="btn bg-green min">按钮</button>
+							<button type="button" class="btn bg-cyan min">按钮</button>
+							<button type="button" class="btn bg-blue min">按钮</button>
+							<button type="button" class="btn bg-gray min">按钮</button>
+							<button type="button" class="btn bg-black min">按钮</button>
+
+							<div class="title-l">小号按钮(small)</div>
+							<p><code><span class="btn bg-green small">小号按钮</span></code></p>
+							<button type="button" class="btn bg-red small">按钮</button>
+							<button type="button" class="btn bg-green small">按钮</button>
+							<button type="button" class="btn bg-cyan small">按钮</button>
+							<button type="button" class="btn bg-blue small">按钮</button>
+							<button type="button" class="btn bg-gray small">按钮</button>
+							<button type="button" class="btn bg-black small">按钮</button>
+
+							<div class="title-l">大号按钮(big)</div>
+							<p><code><span class="btn bg-green big">大号按钮</span></code></p>
+							<button type="button" class="btn bg-red big">按钮</button>
+							<button type="button" class="btn bg-green big">按钮</button>
+							<button type="button" class="btn bg-cyan big">按钮</button>
+							<button type="button" class="btn bg-blue big">按钮</button>
+							<button type="button" class="btn bg-gray big">按钮</button>
+							<button type="button" class="btn bg-black big">按钮</button>
+
+							<div class="title-l">最大按钮(max)</div>
+							<p><code><span class="btn bg-green max">最大按钮</span></code></p>
+							<button type="button" class="btn bg-red max">按钮</button>
+							<button type="button" class="btn bg-green max">按钮</button>
+							<button type="button" class="btn bg-cyan max">按钮</button>
+							<button type="button" class="btn bg-blue max">按钮</button>
+							<button type="button" class="btn bg-gray max">按钮</button>
+							<button type="button" class="btn bg-black max">按钮</button>
+
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<template data-id="demo"></template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

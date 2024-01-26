@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>网站设置</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">网站设置</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu-left">
+							<a href="#">基本设置</a>
+							<a href="#">密码设置</a>
+							<a href="#">上传设置</a>
+							<a href="#">邮箱设置</a>
+							<a href="#">高级设置</a>
+						</div>
+					</div>
+					<div class="tab-main pt40" id="form">
+						<!-- 基本设置 -->
+						<div class="tab-content">
+							<div class="group-form">
+								<div class="group-label">网站标题：</div>
+								<div class="group-content w7">
+									<input type="text" name="site_title" class="form-control" value="adminXL" />
+									<small class="help">建议控制在60个字以内！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">网站名称：</div>
+								<div class="group-content w7">
+									<input type="text" name="site_name" class="form-control" value="adminXL" />
+									<small class="help">建议控制在60个字以内！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">网站描述：</div>
+								<div class="group-content w7">
+									<textarea type="text" name="site_intro" rows="3"
+										class="form-control">adminXL后台框架基于优秀的ICEUI开发，是一款漂亮的后台html5框架，干净优美，内部拥有十分丰富的js控件，随意调用使用，纯原生开发，无任何依赖，冰清玉洁，高贵典雅！</textarea>
+									<small class="help">描述文字建议控制在300个字以内！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">SEO关键字：</div>
+								<div class="group-content w7">
+									<input type="text" name="site_key" class="form-control"
+										value="adminXL,adminXL后台框架,html5,html5框架,css3响应式" />
+									<small class="help">关键字请以逗号","隔开,建议三个以上！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">SEO描述：</div>
+								<div class="group-content w7">
+									<textarea type="text" name="site_desc" rows="3"
+										class="form-control">adminXL后台框架基于优秀的ICEUI开发，是一款漂亮的后台html5框架，干净优美，内部拥有十分丰富的js控件，随意调用使用，纯原生开发，无任何依赖，冰清玉洁，高贵典雅！</textarea>
+									<small class="help">描述文字建议控制在100个字以内！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">备案号：</div>
+								<div class="group-content w7">
+									<input type="text" name="site_icp" class="form-control" value="冀ICP备2021021407号" />
+									<small class="help">网站的备案号，强烈建议填写！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">脚本代码：</div>
+								<div class="group-content w7">
+									<textarea type="text" name="site_js" rows="3" placeholder="脚本代码"
+										class="form-control" /></textarea>
+									<small class="help">可以放置统计代码、百度分享、在线客服等脚本！</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">网站版本</div>
+								<div class="group-content w7">
+									<input type="text" name="site_version" class="form-control" value="2.0.3" />
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">网站访问量：</div>
+								<div class="group-content w7">
+									<input type="text" name="site_views" class="form-control" value="765521" />
+								</div>
+							</div>
+							<div class="w7 w-3 row">
+								<div class="btn bg-blue" onclick="submit();">提交</div>
+							</div>
+						</div>
+
+						<!-- 密码设置 -->
+						<div class="tab-content">
+							<div class="group-form">
+								<div class="group-label">密码访问：</div>
+								<div class="group-value">
+									<div class="toggle">
+										<input type="checkbox" name="is_pwd" id="is_pwd" value="1">
+										<label for="is_pwd"></label>
+									</div>
+									<small class="help">如果开启访问网站需要输入密码</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">密码设置：</div>
+								<div class="w7">
+									<input type="text" name="site_pwd" class="form-control" value="123456" />
+								</div>
+							</div>
+							<div class="w7 w-3 row">
+								<div class="btn bg-blue" onclick="submit();">提交</div>
+							</div>
+						</div>
+
+						<!-- 上传设置 -->
+						<div class="tab-content">
+							<div class="group-form">
+								<div class="group-label">上传路径</div>
+								<div class="group-content">
+									<input type="text" name="upload_path" class="form-control" value="/upload/files" />
+									<small class="help">修改模板文件会自动编译，建议开发者模式中开启</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">图片命名方式</div>
+								<div class="group-content">
+									<input type="text" name="upload_img_name" class="form-control" value="time" />
+									<small class="help">图片命名方式</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">图片上传类型</div>
+								<div class="group-content">
+									<input type="text" name="upload_img_type" class="form-control" value="jpg png gif" />
+									<small class="help">图片可允许上传的类型</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">图片缩略图宽</div>
+								<div class="group-content">
+									<input type="text" name="upload_img_thumb_width" class="form-control" value="300" />
+									<small class="help">图片上传生成的缩略图宽-单位px</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">图片缩略图高</div>
+								<div class="group-content">
+									<input type="text" name="upload_img_thumb_height" class="form-control" value="300" />
+									<small class="help">图片上传生成的缩略图高-单位px</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">附件命名方式</div>
+								<div class="group-content">
+									<input type="text" name="upload_file_name" class="form-control" value="title" />
+									<small class="help">附件命名方式</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">附件上传类型</div>
+								<div class="group-content">
+									<input type="text" name="upload_file_type" class="form-control" value="zip rar" />
+									<small class="help">附件可允许上传类型</small>
+								</div>
+							</div>
+							<div class="w7 w-3 row">
+								<div class="btn bg-blue" onclick="submit();">提交</div>
+							</div>
+						</div>
+
+						<!-- 邮箱设置 -->
+						<div class="tab-content">
+							<div class="group-form">
+								<div class="group-label">发送邮件服务器</div>
+								<div class="w7">
+									<input type="text" name="mail_server" class="form-control" value="smtp.exmail.qq.com" />
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">端口号</div>
+								<div class="w7">
+									<input type="text" name="mail_port" class="form-control" value="465" />
+									<small class="help">发送邮件服务器的端口号</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">用户名</div>
+								<div class="w7">
+									<input type="text" name="mail_username" class="form-control" value="asxldb" />
+									<small class="help">邮箱的登录名</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">密码</div>
+								<div class="w7">
+									<input type="passworld" name="mail_passworld" class="form-control" value="asxldb" />
+									<small class="help">邮箱的登录密码</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">验证码模板</div>
+								<div class="w7">
+									<textarea type="text" name="mail_code" rows="5"
+										class="form-control">验证码请勿泄露给他人，以防账号密码丢失造成不必要的损失哦~ 您的验证码为：{code}</textarea>
+									<small class="help">验证码使用 {code} 标签</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">邮箱验证模板</div>
+								<div class="w7">
+									<textarea type="text" name="mail_verify" rows="5"
+										class="form-control">该验证链接请勿泄露给他人，以防账号密码丢失造成不必要的损失哦~ 验证链接地址为：{url}</textarea>
+									<small class="help">邮箱验证链接使用 {url} 标签</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">找回密码模板</div>
+								<div class="w7">
+									<textarea type="text" name="mail_retrieve" rows="5"
+										class="form-control">该链接请勿泄露给他人，以防账号密码丢失造成不必要的损失哦~ 找回密码链接地址为：{url}</textarea>
+									<small class="help">找回密码链接使用 {url} 标签</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">发送测试</div>
+								<div class="w7">
+									<div class="group-input">
+										<div class="group-label">收件人邮箱</div>
+										<div class="group-content"><input type="text" name="title" placeholder="Mail" value="">
+										</div>
+										<div class="group-label bg-orange"><a href="javascript:ice.pop('发送成功');">测试</a></div>
+									</div>
+								</div>
+							</div>
+							<div class="w7 w-3 row">
+								<input type="submit" class="btn btn-green" value="提交" />
+							</div>
+						</div>
+
+						<!-- 高级设置 -->
+						<div class="tab-content">
+							<div class="group-form">
+								<div class="group-label">模板名称</div>
+								<div class="w7">
+									<input type="text" name="theme_name" class="form-control" value="iceui" />
+									<small class="help">模板名称</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">模板路径</div>
+								<div class="w7">
+									<input type="text" name="theme_path" class="form-control" value="/theme" />
+									<small class="help">模板路径</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">移动端：</div>
+								<div class="group-value">
+									<div class="toggle">
+										<input type="checkbox" name="theme_wap" id="theme_wap" value="1" checked="checked">
+										<label for="theme_wap"></label>
+									</div>
+									<small class="help">手机端访问自动进入手机端独立模板，如果是H5自适应模板请关闭</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">自动编译：</div>
+								<div class="group-value">
+									<div class="toggle">
+										<input type="checkbox" name="theme_compile" id="theme_compile" value="1" checked="checked">
+										<label for="theme_compile"></label>
+									</div>
+									<small class="help">修改模板文件会自动编译，建议开发者模式中开启</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">伪静态：</div>
+								<div class="group-value">
+									<div class="toggle">
+										<input type="checkbox" name="url_rewrite" id="url_rewrite" value="1" checked="checked">
+										<label for="url_rewrite"></label>
+									</div>
+									<small class="help">关闭状态将变为动态链接</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">伪静态分隔符</div>
+								<div class="w7">
+									<input type="text" name="url_split" class="form-control" value="/" />
+									<small class="help">URL伪静态分隔符</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">伪静态后缀</div>
+								<div class="w7">
+									<input type="text" name="url_suffix" class="form-control" value=".html" />
+									<small class="help">URL伪静态后缀</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">在线客服</div>
+								<div class="group-value">
+									<div class="toggle">
+										<input type="checkbox" name="is_contact" id="is_contact" value="1" checked="checked">
+										<label for="is_contact"></label>
+									</div>
+									<small class="help">开启线客服后，网站右侧会出现悬浮条</small>
+								</div>
+							</div>
+							<div class="group-form">
+								<div class="group-label">开启CDN</div>
+								<div class="group-value">
+									<div class="toggle">
+										<input type="checkbox" name="is_cdn" id="is_cdn" value="1" checked="checked">
+										<label for="is_cdn"></label>
+									</div>
+									<small class="help">是否开启CDN</small>
+								</div>
+							</div>
+							<div class="w7 w-3 row">
+								<div class="btn bg-blue" onclick="submit();">提交</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			//提交
+			function submit() {
+				//获取表单，通过ajax异步提交，或者也可以同步提交
+				console.log(ice('#form').form());
+				ice.pop('提交成功！');
+			}
+		</script>
+	</template>
+</body>
+</html>

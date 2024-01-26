@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>间距</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<style type="text/css">.demo-margin {
+				display: inline-block;
+				border: 1px solid var(--dark);
+				margin-right: 30px;
+				vertical-align: text-top;
+			}
+
+			.demo-margin span {
+				/*width: 80px;*/
+				background: var(--dark);
+				display: inline-block;
+				color: #fff;
+			}
+		</style>
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">间距</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">iceui内置了常用的外边距和内边距class，所有class数值为：0、5、10、15、20、25、30、35、40</div>
+				<div class="doc-intro">class名称使用了首字母简写，具体语义如下：</div>
+				<div class="doc-intro">
+					<p><b>m：</b>margin（外边距）</p>
+					<p><b>p：</b>padding（内边距）</p>
+					<p><b>l：</b>left（左）</p>
+					<p><b>t：</b>top（上）</p>
+					<p><b>r：</b>right（右）</p>
+					<p><b>b：</b>bottom（下）</p>
+				</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">外边距</div>
+							<div class="demo-margin">
+								<span class="m0">m0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m5">m5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m10">m10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m15">m15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m20">m20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m25">m25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m30">m30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m35">m35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="m40">m40</span>
+							</div>
+
+							<div class="title-l">左外边距</div>
+							<div class="demo-margin">
+								<span class="ml0">ml0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml5">ml5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml10">ml10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml15">ml15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml20">ml20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml25">ml25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml30">ml30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml35">ml35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="ml40">ml40</span>
+							</div>
+
+							<div class="title-l">上外边距</div>
+							<div class="demo-margin">
+								<span class="mt0">mt0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt5">mt5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt10">mt10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt15">mt15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt20">mt20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt25">mt25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt30">mt30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt35">mt35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mt40">mt40</span>
+							</div>
+
+							<div class="title-l">右外边距</div>
+							<div class="demo-margin">
+								<span class="mr0">mr0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr5">mr5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr10">mr10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr15">mr15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr20">mr20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr25">mr25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr30">mr30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr35">mr35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mr40">mr40</span>
+							</div>
+
+							<div class="title-l">下外边距</div>
+							<div class="demo-margin">
+								<span class="mb0">mb0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb5">mb5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb10">mb10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb15">mb15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb20">mb20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb25">mb25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb30">mb30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb35">mb35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="mb40">mb40</span>
+							</div>
+
+							<div class="title-l">内边距</div>
+							<div class="demo-margin">
+								<span class="p0">p0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p5">p5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p10">p10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p15">p15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p20">p20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p25">p25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p30">p30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p35">p35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="p40">p40</span>
+							</div>
+
+							<div class="title-l">左内边距</div>
+							<div class="demo-margin">
+								<span class="pl0">pl0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl5">pl5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl10">pl10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl15">pl15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl20">pl20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl25">pl25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl30">pl30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl35">pl35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pl40">pl40</span>
+							</div>
+
+							<div class="title-l">上内边距</div>
+							<div class="demo-margin">
+								<span class="pt0">pt0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt5">pt5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt10">pt10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt15">pt15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt20">pt20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt25">pt25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt30">pt30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt35">pt35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pt40">pt40</span>
+							</div>
+
+							<div class="title-l">右内边距</div>
+							<div class="demo-margin">
+								<span class="pr0">pr0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr5">pr5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr10">pr10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr15">pr15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr20">pr20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr25">pr25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr30">pr30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr35">pr35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pr40">pr40</span>
+							</div>
+
+							<div class="title-l">下内边距</div>
+							<div class="demo-margin">
+								<span class="pb0">pb0</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb5">pb5</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb10">pb10</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb15">pb15</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb20">pb20</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb25">pb25</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb30">pb30</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb35">pb35</span>
+							</div>
+							<div class="demo-margin">
+								<span class="pb40">pb40</span>
+							</div>
+
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<template data-id="demo"></template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

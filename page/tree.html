@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tree树形菜单</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Tree树形菜单</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">具体示例如下。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">树形菜单</div>
+							<ul class="tree">
+								<li>
+									<a href="#">HTML</a>
+									<ul>
+										<li>
+											<a href="#">弹出层</a>
+											<ul>
+												<li>
+													<a href="#">动画设置</a>
+													<ul>
+														<li><a href="#">顶部弹出</a></li>
+														<li><a href="#">底部弹出</a></li>
+														<li><a href="#">中间弹出</a></li>
+													</ul>
+												</li>
+												<li><a href="#">窗口样式</a></li>
+												<li><a href="#">弹出动画</a></li>
+												<li><a href="#">弹出位置</a></li>
+											</ul>
+										</li>
+										<li><a href="#">时间轴</a></li>
+										<li><a href="#">树形菜单</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">CSS</a>
+									<ul>
+										<li>
+											<a href="#">对齐</a>
+											<ul>
+												<li><a href="#">水平居中对齐</a></li>
+												<li><a href="#">垂直居中对齐</a></li>
+												<li><a href="#">上下左右对齐</a></li>
+											</ul>
+										</li>
+										<li><a href="#">溢出隐藏</a></li>
+										<li><a href="#">滚动条</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Javascript</a>
+									<ul>
+										<li>
+											<a href="#">选项卡</a>
+											<ul>
+												<li><a href="#">样式</a></li>
+												<li><a href="#">动画</a></li>
+											</ul>
+										</li>
+										<li><a href="#">轮播图</a></li>
+										<li><a href="#">异步加载</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">PHP</a>
+									<ul>
+										<li>
+											<a href="#">类库</a>
+											<ul>
+												<li><a href="#">数据库操作</a></li>
+												<li><a href="#">文件操作</a></li>
+												<li><a href="#">远程下载</a></li>
+											</ul>
+										</li>
+										<li><a href="#">数组函数</a></li>
+										<li><a href="#">函数列表</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">PHP</a>
+								</li>
+							</ul>
+							<script>
+								ice.tree({ el: '.tree' });
+							</script>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">入参说明</div>
+							<template class="iceCode:js">
+								{
+									el : '#tree', // 默认容器的id
+									json : 0, // 传入的json数据，默认为空
+									id : 'id', // json菜单的id，默认为id
+									pid : 'pid', // json菜单的pid，默认为pid
+									name : 'name', // json菜单的name，默认为name
+									url : 'url', // json菜单的url，默认为url
+									target : 0, // 新窗口打开，默认为本窗口打开
+									vallTarget : 0, // 全局新窗口打开，默认为本窗口打开
+									spread : 0, // 菜单展开，默认不展开全部菜单
+									trigger : 'click', // 触发方式，默认为鼠标点击弹出菜单
+									time : 5, // 展开收缩动画速度，单位毫秒
+									func : false, // 执行函数，展开收缩动画之前执行该函数
+									callback : false, // 回调函数，展开收缩动画之后执行该函数
+								}
+							</template>
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

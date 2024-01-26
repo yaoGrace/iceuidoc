@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iceEditor富文本编辑器</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">iceEditor富文本编辑器</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<p>iceEditor是一款简约风格的富文本编辑器，iceui出品，纯原生JavaScript开发，体型十分娇小，无任何依赖</p>
+				<p>整个编辑器只有一个文件，功能却很不平凡！简约的唯美设计，简洁、极速、使用它的时候不需要引用jQuery、font、css……等文件</p>
+				<p>因为整个编辑器只是一个Js，支持上传图片、附件！支持添加音乐、视频！</p>
+				<p>简约的唯美设计，简洁、极速！iceui官方群：324415936</p>
+				<p>官方网站：<a class="a-line" href="https://www.iceui.cn/iceEditor.html" target="_blank">https://www.iceui.cn/iceEditor.html</a></p>
+				<p>项目地址：<a class="a-line" href="https://gitee.com/iceui/iceEditor" target="_blank">https://gitee.com/iceui/iceEditor</a></p>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="title-s">iceEditor演示</div>
+				<textarea id="content" name="content"><p>本编辑器由<font color="#4bacc6">原生JS</font>编写，不依赖任何框架和Css文件，只需要插入<font color="#4bacc6">iceEditor.js</font>文件就可以使用！就跟整个iceui一样，所有的插件模块均保持惯有的<font color="#4bacc6">「纯洁」</font>，不依赖Jquery和任何插件，这是iceui独有的<font color="#4bacc6">「高尚情操」</font>！本座认为，面对如今如此复杂的世界，应该没有任何框架能保持如此的纯洁性了……</p></textarea>
+			</div>
+		</div>
+		<script>
+			ice.editor('content',function(){
+				this.height = '200px';
+				this.uploadUrl = 'https://iceui.cn/iceui/src/editor/upload/php-upload.php';
+				this.create();
+			});
+		</script>
+	</template>
+</body>
+</html>

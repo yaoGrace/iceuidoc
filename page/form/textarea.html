@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Textarea多行文本输入框</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Textarea多行文本输入框</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">多行文本输入框可容纳无限数量的文本，比起input，具有换行展示效果，常用于内容较多的编辑，具体示例如下。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">标准输入框</div>
+							<textarea placeholder="多行文本"></textarea>
+
+							<div class="title-l">100%宽输入框<code>form-control</code></div>
+							<textarea class="form-control" placeholder="多行文本"></textarea>
+
+							<div class="title-l">禁止输入状态</div>
+							<textarea class="form-control" placeholder="多行文本" disabled></textarea>
+
+							<div class="title-l">警告<code>error</code></div>
+							<textarea class="form-control error" placeholder="多行文本"></textarea>
+
+							<div class="title-l">成功<code>success</code></div>
+							<textarea class="form-control success" placeholder="多行文本"></textarea>
+
+							<div class="title-l">调节大小</div>
+							<div class="doc-intro">可调节高度<code>resize-vertical</code></div>
+							<textarea class="form-control resize-vertical" placeholder="多行文本"></textarea>
+							<div class="doc-intro">可调节宽度<code>resize-horizontal</code></div>
+							<textarea class="form-control resize-horizontal" placeholder="多行文本"></textarea>
+							<div class="doc-intro">禁止调节大小<code>resize-none</code></div>
+							<textarea class="form-control resize-none" placeholder="多行文本"></textarea>
+
+							<div class="title-l">支持主题颜色<code>border-color</code></div>
+							<p><textarea class="form-control border-blue no-hover" placeholder="多行文本"></textarea></p>
+							<p><textarea class="form-control border-green no-hover" placeholder="多行文本"></textarea></p>
+							<p><textarea class="form-control border-orange no-hover" placeholder="多行文本"></textarea></p>
+							<p><textarea class="form-control border-gray no-hover" placeholder="多行文本"></textarea></p>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

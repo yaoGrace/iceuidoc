@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Toggle开关</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Toggle开关</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">Toggle开关其实是Checkbox复选框的一种，结构上与「单选」「复选」完全一致，唯一区别是label标签上无需放置内容，她在表单中一般是独立存在的，这里并没有复杂化，完全用纯CSS实现的，比起传统的js控制方式无疑更加丝滑，并且保持了代码的简洁性，可以查看本页文档的代码示例。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">示例样式</div>
+							<div class="toggle">
+								<input type="checkbox" id="d1-1" value="1" checked />
+								<label for="d1-1"></label>
+							</div>
+							<div class="toggle">
+								<input type="checkbox" id="d2-1" value="2" />
+								<label for="d2-1"></label>
+							</div>
+							<div class="toggle">
+								<input type="checkbox" id="d3-1" value="3" checked disabled />
+								<label for="d3-1"></label>
+							</div>
+							<div class="toggle">
+								<input type="checkbox" id="d4-1" value="4" disabled />
+								<label for="d4-1"></label>
+							</div>
+
+							<div class="title-l">文本模式，添加class<code>toggle-text</code></div>
+							<div class="toggle-text">
+								<input type="checkbox" id="d1-2" value="1" checked />
+								<label for="d1-2"><span>ON</span><span>OFF</span></label>
+							</div>
+							<div class="toggle-text">
+								<input type="checkbox" id="d2-2" value="2" />
+								<label for="d2-2"><span>开启</span><span>关闭</span></label>
+							</div>
+							<div class="toggle-text">
+								<input type="checkbox" id="d3-2" value="3" checked disabled />
+								<label for="d3-2"><span>ON</span><span>OFF</span></label>
+							</div>
+							<div class="toggle-text">
+								<input type="checkbox" id="d4-2" value="4" disabled />
+								<label for="d4-2"><span>ON</span><span>OFF</span></label>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

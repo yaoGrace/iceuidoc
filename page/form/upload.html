@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Upload文件上传</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">Upload文件上传</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="doc-intro">iceui内置了多种方式的文件上传，如下。</div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="tab tab-line">
+                    <div class="tab-menu">
+                        <div class="tab-menu">
+                            <a href="#">示例</a>
+                            <a href="#">文档</a>
+                        </div>
+                    </div>
+                    <div class="tab-main">
+                        <div class="tab-content">
+                            <div class="title-l">单文件上传</div>
+                            <div class="doc-intro">这是传统的通过input方式上传</div>
+                            <template id="demo-1">
+                                <div class="iceUpload-single">
+                                    <input type="file" name="file" />
+                                    <div class="btn bg-blue">添加附件</div>
+                                </div>
+                            </template>
+                            <div data-show="#demo-1"></div>
+
+
+                            <div class="title-l">单图片上传，带缩略图</div>
+                            <div class="doc-intro">这是异步方式上传，与上面的示例使用区别在于不用写input，但必须要指定name和url值，具体请看文档说明。</div>
+                            <template id="demo-2">
+                                <div class="iceUpload-single" data-img="true" data-name="file"
+                                    data-url="https://iceui.cn/uploadFiles">
+                                    <div class="btn">添加图片</div>
+                                </div>
+                            </template>
+                            <div data-show="#demo-2"></div>
+
+                            <div class="title-l">单图片上传，也可以提前放置缩略图</div>
+                            <template id="demo-3">
+                                <div class="iceUpload-single" data-img="true" data-name="file"
+                                    data-url="https://iceui.cn/uploadFiles">
+                                    <img src="../../img/upload.png" alt="" />
+                                    <div class="btn">添加图片</div>
+                                </div>
+                            </template>
+                            <div data-show="#demo-3"></div>
+
+                            <div class="title-l">单文件上传，点击或拖拽上传</div>
+                            <template id="demo-4">
+                                <div class="iceUpload-single-drag" data-name="file" data-url="https://iceui.cn/uploadFiles">
+                                    <div class="icon ice-picture"></div>
+                                    <div class="iceUpload-single-title">点击、或将文件拖拽到此处</div>
+                                </div>
+                            </template>
+                            <div data-show="#demo-4"></div>
+
+                            <div class="title-l">多图片上传</div>
+                            <template id="demo-5">
+                                <div class="iceUpload-img" data-name="file" data-accept="image/*"
+                                    data-url="https://iceui.cn/uploadFiles" data-del="imgDel" data-success="imgSuccess">
+                                    <div class="btn bg-blue">添加图片</div>
+                                </div>
+                                <script>
+                                    function imgDel(e, list) {
+                                        console.log('删除某项的回调');
+                                        console.log('删除图片：', e);
+                                        console.log('删除后的图片列表：', list.join(','));
+                                    }
+                                    function imgSuccess(e, list) {
+                                        console.log('上传成功的回调');
+                                        console.log('上传的图片：', e.url);
+                                        console.log('上传后的图片列表：', list.join(','));
+                                    }
+                                </script>
+                            </template>
+                            <div data-show="#demo-5"></div>
+                            <small class="help">自带缩略图展示，可自定义上传图片的格式</small>
+
+                            <div class="title-l">多图片上传-回显图片</div>
+                            <template id="demo-5-1">
+                                <div class="iceUpload-img" data-name="file" data-accept="image/*"
+                                    data-url="https://iceui.cn/uploadFiles" data-del="imgDel1" data-success="imgSuccess1">
+                                    <img src="../../img/img1.jpg" alt="" />
+                                    <img src="../../img/img2.jpg" alt="" />
+                                    <div class="btn bg-blue">添加图片</div>
+                                </div>
+                                <script>
+                                    function imgDel1(e, list) {
+                                        console.log('删除某项的回调');
+                                        console.log('删除图片：', e);
+                                        console.log('删除后的图片列表：', list.join(','));
+                                    }
+                                    function imgSuccess1(e, list) {
+                                        console.log('上传成功的回调');
+                                        console.log('上传的图片：', e.url);
+                                        console.log('上传后的图片列表：', list.join(','));
+                                    }
+                                </script>
+                            </template>
+                            <div data-show="#demo-5-1"></div>
+                            <small class="help">自带缩略图展示，可自定义上传图片的格式</small>
+
+                            <div class="title-l">多附件上传</div>
+                            <template id="demo-6">
+                                <div class="iceUpload-file" data-name="file" data-url="https://iceui.cn/uploadFiles"
+                                    data-del="fileDel" data-success="fileSuccess">
+                                    <div class="btn bg-black">添加文件</div>
+                                </div>
+                                <script>
+                                    function fileDel(e, list) {
+                                        console.log('删除某项的回调');
+                                        console.log('删除文件：', e);
+                                        console.log('删除后的文件列表：', list.join(','));
+                                    }
+                                    function fileSuccess(e, list) {
+                                        console.log('上传成功的回调');
+                                        console.log('上传的文件：', e.url);
+                                        console.log('上传后的文件列表：', list.join(','));
+                                    }
+                                </script>
+                            </template>
+                            <div data-show="#demo-6"></div>
+                            <small class="help">自带存储大小，可自定义上传附件的格式</small>
+
+                        </div>
+                        <div class="tab-content">
+                            <div class="title-l">单文件上传</div>
+                            <div class="doc-intro">
+                                这是原生最普通的一种input方式，以同步的方式提交，只不过被美化了，如果想要使用异步，把input标签删掉就行了，但必须要指定data-name和data-url的值，具体请看下面的data属性值设置列表与代码示例。
+                            </div>
+                            <template data-id="demo-1"></template>
+
+                            <div class="title-l">单文件上传，开启缩略图</div>
+                            <div class="doc-intro">如果想要开启缩略图的话，只需要添加一个data-img="true"属性即可</div>
+                            <template data-id="demo-2"></template>
+
+                            <div class="title-l">单图片上传，预放置缩略图</div>
+                            <template data-id="demo-3"></template>
+
+                            <div class="title-l">单文件上传，点击或拖拽上传</div>
+                            <template data-id="demo-4"></template>
+
+                            <div class="title-l">多图片上传</div>
+                            <div class="doc-intro">该方式采用异步上传，必须指定上传的url连接</div>
+                            <template data-id="demo-5"></template>
+
+                            <div class="title-l">多图片上传-图片回显</div>
+                            <div class="doc-intro">编辑资料中往往会用到回显，也就是上传了什么图片，显示在列表中</div>
+                            <template data-id="demo-5-1"></template>
+
+                            <div class="title-l">多附件上传</div>
+                            <div class="doc-intro">该方式采用异步上传，必须指定上传的url连接</div>
+                            <template data-id="demo-6"></template>
+
+                            <div class="title-l">异步上传的data属性值设置列表</div>
+                            <div class="doc-intro">注意：异步上传，必须设置data-name与data-url</div>
+                            <div class="doc-box">
+                                <div class="doc-list">
+                                    <p><b>参数设置：</b></p>
+                                    <table class="doc-table table">
+                                        <thead>
+                                            <tr>
+                                                <th nowrap>参数</th>
+                                                <th nowrap>类型</th>
+                                                <th nowrap>默认</th>
+                                                <th nowrap>必填</th>
+                                                <th nowrap>描述</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td nowrap>data-name</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>是</td>
+                                                <td width=100%>对应input的name</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-url</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>是</td>
+                                                <td width=100%>文件上传的地址</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-accept</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width=100%>对应input的accept，接受的文件类型</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-count</td>
+                                                <td nowrap>Int</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width=100%>上传的图片或文件的数量，默认不限制</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-del</td>
+                                                <td nowrap>Function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width=100%>【单文件上传没有该设置】删除某项执行该方法</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-success</td>
+                                                <td nowrap>Function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width=100%>上传成功执行该方法</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-error</td>
+                                                <td nowrap>Function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width=100%>上传失败执行该方法</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>data-complete</td>
+                                                <td nowrap>Function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width=100%>无论上传成功还是失败，都会执行该方法</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="title-l">图片或文件上传成功后的返回值</div>
+                            <template class="iceCode:js">
+                                //表单成功后需要返回json格式字符串，不能包含其它多余的信息，字段如下：
+                                //url {string} 文件的地址
+                                //name {string} 文件的名称（包含后缀）
+                                //error {int|string} 上传成功为0，其它为错误信息，将以弹窗形式提醒用户
+
+                                //上传成功的示例
+                                {
+                                url: "/upload/img/153444.jpg",
+                                name: "153444.jpg",
+                                error: 0,
+                                message: "上传成功"
+                                }
+
+                                //上传失败的示例
+                                {
+                                url: "/upload/img/153444.jpg",
+                                name: "153444.jpg",
+                                error: 1,
+                                error: "禁止该文件类型上传"
+                                }
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

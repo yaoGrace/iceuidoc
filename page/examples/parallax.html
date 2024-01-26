@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>视差背景图</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">parallax视差背景图</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="doc-intro">视差背景图是个有趣的展示方式，随着页面的滚动，背景图也会发生滚动，有趣的是图片的宽高并不会改变，你所看到的变化仅仅只是图片所在容器中的滚动，但是容器中的内容却不会滚动，这种效果发生在很多HTML5页面，如今她被集成到ICEUI中，使用将前所未有的简单。</div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="tab tab-line">
+                    <div class="tab-menu">
+                        <div class="tab-menu">
+                            <a href="#">示例</a>
+                            <a href="#">文档</a>
+                        </div>
+                    </div>
+                    <div class="tab-main">
+                        <div class="tab-content" id="demo">
+                            <div class="title-l">使用她非常方便，只需要给容器添加一条data属性<code>data-img-parallax</code>即可，<code>data-img-parallax</code>值为背景图地址，如下</div>
+                            <section class="grid-num" data-img-parallax="../../img/bg1.jpg">
+                                <div class="page">
+                                    <div class="row grid-center">
+                                        <div class="ws6 wm6 w3">
+                                            <div class="grid">
+                                                <div>
+                                                    <h4 class="ani-num">24099</h4><span>+</span>
+                                                </div>
+                                                <h5>模板购买数量</h5>
+                                            </div>
+                                        </div>
+                                        <div class="ws6 wm6 w3">
+                                            <div class="grid">
+                                                <div>
+                                                    <h4 class="ani-num">104</h4><span>款</span>
+                                                </div>
+                                                <h5>建站产品</h5>
+                                            </div>
+                                        </div>
+                                        <div class="ws6 wm6 w3">
+                                            <div class="grid">
+                                                <div>
+                                                    <h4 class="ani-num">10</h4><span>年</span>
+                                                </div>
+                                                <h5>建站经验</h5>
+                                            </div>
+                                        </div>
+                                        <div class="ws6 wm6 w3">
+                                            <div class="grid">
+                                                <div>
+                                                    <h4 class="ani-num">346</h4><span>+</span>
+                                                </div>
+                                                <h5>覆盖城市</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="title-l">容器中的内容可随意自定义，但别忘了，该容器需要设置Css属性<code>position:relative</code></div>
+                            <section data-img-parallax="../../img/bg2.jpg">
+                                <h3 class="img-content">寄君一曲，不问曲终人聚散</h3>
+                            </section>
+
+                            <div class="title-l">背景图默认设置了透黑遮罩，你可以通过class来设置它</div>
+                            <section class="grid-num" data-img-parallax="../../img/bg3.jpg">
+                                <h3 class="img-content">月光的森然，乐律的精魂，一切只是幻影，稍纵即逝</h3>
+                            </section>
+
+                            <div class="title-l">妹子~</div>
+                            <section class="grid-num" data-img-parallax="../../img/bg4.jpg">
+                                <h3 class="img-content">无论多么落寂和苍茫那些身影总会过目不忘</h3>
+                            </section>
+
+                            <div class="title-l">妹子~</div>
+                            <section class="grid-num" data-img-parallax="../../img/bg5.jpg" style="margin-bottom:500px;">
+                                <h3 class="img-content">梦里的江湖，百花齐放</h3>
+                            </section>
+
+                        </div>
+                        <div class="tab-content">
+                            <div class="title-l">代码示例</div>
+                            <pre data-id="demo"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Paging分页</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Paging分页</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">提供了几种风格的分页</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">标准样式分页（通过回调方法执行跳转页面，异步跳转）</div>
+							<div class="paging" id="paging-1"></div>
+
+							<div class="title-l">组合样式分页（通过页码上的A标签跳转页面，同步跳转）</div>
+							<div class="paging paging-group" id="paging-2"></div>
+
+							<div class="title-l">线条样式分页</div>
+							<div class="paging paging-line" id="paging-3"></div>
+
+							<script>
+								ice.paging({
+									id: 'paging-1',
+									count: 300,
+									size: 20,
+									page: 1,
+									callback(num) {
+										ice.alert('这是第' + num + '页');
+									}
+								})
+
+								//获取url的page参数
+								var page = ice.getUrl('page');
+								ice.paging({
+									id: 'paging-2',
+									count: 300,
+									size: 20,
+									page: page ? page : 1,
+									url: '/page/paging.html?page={page}',
+
+									//此举用于官方adminXL局部刷新页面，实际应用过程中很少用到success
+									success() {
+										adminXL.linkInit('.paging a');
+									}
+								})
+								ice.paging({
+									id: 'paging-3',
+									count: 300,
+									size: 20,
+									page: 1,
+								})
+							</script>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">接口说明</div>
+							<template class="iceCode:js">
+								// 同步方式跳转页面
+								//
+								// 参数说明：
+								// id: 分页id
+								// count: 总条数
+								// size: 每页显示几条
+								// page: 当前页
+								// url: 页码上的url连接，{page}是页码预占符，渲染过程中会被替换成页码，这里可以随意定制你的url
+								// callback(pageNum): 点击分页的回调函数，返回pageNum页码，注意：如果存在url参数，callback将不会执行
+								// success(pageNum): 分页渲染成功后执行
+								ice.paging({
+								id: 'paging-2',
+								count: 300,
+								size: 20,
+								page: 1,
+								url: '/examples/paging?page={page}'
+								})
+
+								// 异步方式跳转页面，注意：不要设置url参数
+								ice.paging({
+								id: 'paging-2',
+								count: 300,
+								size: 20,
+								page: 1,
+								callback(num) {
+								console.log('这是第'+num+'页');
+								//这里也可以直接使用ice.jump(url)跳转
+								window.location.href = '/examples/paging?page=' + num;
+								}
+								})
+							</template>
+
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

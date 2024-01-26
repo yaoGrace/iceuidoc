@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文章管理</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">
+                <span>文章管理</span>
+                <div>
+                    <span class="btn">分类管理</span>
+                    <span class="btn bg-blue">新建文章</span>
+                </div>
+            </div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="row">
+                    <div class="w3">
+                        <div class="group-input mb0">
+                            <input type="text" placeholder="文章标题">
+                            <div class="group-label">搜索</div>
+                        </div>
+                    </div>
+                    <div class="w9">
+                        <input type="text" id="startTime" placeholder="起始时间" value="" />
+                        -
+                        <input type="text" id="endTime" placeholder="结束时间" value="" />
+                        <span class="btn">查询</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <table id="table" data-size="10" data-highlight="true" data-type="get" data-url="../../data/table.json"
+                    class="table table-border">
+                    <thead>
+                        <tr>
+                            <th data-type="checkbox">
+                                多选
+                            </th>
+                            <th data-type="order" data-sort="true">
+                                序号
+                            </th>
+                            <th data-field="user">
+                                用户
+                            </th>
+                            <th data-field="title">
+                                标题
+                            </th>
+                            <th data-field="content" data-width="100%">
+                                内容
+                            </th>
+                            <th data-field="views" data-sort="true">
+                                浏览量
+                            </th>
+                            <th data-width=280>
+                                操作
+                                <template>
+                                    <span class="btn bg-gray">查看</span>
+                                    <span class="btn bg-blue">编辑</span>
+                                    <span class="btn bg-red">删除</span>
+                                </template>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <script>
+                    ice.date({ id: 'startTime' });
+                    ice.date({ id: 'endTime' });
+                    ice.table({
+                        id: 'table',
+                        success: function (e) {
+                            ice('#btn1').click(function () {
+                                e.checkall();
+                            });
+                            ice('#btn2').click(function () {
+                                e.inverse();
+                            });
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- 底部 -->
+            <div class="adminXL-bottom">
+                <span class="mr30">
+                    <div class="btn bg-blue" id="btn1">全选</div>
+                    <div class="btn bg-blue" id="btn2">反选</div>
+                </span>
+                <span class="mr30">
+                    <select class="select">
+                        <option value="on">置顶</option>
+                        <option value="off">取消置顶</option>
+                    </select>
+                    <input type="button" class="btn bg-green align-top" value="提交">
+                </span>
+                <span class="mr30">
+                    <select class="select">
+                        <option value="16">寂静的水</option>
+                        <option value="15">唯美记录</option>
+                        <option value="6">心若冰清</option>
+                    </select>
+                    <input type="button" class="btn bg-green align-top" value="移动分类">
+                </span>
+                <span class="mr30">
+                    <input type="button" class="btn bg-red" onclick="article_del();" value="删除">
+                </span>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

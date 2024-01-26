@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iceDate日期时间选择</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">iceDate日期时间选择</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">iceDate是一款简约风格的js日期插件，iceui出品，纯原生JavaScript开发，体型十分娇小，无任何依赖，只需一个js文件</div>
+				<div class="doc-intro">可自由选择年、月、日、时、分、秒，满足平常日期选择开发需求</div>
+				<div class="doc-intro">简约的唯美设计，简洁、极速！iceui官方群：324415936</div>
+				<div class="doc-intro">官方网站：<a class="a-line" href="https://www.iceui.cn/iceDate.html" target="_blank">https://www.iceui.cn/iceDate.html</a></div>
+				<div class="doc-intro">项目地址：<a class="a-line" href="https://gitee.com/iceui/iceDate" target="_blank">https://gitee.com/iceui/iceDate</a></div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">标准时间</div>
+							<input type="text" name="time" id="time" placeholder="Y-M-D H:I:S" />
+							<input type="text" name="time" id="times" placeholder="年-月-日" />
+
+							<div class="title-l">只选择年份</div>
+							<input type="text" name="time" id="yTime" placeholder="只选择年份" />
+
+							<div class="title-l">只选择月份</div>
+							<input type="text" name="time" id="mTime" placeholder="只选择月份" />
+
+							<div class="title-l">只选择日期</div>
+							<input type="text" name="time" id="dTime" placeholder="只选择日期" />
+
+							<div class="title-l">只选择时间</div>
+							<input type="text" name="time" id="tTime" placeholder="只选择时间" />
+
+							<div class="title-l">默认设置一个时间</div>
+							<input type="text" name="time" id="default_time" placeholder="默认时间"
+								value="2020-07-01 10:10:10" />
+
+							<script>
+								ice.date({ id: 'time', callback: function (e) { console.log(e) } });
+								ice.date({ id: 'times', format: 'y年m月d日' });
+								ice.date({ id: 'yTime', view: 'year' });
+								ice.date({ id: 'mTime', view: 'month' });
+								ice.date({ id: 'dTime', view: 'day' });
+								ice.date({ id: 'tTime', view: 'time' });
+								ice.date({ id: 'default_time', format: 'Y-M-D H:I:S' });
+							</script>
+						</div>
+						<div class="tab-content">
+							<div class="doc">
+								<div class="title-l"><span>ice.date-时间日期插件</span></div>
+								<div class="doc-box">
+									<div class="doc-title">使用说明</div>
+									<div class="doc-list">
+										<p>该插件需要绑定input的id来启动，方法名称为iceDate，传参为json，具体如下</p>
+									</div>
+									<div class="doc-list">
+										<p class="t1">ice.date传参，具体如下</p>
+										<table class="doc-table table">
+											<thead>
+												<tr>
+													<th nowrap>json</th>
+													<th nowrap>类型</th>
+													<th nowrap>是否必须</th>
+													<th nowrap>说明</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="text-center" nowrap>id</td>
+													<td class="text-center" nowrap>string</td>
+													<td class="text-center" nowrap>必须</td>
+													<td>input的唯一id，用来实例化插件</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>view</td>
+													<td class="text-center" nowrap>string</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>类型选择，有效值为year(年份选择)、month(月份选择)、day(日期选择)、时间(时间选择)</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>format</td>
+													<td class="text-center" nowrap>string</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>格式化，默认为(y-m-d h:i:s)格式，使用选择器view时，请使用此项</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>callback</td>
+													<td class="text-center" nowrap>function(e)</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>确认的回调函数，返回一个对象集合，el：当前的input对象，time：格式化后的时间，date：时间对象，timestamp：时间戳
+													</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>yearFn</td>
+													<td class="text-center" nowrap>function(e)</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>选择年份后的回调函数，返回一个对象集合，el：当前的input对象，time：格式化后的时间，date：时间对象，timestamp：时间戳
+													</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>monthFn</td>
+													<td class="text-center" nowrap>function(e)</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>选择月份后的回调函数，返回一个对象集合，el：当前的input对象，time：格式化后的时间，date：时间对象，timestamp：时间戳
+													</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>dayFn</td>
+													<td class="text-center" nowrap>function(e)</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>选择日期后的的回调函数，返回一个对象集合，el：当前的input对象，time：格式化后的时间，date：时间对象，timestamp：时间戳
+													</td>
+												</tr>
+												<tr>
+													<td class="text-center" nowrap>timeFn</td>
+													<td class="text-center" nowrap>function(e)</td>
+													<td class="text-center" nowrap>可选</td>
+													<td>选择时间后的的回调函数，返回一个对象集合，el：当前的input对象，time：格式化后的时间，date：时间对象，timestamp：时间戳
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<p class="t1">代码示例</p>
+										<template class="iceCode:html">
+											<!-- input需要指定一个唯一id -->
+											<!-- 标准时间 -->
+											<input type="text" id="time" placeholder="Y-M-D H:I:S" class="iceDate-icon" />
+
+											<!-- 年份选择 -->
+											<input type="text" id="yTime" placeholder="年份选择" class="iceDate-icon" />
+
+											<!-- 月份选择 -->
+											<input type="text" id="mTime" placeholder="年份选择" class="iceDate-icon" />
+
+											<!-- 日期选择 -->
+											<input type="text" id="dTime" placeholder="日期选择" class="iceDate-icon" />
+
+											<!-- 时间选择 -->
+											<input type="text" id="tTime" placeholder="时间选择" class="iceDate-icon" />
+										</template>
+										<template class="iceCode:js">
+											/**
+											* 传参为json格式，参数如下
+											* ├ id {id} input的id
+											* ├ format {string} 时间格式
+											* ├ view {string} 默认视图
+											* ├ callback {function} 确认的回调函数
+											* ├ yearFn {function} 选择年份后的回调函数
+											* ├ monthFn {function} 选择月份后的回调函数
+											* ├ dayFn {function} 选择日期后的的回调函数
+											* └ timeFn {function} 选择时间后的的回调函数
+											*
+											* 回调函数：callback yearFn monthFn dayFn timeFn 返回的参数如下：
+											* ├ el 当前的input对象
+											* ├ time 格式化后的时间
+											* ├ date 时间对象
+											* └ timestamp 时间戳
+											*/
+
+											//该时间模块为date，方法名称为iceDate，通过ice的use方法引入该模块，也可以单独引入date.js使用
+
+											//标准时间
+											ice.date({id:'time',callback:function(e){
+												alert(e.time);
+											}});
+
+											//年份选择
+											ice.date({id:'yTime',view:'year'});
+
+											//月份选择
+											ice.date({id:'mTime',view:'month'});
+
+											//日期选择
+											ice.date({id:'dTime',view:'day'});
+
+											//时间选择
+											ice.date({id:'tTime',view:'time'});
+										</template>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

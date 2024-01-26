@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iv模板引擎</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">iv模板引擎</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">iv(全称iceView)是一套用于构建用户界面的渐进式JavaScript模板引擎，易于上手，性能强悍，吸取了Vue和微信小程序的优点，能通过简单的API来实现双向数据绑定，某个变量改变，并不会重新渲染整个视图，而是对应的「局部」视图发生改变，这保证了页面数据交互时的丝滑，而不会导致页面卡顿和闪烁。如果你用惯了vue或微信小程序的话，那么使用她的时候会非常顺手。在编写她之前我努力的研究了Vue的底层设计，最后编写出iceView，不过iceView更加干净高效，我修改了一些编写方式，向微信小程序靠拢了很多，也使其编写更加自由，一切花括号内皆为js原生表达式，你可以按照你的习惯随意编写逻辑和输出内容，无论条件判断，还是变量输出、函数输出都能满足你的要求。</div>
+				<div class="doc-intro">iv名字依然惯用了ICEUI其它插件的命名方式，小驼峰书写方式，ice为前缀，而使用过程中所有的前缀皆为 i- ，i代表着ice的首字母，就像vue中的 v-
+					是一个道理，请熟知。</div>
+				<div class="doc-intro">iv支持一个页面多个场景使用，第一个参数为选择器，用于指定某个容器，第二个参数为渲染数据，如果第一个参数直接为数据列表的话，将默认渲染class为iceView的元素</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="title-l">如何使用</div>
+				<template id="run-1" class="iceCode:html">
+					<!-- 第一步：引入iceView，如果在ICEUI环境下，可直接通过ice.view()使用 -->
+					<script src="../../iceui/src/view/iceView.js"></script>
+
+					<!-- 第二步：模板使用，推荐使用template标签防止页面闪烁，当然也可以直接用div -->
+					<template id="app" class="iceView">
+						<p>我的名字：{{name}}</p>
+						<p>我的职业：{{occupation}}</p>
+						<p>我的爱好：{{intro.hobby}}</p>
+						<p>喜欢宠物：{{intro.pets}}</p>
+						<p>我的梦想：{{intro.dream('就这样')}}</p>
+					</template>
+
+					<!-- 第三步：使用初始化模板数据 -->
+					<script>
+						//第一个参数为选择器，第二个参数接收一个json对象，key值对应上面的模板变量
+						//第一个参数可以忽略，默认查找class为iceView的元素，下面的示例中将忽略第一个参数
+						ice.view('#app', {
+							name: '闫立峰',
+							occupation: '全栈工程师',
+							intro: {
+								hobby: '读书 静坐 冥想',
+								pets: '猫',
+								dream: function (str) {
+									return '飞向太空，再也不回来了~' + str;
+								}
+							}
+						})
+					</script>
+				</template>
+				<div data-run="#run-1" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">模板语法</div>
+				<div class="doc-intro">
+					数据绑定最常见的形式就是使用
+					{{...}}（双大括号）的文本插值，不仅可以放置变量，也可以放置函数，以及三元运算，在大括号中皆为表达式！你可以用你最喜欢的原生方式来写，没有任何局限性，但是一定要记住，要有返回值，返回值为最后一个变量或者字符串，不然将以false返回。
+				</div>
+				<div class="doc-intro">
+					下面的使用方式是完全合法的，重要的事情说三遍，双大括号中皆为表达式，原生逻辑随意写。
+				</div>
+				<div class="doc-intro">
+					注意：定义变量或者函数的名称第一位不能为$
+				</div>
+				<template id="run-2" class="iceCode:html">
+					<template class="iceView">
+						<p>{{name}}</p>
+						<p>{{10+5}}</p>
+						<p>{{arr.title}}</p>
+						<p>{{arr['content']}}</p>
+						<p>{{arr.fn('冰清玉洁')}}</p>
+						<p>{{ok ? 'yes' : 'no'}}</p>
+						<p>{{var a = 10;num+a}}</p>
+						<p>{{time.split('-').join('/')}}</p>
+						<p>
+							{{
+								var a = 10;
+								function b(){
+									return a + 5;
+								}
+								function c(){
+									return b() + 3
+								}
+								c() + d
+							}}
+						</p>
+					</template>
+					<script>
+						ice.view({
+							name: '闫立峰',
+							arr: {
+								title: '我是ICEUI作者',
+								content: 'ICEUI是个漂亮的前后端框架，',
+								fn: function (str) {
+									return this.content + str;
+								}
+							},
+							num: 15,
+							ok: true,
+							d: 6,
+							time: '2020-10-20'
+						})
+					</script>
+				</template>
+				<div data-run="#run-2" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">条件语句</div>
+				<div class="doc-intro">
+					条件判断使用i-if指令，根据返回值true 或
+					false来判断是否显示，也可以使用i-show，两者的区别在于if的显示隐藏是通过增删node节点完成的，而show只是通过样式的display来控制现实隐藏。
+				</div>
+				<template id="run-3" class="iceCode:html">
+					<template class="iceView">
+						<p i-if="{{ok}}">
+							看到我了吗？数字s = {{s}}
+						</p>
+						<p><button i-onclick="edit">{{ok?'关闭':'显示'}}</button></p>
+						<p i-if="{{a > 3}}">a大于3我才会显示</p>
+						<p i-show="{{b > 5}}">b大于5我才会显示</p>
+					</template>
+					<script>
+						ice.view({
+							ok: true,
+							s: 10,
+							a: 2,
+							b: 7,
+							edit() {
+								this.s += 1;
+								this.ok = this.ok ? false : true;
+							}
+						})
+					</script>
+				</template>
+				<div data-run="#run-3" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">循环语句</div>
+				<div class="doc-intro">
+					循环使用<code>i-for</code>指令，绑定一个object或者array，默认数组的当前项的下标变量名默认为<code>index</code>，可通过<code>i-index</code>指令来重新命名；数组当前项的变量名默认为<code>item</code>，可通过<code>i-item</code>指令来重新命名；循环支持无限嵌套，也支持条件语句，支持宽松模式，花括号不是必须的，但是尽量写上。
+				</div>
+				<template id="run-4" class="iceCode:html">
+					<template class="iceView">
+						<div class="title-l">基本展示</div>
+						<ul>
+							<li i-for="list" i-if="{{listShow}}">
+								下标：<span class="bold">{{index}}</span>
+								姓名：<span class="bold">{{item.name}}</span>
+								年龄：<span class="bold">{{item.age}}</span>
+								<input type="text" i-model="{{item.name}}" />
+							</li>
+						</ul>
+						<button i-onclick="edit1">周五的年龄+1</button>
+						<button i-onclick="edit2">添加</button>
+						<button i-onclick="edit3">{{listShow?'关闭':'显示'}}</button>
+
+						<div class="title-l">多维数组展示，可自定义item名称</div>
+						<ul>
+							<li i-for="sku">
+								{{item.name}}：<span class="bold mr20" i-for="{{item.child}}"
+									i-item="info">{{info.name}}</span>
+							</li>
+						</ul>
+
+						<div class="title-l">自定义index名称</div>
+						<ul>
+							<li i-for="sku">
+								<span class="mr20">索引值：{{index}}</span>
+								<span class="mr40">{{item.name}}：</span>
+								<span class="bold mr20" i-for="{{item.child}}" i-index="key" i-item="info">
+									<i class="mr10">索引值：{{key}}</i>名称：{{info.name}}
+								</span>
+							</li>
+						</ul>
+					</template>
+					<script>
+						ice.view({
+							list: [
+								{ name: '张三', age: 23 },
+								{ name: '李四', age: 24 },
+								{ name: '周五', age: 25 }
+							],
+							sku: [
+								{
+									name: '颜色', id: 1, child: [
+										{ name: '红色', id: 2 },
+										{ name: '黄色', id: 3 },
+										{ name: '蓝色', id: 4 },
+									]
+								},
+								{
+									name: '大小', id: 5, child: [
+										{ name: '1号', id: 6 },
+										{ name: '2号', id: 7 },
+										{ name: '3号', id: 8 },
+									]
+								},
+								{
+									name: '型号', id: 9, child: [
+										{ name: 'A型', id: 10 },
+										{ name: 'B型', id: 11 },
+										{ name: 'C型', id: 12 },
+									]
+								},
+							],
+							listShow: true,
+							edit1() {
+								this.list[2].age += 1;
+							},
+							name: 1,
+							edit2() {
+								this.list.push({ name: '名字' + (name++), age: name })
+								this.set({
+									list: this.list
+								})
+							},
+							edit3() {
+								this.listShow = this.listShow ? false : true;
+							}
+						})
+					</script>
+				</template>
+				<div data-run="#run-4" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">绑定事件</div>
+				<div class="doc-intro">
+					绑定事件使用i-onclick指令，该on指令支持原生的所有on事件，i-onmouseover、i-onmouseout……同时支持.stop阻止冒泡和.prevent阻止默认事件，语法为：i-onclick.stop。
+				</div>
+				<div class="doc-intro">
+					绑定值可以为函数，也可以为表达式，请注意，如果为自定义函数，
+				</div>
+				<template id="run-5" class="iceCode:html">
+					<template class="iceView">
+						<h1>{{num}}</h1>
+						<p><button i-onclick="add">函数增加</button></p>
+						<p><button i-onclick="{{this.num += 1}}">表达式增加</button></p>
+					</template>
+					<script>
+						ice.view({
+							num: 10,
+							add: function () {
+								this.num += 1;
+							}
+						})
+					</script>
+				</template>
+				<div data-run="#run-5" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">图片渲染</div>
+				<div class="doc-intro">
+					img的src如果绑定变量，尽量使用i-src，这种方式不会引起浏览器抛出url的404错误。
+				</div>
+				<template id="run-img" class="iceCode:html">
+					<template class="iceView">
+						<img i-src="{{img}}" width=200 />
+					</template>
+					<script>
+						ice.view({
+							img: 'https://iceui.cn/doc/img/upload.png'
+						})
+					</script>
+				</template>
+				<div data-run="#run-img" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">html渲染</div>
+				<div class="doc-intro">
+					使用i-html渲染html，主要用于html模板，一处编写，多处复用。
+				</div>
+				<template id="run-i-html" class="iceCode:html">
+					<template class="iceView">
+						<div i-html="{{intro}}"></div>
+						<div i-html="{{content()}}"></div>
+					</template>
+					<script>
+						ice.view({
+							intro: `
+								<div class="item">
+									<div class="key">姓名：</div>
+									<div class="value">张三</div>
+								</div>
+								<div class="item">
+									<div class="key">格言：</div>
+									<div class="value">挣更多的钱</div>
+								</div>`,
+							list:[
+								{name:'小黑',speak:'吃饱了'},
+								{name:'小蓝',speak:'饿死了'}
+							],
+							content(){
+								var html = '';
+								this.list.forEach(v=>{
+									html += `<div class="item">
+										<div class="key">${v.name}</div>
+										<div class="value">${v.speak}</div>
+									</div>`;
+								})
+								return html;
+							}
+
+						})
+					</script>
+				</template>
+				<div data-run="#run-i-html" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">表单数据绑定</div>
+				<div class="doc-intro">
+					使用i-model指令来实现双向数据绑定，支持input、textarea、radio、checkbox、select等元素。
+				</div>
+				<div class="doc-intro">
+					提示：iceView的i-model十分强大，不仅可以直接绑定多维数组，也可以在for循环中直接通过item动态绑定自身变量，这是小程序和vue所不具有的，至少你无需再通过监听事件来获取数组的索引值然后再修改数据，请看下面的示例。
+				</div>
+				<div class="doc-intro">
+					除了i-model指令，还有一个i-bind指令，目前仅支持select元素，用于绑定一个数组来格式化select下拉选择项，这会十分方便，至少你不需要再select下写option的i-for循环了，而i-bind指令上还附带两个属性，i-value和i-name，i-value用于指定数组对象的字段名，这个字段名对应的字段值会放入option的value中，i-name同理，会将值放入option中，用于展示下拉选择项的名称，如果不指定i-value和i-name，会使用数组对象中的value和name值，具体请看下面的示例。
+				</div>
+				<template id="run-6" class="iceCode:html">
+					<template class="iceView">
+						<p class="title-l">普通写法的select：{{select}}</p>
+						<select class="select" i-model="select">
+							<option value="冰清玉洁">冰清玉洁</option>
+							<option value="高贵雅典">高贵雅典</option>
+							<option value="倾国倾城">倾国倾城</option>
+							<option value="鱼沉雁落">鱼沉雁落</option>
+						</select>
+						<button i-onclick="edit">修改为冰清玉洁</button>
+
+						<p class="title-l">使用i-for循环生成option的select：{{cateValue}}</p>
+						<select class="select" i-model="cateValue">
+							<option i-for="cate" value="{{item.value}}">{{item.name}}</option>
+						</select>
+
+						<p class="title-l">使用i-bind的select：{{arrValue1}} </p>
+						<select class="select" i-bind="arr1" i-model="arrValue1"></select>
+
+						<p class="title-l">使用i-bind绑定其它格式的select：{{arrValue2}} </p>
+						<select class="select" i-bind="arr2" i-value="id" i-name="content"
+							i-model="arrValue2"></select>
+
+						<p class="title-l">input：{{input}}</p>
+						<input type="text" class="w12" i-model="input" />
+
+						<p class="title-l">数组中的input，动态给数组赋值，无需写任何一行代码</p>
+						<ul>
+							<li i-for="list">姓名：{{item.name}} 爱好：{{item.love}} <input type="text"
+									i-model="{{item.love}}" /></li>
+						</ul>
+
+						<p class="title-l">textarea：{{textarea}}</p>
+						<textarea class="w12" i-model="textarea"></textarea>
+
+						<p class="title-l">radio：{{radio}}</p>
+						<label><input type="radio" name="radio" i-model="radio" value="小蓝" /> 小蓝</label>
+						<label><input type="radio" name="radio" i-model="radio" value="小红" /> 小红</label>
+
+						<p class="title-l">checkbox：{{checkbox[0]}}{{checkbox[1]}}</p>
+						<label><input type="checkbox" i-model="checkbox" value="小黄" /> 小黄</label>
+						<label><input type="checkbox" i-model="checkbox" value="小黑" /> 小黑</label>
+
+					</template>
+					<script>
+						ice.view({
+							input: 'ICEUI是个漂亮的前后端框架',
+							select: '倾国倾城',
+							cateValue: '天上人间',
+							cate: [
+								{ value: '天上人间', name: '天上人间' },
+								{ value: '染指年华', name: '染指年华' },
+								{ value: '伊人夕岸', name: '伊人夕岸' },
+								{ value: '翰墨流离', name: '翰墨流离' },
+							],
+							arrValue1: '',
+							arr1: [
+								{ value: '艺静香', name: '艺静香' },
+								{ value: '蓝夜媚', name: '蓝夜媚' },
+								{ value: '冬天楼', name: '冬天楼' },
+							],
+							arrValue2: '',
+							arr2: [
+								{ id: '艺静香', content: '艺静香' },
+								{ id: '蓝夜媚', content: '蓝夜媚' },
+								{ id: '冬天楼', content: '冬天楼' },
+							],
+							list: [
+								{ name: '田蕊', love: '读书、写字' },
+								{ name: '百灵', love: '静坐、瑜伽' },
+								{ name: '余香', love: '跑步、看海' },
+							],
+							textarea: 'ICEUI是最高雅的',
+							radio: '',
+							checkbox: ['小黑'],
+							edit: function () {
+								this.select = '冰清玉洁';
+							},
+							onload() {
+								//用于美化下拉菜单
+								ui.select();
+							}
+						})
+					</script>
+				</template>
+				<div data-run="#run-6" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">生命周期</div>
+				<div class="doc-intro">
+					生命周期为onload函数，这个函数是由用户自定义的，可传可不传，onload会在程序初始结束后开始调用，常用于写异步获取数据接口。
+				</div>
+				<template id="run-7" class="iceCode:html">
+					<template class="iceView">
+						<h3>{{text}}</h3>
+					</template>
+					<script>
+						ice.view({
+							text: '我是小猫咪',
+							onload: function () {
+								window.setTimeout(() => {
+									this.text = 'onload执行了';
+								}, 3000);
+							},
+						})
+					</script>
+				</template>
+				<div data-run="#run-7" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+				<div class="title-l">ajax异步调用数据</div>
+				<div class="doc-intro">
+					数据调用为ajax函数，支持POST、GET，自定义header请求头。
+				</div>
+				<template class="iceCode:js">
+					/**
+					* ajax请求
+					* @param json：如果为string字符串时，则为url，如果为json对象时，参数说明如下：
+					* 	url：      请求地址
+					* 	type：     请求类型，默认为post，可选值：post，get
+					* 	timeout：  网络超时，默认为15000毫秒
+					* 	async：    异步，默认为true
+					* 	data：     要求为Object或String类型的参数，发送到服务器的数据
+					* 	json：     是否将请求过来的数据自动转为json对象，默认为true
+					* 	success：  请求成功之后的回调函数
+					* 	error：    请求失败之后的回调函数
+					* 	complete： 不管请求成功还是失败，都会调用
+					* @param data：json传参为string字符串时此参数有效，等同于json.data
+					* @return {object}
+					*/
+					ice.view({
+						onload: function(){
+							//第一种写法
+							this.ajax({
+								url: 'https://iceui.cn/doc/data/table.json',
+								data: {cid: 2},
+								success(res){
+									console.log(res);
+								}
+							})
+
+							//第二种写法，支持Promise
+							this.ajax('https://iceui.cn/doc/data/table.json',{cid: 2}).then(res=>{
+								console.log(res);
+							})
+						},
+					})
+				</template>
+				<template id="run-ajax" class="iceCode:html">
+					<template class="iceView">
+						<div class="title-l">文章列表</div>
+						<div class="item-disc">
+							<div i-for="list">{{item.title}}</div>
+						</div>
+					</template>
+					<script>
+						ice.view({
+							onload: function(){
+								this.ajax('https://iceui.cn/doc/data/table.json').then(res=>{
+									this.list = res.list;
+								})
+							}
+						})
+					</script>
+				</template>
+				<div data-run="#run-ajax" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+
+				<div class="title-l">如何调用iv内部自定义的方法或数据？</div>
+				<div class="doc-intro">
+					很多情况下外部程序需要调用iv中的方法或数据，这应该如何操作呢？其实很简单，iv其实会返回内部数据的，请看下面的示例。
+				</div>
+				<template id="run-call" class="iceCode:js">
+					<template class="iceView">
+						<input type="text" id="name"/>
+						<input type="text" id="sex"/>
+						<input type="text" id="resume"/>
+					</template>
+					<script>
+						var v = ice.view({
+							name: '闫妹',
+							sex: '女',
+							resume(str){
+								return str + '我什么都不想干！';
+							}
+						});
+						ice('#name').val(v.data.name);
+						ice('#sex').val(v.data.sex);
+						ice('#resume').val(v.data.resume('老天，'));
+					</script>
+				</template>
+				<div data-run="#run-call" class="btn-ani bg-black"><span>运行代码<i></i></span></div>
+
+			</div>
+		</div>
+	</template>
+</body>
+</html>

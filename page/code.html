@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iceCode代码高亮</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">代码高亮</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <p>iceCode是一款简约风格的代码高亮js插件，iceui出品，版权归iceui所有，纯原生JavaScript开发，体型十分娇小，无任何依赖，只需一个js文件</p>
+                <p>目前该插件已经内置HTML XML CSS JS JSON RUST PHP NET Python JAVA SQL GO C++ C# C等常用编程语言高亮</p>
+                <p>简约的唯美设计，简洁、极速！iceui官方群：324415936</p>
+                <p>官方网站：<a class="a-line" href="https://www.iceui.cn/iceCode" target="_blank">https://www.iceui.cn/iceCode</a></p>
+                <p>项目地址：<a class="a-line" href="https://gitee.com/iceui/iceCode" target="_blank">https://gitee.com/iceui/iceCode</a></p>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="title-l">代码高亮演示：</div>
+                <div class="tab tab-line">
+                    <div class="tab-menu">
+                        <a href="#">HTML</a>
+                        <a href="#">CSS</a>
+                        <a href="#">JS</a>
+                        <a href="#">PHP</a>
+                        <a href="#">Python</a>
+                        <a href="#">JAVA</a>
+                        <a href="#">SQL</a>
+                        <a href="#">GO</a>
+                        <a href="#">C++</a>
+                        <a href="#">C#</a>
+                        <a href="#">C</a>
+                    </div>
+                    <div class="tab-main">
+                        <div class="tab-content">
+                            <template class="iceCode:html">
+                                <!-- 顶部左侧菜单 -->
+                                <div class="admin-menu-left">
+                                    <a href="../../iceui/help.html" target="_blank"><i class="icon ice-set-up"></i><span class="title">框架帮助</span></a>
+                                </div>
+
+                                <!-- 顶部右侧菜单 -->
+                                <div class="admin-menu-right">
+                                    <div class="dropdown">
+                                        <a href="../../index.html" class="dropdown-toggle"><i class="icon ice-inventory"></i>模块设置<i class="icon ice-arrow-line-b"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="../../index.html"><i class="icon ice-inventory"></i>模块目录</a></li>
+                                            <li class="divider"></li><li class="dropdown-header">设置目录</li>
+                                            <li><a href="../../index.html"><i class="icon ice-inventory"></i>设置目录</a></li>
+                                        </ul>
+                                    </div>
+                                    <a href="../../index.html" target="_blank"><i class="icon ice-revoke-left"></i><span class="title">返回前台</span></a>
+                                    <a href="http://www.iceui.cn/" target="_blank"><i class="icon ice-message"></i><span class="title">联系我们</span></a>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:css">
+                                @charset "utf-8";
+
+                                /* 默认颜色 */
+                                .iceCode-default p{color:#232323 !important;}
+
+                                /* 代码背景 */
+                                .iceCode-default .line.light{background-color:#e0e0e0 !important;}
+
+                                /* 普通代码 */
+                                .iceCode-default .plain{border:none !important;}
+
+                                /* 备注 */
+                                .iceCode-default .comments{color:rgb(35,110,37) !important;}
+
+                                /* 关键字 */
+                                .iceCode-default .keyword{color: #006699;font-weight:bold !important;}
+
+                                /* 常量 */
+                                .iceCode-default .constants{color:#0066cc !important;}
+
+                                /* 变量 */
+                                .iceCode-default .variable{color: #aa7700 !important;}
+
+                                /* 函数 */
+                                .iceCode-default .functions{color: #ff1493 !important;font-weight:bold !important;}
+
+                                /* 字符串 */
+                                .iceCode-default .string{color:blue !important;}
+
+                                /* 数字 */
+                                .iceCode-default .number{color:#e20086 !important;}
+
+                                /* 值 */
+                                .iceCode-default .value{color:#009900 !important;}
+
+                                /* 括号 */
+                                .iceCode-default .bracket{color:#2d2d2d !important;}
+
+                                /* 运算符 */
+                                .iceCode-default .operator{color:#484848 !important;font-weight:bold !important;}
+
+                                /* 符号 */
+                                .iceCode-default .symbol{color:#12009c !important;font-weight:bold !important;}
+
+                                /* 引号内容 */
+                                .iceCode-default .quotation{color:blue !important;}
+
+                                /* 成功 */
+                                .iceCode-default .success{color:#4CAF50 !important;}
+
+                                /* 信息 */
+                                .iceCode-default .info{color:#2085b3 !important;}
+
+                                /* 警告 */
+                                .iceCode-default .warning{color: #F44336 !important;}
+
+                                /* 错误 */
+                                .iceCode-default .danger{color:#F44336 !important;}
+
+                                .iceCode-default .red{color:#ef5350 !important;}
+                                .iceCode-default .orange{color:#f57e00 !important;}
+                                .iceCode-default .yellow{color:#f1bf00 !important;}
+                                .iceCode-default .green{color:#26a672 !important;}
+                                .iceCode-default .cyan{color:#8cd03d !important;}
+                                .iceCode-default .blue{color:#1d90ca !important;}
+                                .iceCode-default .purple{color:#ad5abb !important;}
+                                .iceCode-default .gray{color:#989898 !important;}
+                                .iceCode-default .black{color:#4a4a4a !important;}
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:js">
+                                //右下角弹出
+                                function popup_p_rb(){
+                                    iceui.popup({
+                                        title:'这是标题',
+                                        content:'这是标准弹窗',
+                                        position:'rb'
+                                    });
+                                }
+                                //导航菜单锚点平滑滚动
+                                iceui.scrollAnchor('.menu',200);
+                                //树形菜单
+                                iceui.tree({div:'tree'});
+                                //轮播图
+                                iceui.slider({id:'slider-none'});
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:php">
+                                /**
+                                +------------------------------------------------------------------------------------+
+                                + uz框架-vcode(验证码)
+                                +------------------------------------------------------------------------------------+
+                                + 作者：ice
+                                + 官方：www.uzjz.com
+                                + 时间：2016-09-1
+                                +------------------------------------------------------------------------------------+
+                                + 版权声明：该版权完全归"uz"官方所有，可转载使用和学习，但请务必保留版权信息，
+                                + 可个人学习使用，如需应用于商业，请到uz获取商业授权，方可做商业开发和运营使用。
+                                +------------------------------------------------------------------------------------+
+                                */
+                                class vcode {
+                                    private $width;  //宽
+                                    private $height; //高
+                                    //构造方法， 三个参数
+                                    function __construct($width=80, $height=20, $num=4) {
+                                        $this->width = $width;
+                                        $this->height = $height;
+                                        $this->num = $num;
+                                        $this->code = $this->createcode(); //调用自己的方法
+                                        $a = '1 <div class="hello">你们好</div> 2';
+                                    }
+                                }
+                            </template >
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:python">
+                                #!/usr/bin/python
+                                # -*- coding: UTF-8 -*-
+
+                                """
+                                iceCode的代码高亮
+                                """
+
+                                fruits = ['banana', 'apple',  'mango']
+                                for index in range(len(fruits)):
+                                print '当前水果 :', fruits[index]
+
+                                print "Good bye!"
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:java">
+                                package com.hello.main;
+
+                                /**
+                                * 
+                                * @author chen
+                                * @des 这里是程序的主入口main方法"nihao"
+                                */
+                                public class Main {
+
+                                    /*
+                                    * 这里是多行注释
+                                    * 
+                                    * */
+                                    public static void main(String[] args) {
+                                        // 输出内容
+                                        System.out.println("Hello Word");
+                                    }
+                                }
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:sql">
+                                /**
+                                +------------------------------------------------------------------------------------+
+                                + uz需要安装的sql文件
+                                +------------------------------------------------------------------------------------+
+                                + 作者：ice
+                                + 官方：www.uzjz.com
+                                + 时间：2018-04-25
+                                +------------------------------------------------------------------------------------+
+                                */
+
+                                SET NAMES utf8mb4;
+                                SET FOREIGN_KEY_CHECKS = 0;
+
+                                -- ----------------------------
+                                -- Table structure for ice_album
+                                -- ----------------------------
+                                DROP TABLE IF EXISTS `ice_album`;
+                                CREATE TABLE `ice_album`  (
+                                `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '产品相册ID',
+                                `cid` int(11) NOT NULL COMMENT '产品id',
+                                `url` char(42) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片地址',
+                                `orders` tinyint(2) NOT NULL DEFAULT 0 COMMENT '排序',
+                                `cover` tinyint(1) NOT NULL DEFAULT 0 COMMENT '缩略图',
+                                PRIMARY KEY (`id`) USING BTREE
+                                ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Fixed;
+
+                                -- ----------------------------
+                                -- Table structure for ice_article
+                                -- ----------------------------
+                                DROP TABLE IF EXISTS `ice_article`;
+                                CREATE TABLE `ice_article`  (
+                                `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '页面ID',
+                                `cid` int(6) UNSIGNED NOT NULL DEFAULT 5 COMMENT '分类ID',
+                                `uid` int(9) NOT NULL COMMENT '作者ID',
+                                `top` tinyint(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '置顶',
+                                `rec` tinyint(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '推荐',
+                                `hot` tinyint(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '热门',
+                                `album` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '相册',
+                                `thumb` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '缩略图',
+                                `title` char(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '标题',
+                                `intro` char(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '描述',
+                                `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '内容',
+                                `views` int(11) NOT NULL DEFAULT 0 COMMENT '浏览量',
+                                `comments` int(11) NOT NULL DEFAULT 0 COMMENT '评论数量',
+                                `keywords` char(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关键字SEO',
+                                `description` char(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '描述SEO',
+                                `time` int(10) UNSIGNED NOT NULL COMMENT '创建时间',
+                                PRIMARY KEY (`id`) USING BTREE
+                                ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:go">
+                                package main
+
+                                import "fmt"
+
+                                func main() {
+                                    fmt.Println("Hello, World!")
+                                }
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:cpp">
+                                #include &lt;iostream&gt;
+                                    using namespace std;
+                                    int main(){
+                                    cout << "Hello, world!" << endl;
+                                    return 0;
+                                }
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:csharp">
+                                using System;
+                                namespace HelloWorldApplication{
+                                    /* 类名为 HelloWorld */
+                                    class HelloWorld{
+                                        /* main函数 */
+                                        static void Main(string[] args){
+                                            /* 我的第一个 C# 程序 */
+                                            Console.WriteLine("Hello World!");
+                                            Console.ReadKey();
+                                        }
+                                    }
+                                }
+                            </template>
+                        </div>
+                        <div class="tab-content">
+                            <template class="iceCode:c">
+                                #include &lt;stdio.h&gt;
+
+                                int main(){
+                                    /* 我的第一个 C 程序 */
+                                    printf("Hello, World! \n");
+
+                                    return 0;
+                                }
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc">
+                    <div class="title-l">code-代码高亮插件</div>
+                    <div class="doc-box">
+                        <div class="doc-title">使用说明</div>
+                        <div class="doc-list">
+                            <p>目前该插件已经内置HTML XML CSS JS JSON RUST PHP NET Python JAVA SQL GO C++ C# C等常用编程语言高亮，可以自定义开发高亮语言，已内置常用正则库，开发便捷！</p>
+                            <p>使用相当简单，只需要使用template标签即可，而展示的代码语言直接template的class即可，例如iceCode:php，冒号后面是代码语言，就这么简单。</p>
+                        </div>
+                        <div class="doc-list">
+                            <p class="t1">ice.code传参属性设置，具体如下</p>
+                            <div class="mb20">
+                                <table class="doc-table table">
+                                    <thead>
+                                        <tr>
+                                            <th nowrap="">json</th>
+                                            <th nowrap="">类型</th>
+                                            <th nowrap="">是否必须</th>
+                                            <th nowrap="">说明</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center" nowrap="">el</td>
+                                            <td class="text-center" nowrap="">object</td>
+                                            <td class="text-center" nowrap="">可选</td>
+                                            <td>需要高亮的代码块对象，也可以直接将代码传入code中</td></tr>
+                                        <tr>
+                                            <td class="text-center" nowrap="">code</td>
+                                            <td class="text-center" nowrap="">boolean</td>
+                                            <td class="text-center" nowrap="">可选</td>
+                                            <td>需要高亮的代码段</td></tr>
+                                        <tr>
+                                            <td class="text-center" nowrap="">language</td>
+                                            <td class="text-center" nowrap="">string</td>
+                                            <td class="text-center" nowrap="">必须</td>
+                                            <td>高亮的编程语言，例如JS、PHP、HTML</td></tr>
+                                        <tr>
+                                            <td class="text-center" nowrap="">width</td>
+                                            <td class="text-center" nowrap="">string</td>
+                                            <td class="text-center" nowrap="">可选</td>
+                                            <td>代码高亮容器的宽</td></tr>
+                                        <tr>
+                                            <td class="text-center" nowrap="">height</td>
+                                            <td class="text-center" nowrap="">string</td>
+                                            <td class="text-center" nowrap="">可选</td>
+                                            <td>代码高亮容器的高</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="t1">第一种使用方式-直接引用iceCode</p>
+                            <template class="iceCode:html">
+                                <!-- 第一步：将代码放入template标签中，设置class，iceCode冒号后面为编程语言 -->
+                                <template class="iceCode:js">
+                                    //输出
+                                    function main(){
+                                        console.log('hello world');
+                                    }
+                                    main();
+                                </template>
+                                <!-- 第二步：引入iceCode样式和脚本 -->
+                                &lt;link rel="stylesheet" href="/iceui/src/code/iceCode.css" /&gt;
+                                &lt;script src="/iceui/src/code/iceCode.js"&gt;&lt;/script&gt;
+                                <script>
+                                    //推荐提前引入iceCode.css文件，防止代码格式化过程中闪烁
+                                    ice.code();
+                                </script>
+                            </template>
+                            <p class="t1">第二种使用方式-如果项目中使用iceui前端框架，直接使用即可</p>
+                            <template class="iceCode:html">
+                                <!-- 第一步：将代码放入template标签中，设置class，iceCode冒号后面为编程语言 -->
+                                <template class="iceCode:js">
+                                    //输出
+                                    function main(){
+                                        console.log('hello world');
+                                    }
+                                    main();
+                                </template>
+                                <!-- 第二步：执行高亮 -->
+                                <script>
+                                    ice.code();
+                                </script>
+                            </template>
+                            <p class="t1">第三种使用方式-高亮前端正在使用的代码块，iceui文档中大量的运用了此方式，利用data-id属性指定代码段</p>
+                            <template class="iceCode:html">
+                                <!-- 第一步：这是前端正在展示的样式，需要设置一个id -->
+                                <div id="code-demo">
+                                    <div class="title">标题</div>
+                                    <div class="content">内容</div>
+                                </div>
+                                <!-- 第二步：设置一个data-id，指定需要展示的代码段 -->
+                                <template data-id="code-demo"></template>
+                                <!-- 第二步：执行高亮 -->
+                                <script>
+                                    ice.code();
+                                </script>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

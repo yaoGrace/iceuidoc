@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Box方式表单</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="row">
+			<div class="w12">
+				<div class="box">
+					<div class="box-title">用户信息</div>
+					<div class="box-content">
+						<div class="row">
+							<div class="w4">
+								<div class="group-form">
+									<div class="group-label">姓名</div>
+									<div class="group-content">
+										<input type="text" class="group-input" name="fieldset1" placeholder="姓名" value="" />
+									</div>
+								</div>
+							</div>
+							<div class="w4">
+								<div class="group-form">
+									<div class="group-label">出生</div>
+									<div class="group-content">
+										<input type="text" class="group-input" name="fieldset1" placeholder="出生" value="" />
+									</div>
+								</div>
+							</div>
+							<div class="w4">
+								<div class="group-form">
+									<div class="group-label">籍贯</div>
+									<div class="group-content">
+										<input type="text" class="group-input" name="fieldset1" placeholder="籍贯" value="" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="w4">
+								<div class="group-form">
+									<div class="group-label">出生地</div>
+									<div class="group-content">
+										<input type="text" class="group-input" name="fieldset1" placeholder="出生地"
+											value="" />
+									</div>
+								</div>
+							</div>
+							<div class="w4">
+								<div class="group-form">
+									<div class="group-label">邮箱</div>
+									<div class="group-content">
+										<input type="text" class="group-input" name="fieldset1" placeholder="邮箱" value="" />
+									</div>
+								</div>
+							</div>
+							<div class="w4">
+								<div class="group-form">
+									<div class="group-label">电话</div>
+									<div class="group-content">
+										<input type="text" class="group-input" name="fieldset1" placeholder="电话" value="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w12">
+				<div class="box">
+					<div class="box-title">信息</div>
+					<div class="box-content">
+						<div class="group-form">
+							<div class="group-label">文章标题</div>
+							<div class="group-content">
+								<input type="text" name="title" class="form-control" placeholder="请输入" />
+								<small class="help">建议50个字符以内</small>
+							</div>
+						</div>
+						<div class="group-form">
+							<div class="group-label">文章简介</div>
+							<div class="group-content">
+								<textarea name="intro" class="form-control" placeholder="请输入"></textarea>
+								<small class="help">默认截取300字做为简介</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="text-center mt20">
+			<div class="btn">提交 </div>
+		</div>
+	</template>
+</body>
+</html>

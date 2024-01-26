@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iceDarg拖拽排序</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<style>.iceDrag-list {
+				position: relative;
+				background: #eee;
+				padding: 10px;
+			}
+
+			.iceDrag-item {
+				color: #fff;
+				width: 150px;
+				height: 150px;
+				line-height: 150px;
+				text-align: center;
+				overflow: hidden;
+				margin: 5px;
+				float: left;
+			}
+
+			.demo1 {
+				width: 500px;
+				height: 500px;
+			}
+
+			.demo2 {
+				width: 180px;
+				height: 500px;
+			}
+
+			.demo3 {
+				width: 1460px;
+				height: 180px;
+			}
+
+			.li {
+				width: 100%;
+				line-height: 40px;
+				background: #fff;
+				padding: 0 15px;
+				margin: 5px;
+				border-left: 4px solid #adadad;
+			}
+			.li span{
+				display: inline-block;
+				padding: 0 5px;
+				background: #5692ec;
+				color: #fff;
+				cursor: move;
+				margin-right:20px;
+				border-radius: 3px;
+				line-height: 25px;
+			}
+
+			.a1 {
+				background: #d24f4f
+			}
+
+			.a2 {
+				background: #d2744f
+			}
+
+			.a3 {
+				background: #d2ab4f
+			}
+
+			.a4 {
+				background: #c9d24f
+			}
+
+			.a5 {
+				background: #74d24f
+			}
+
+			.a6 {
+				background: #4fd2bb
+			}
+
+			.a7 {
+				background: #4fadd2
+			}
+
+			.a8 {
+				background: #4f76d2
+			}
+
+			.a9 {
+				background: #7c4fd2
+			}
+		</style>
+		<div class="tab">
+			<div class="tab-menu">
+				<div class="tab-menu-left">
+					<a href="#">应用示例</a>
+					<a href="#">文档说明</a>
+				</div>
+			</div>
+			<div class="tab-main">
+				<div class="tab-content">
+					<div class="doc-bottle">
+						<div class="row">
+							<div class="w6">
+								<div class="t1">九宫格示例</div>
+								<div class="iceDrag-list demo1">
+									<div class="iceDrag-item a1">模块一</div>
+									<div class="iceDrag-item a2">模块二</div>
+									<div class="iceDrag-item a3">模块三</div>
+									<div class="iceDrag-item a4">模块四</div>
+									<div class="iceDrag-item a5">模块五</div>
+									<div class="iceDrag-item a6">模块六</div>
+									<div class="iceDrag-item a7">模块七</div>
+									<div class="iceDrag-item a8">模块八</div>
+									<div class="iceDrag-item a9">模块九</div>
+								</div>
+							</div>
+							<div class="w6">
+								<div class="t1">竖向示例</div>
+								<div class="iceDrag-list demo2">
+									<div class="iceDrag-item a1">模块一</div>
+									<div class="iceDrag-item a2">模块二</div>
+									<div class="iceDrag-item a3">模块三</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="t1">横向示例</div>
+						<div class="iceDrag-list demo3">
+							<div class="iceDrag-item a1">模块一</div>
+							<div class="iceDrag-item a2">模块二</div>
+							<div class="iceDrag-item a3">模块三</div>
+							<div class="iceDrag-item a4">模块四</div>
+							<div class="iceDrag-item a5">模块五</div>
+							<div class="iceDrag-item a6">模块六</div>
+							<div class="iceDrag-item a7">模块七</div>
+							<div class="iceDrag-item a8">模块八</div>
+							<div class="iceDrag-item a9">模块九</div>
+						</div>
+
+						<div class="t1">竖向示例</div>
+						<ul class="iceDrag-list demo4">
+							<li class="li">模块一</li>
+							<li class="li">模块二</li>
+							<li class="li">模块三</li>
+							<li class="li">模块四</li>
+							<li class="li">模块五</li>
+							<li class="li">模块六</li>
+						</ul>
+
+						<div class="t1">竖向示例 - 点击指定元素拖拽</div>
+						<ul class="iceDrag-list demo5">
+							<li class="li"><span class="click-my">点我才行</span>模块一</li>
+							<li class="li"><span class="click-my">点我才行</span>模块二</li>
+							<li class="li"><span class="click-my">点我才行</span>模块三</li>
+							<li class="li"><span class="click-my">点我才行</span>模块四</li>
+							<li class="li"><span class="click-my">点我才行</span>模块五</li>
+							<li class="li"><span class="click-my">点我才行</span>模块六</li>
+						</ul>
+
+
+					</div>
+				</div>
+				<div class="tab-content">
+					<div class="doc">
+						<div class="doc-bottle">
+							<div class="t1">代码示例</div>
+							<template class="iceCode:js">
+								ice.drag({ el:'.demo1' });
+								ice.drag({ el:'.demo2' });
+								ice.drag({ el:'.demo3' });
+								ice.drag({ el:'.demo4' });
+								ice.drag({ el:'.demo5', dragEl:'.click-my' });
+							</template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			ice.drag({ el:'.demo1' });
+			ice.drag({ el:'.demo2' });
+			ice.drag({ el:'.demo3' });
+			ice.drag({ el:'.demo4' });
+			ice.drag({ el:'.demo5', dragEl:'.click-my' });
+		</script>
+	</template>
+</body>
+</html>

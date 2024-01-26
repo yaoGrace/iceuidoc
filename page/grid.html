@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>grid栅格系统</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<style>#demo p {
+				padding: 20px;
+			}
+		</style>
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">grid栅格系统</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">栅格系统是框架的主要组成部分，也是自适应的主要框架。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">iceui栅格系统</div>
+							<div class="doc-intro">
+								iceui提供了一套响应式、移动设备优先的流式栅格系统定义了12列，随着屏幕或视口（viewport）尺寸的变化，列会根据屏幕大小自动重新排列，该栅格系统比Bootstrap更加灵活，增加了一套可自定义1-12列的等宽，Bootstrap例如想要设置5列7列等宽，只能使用col，但是该类的最大缺点就是无法根据各类屏幕尺寸显示不同的列，例如在电脑屏幕上显示7列，平板上显示5列，手机上显示2列，iceui栅格系统可根据自己的需求自定义排版，以下是基本演示：
+							</div>
+
+							<div class="row">
+								<div class="w12">
+									<p class="bg-green">w12</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="w6">
+									<p class="bg-green">w6</p>
+								</div>
+								<div class="w6">
+									<p class="bg-cyan">w6</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="w4">
+									<p class="bg-green">w4</p>
+								</div>
+								<div class="w4">
+									<p class="bg-cyan">w4</p>
+								</div>
+								<div class="w4">
+									<p class="bg-green">w4</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="w3">
+									<p class="bg-green">w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-cyan">w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-green">w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-cyan">w3</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="w2">
+									<p class="bg-green">w2</p>
+								</div>
+								<div class="w2">
+									<p class="bg-cyan">w2</p>
+								</div>
+								<div class="w2">
+									<p class="bg-green">w2</p>
+								</div>
+								<div class="w2">
+									<p class="bg-cyan">w2</p>
+								</div>
+								<div class="w2">
+									<p class="bg-green">w2</p>
+								</div>
+								<div class="w2">
+									<p class="bg-cyan">w2</p>
+								</div>
+							</div>
+
+							<div class="title-l">栅格类</div>
+							<ol class="ol">
+								<li class="ol-title">首字母：</li>
+								<li>w 指的英文width</li>
+								<li>o 指的英文order</li>
+								<li>- 横杠表示向右偏移</li>
+								<li class="ol-title">自适应尺寸：</li>
+								<li>ws >=576px 针对手机端</li>
+								<li>wm >576px 针对平板</li>
+								<li>w >=768px（默认使用）针对桌面显示器</li>
+								<li>wl >=992px 桌面显示器</li>
+								<li>wx >=1200px 桌面显示器</li>
+								<li>w- 左偏移</li>
+								<li class="ol-title">例如：</li>
+								<li>w6 占用6个网格的宽度</li>
+								<li>w-2 左偏移2个网格的宽度</li>
+								<li>ws6 移动端中占用6个网格</li>
+								<li>ws-2 移动端中做偏移2个网格</li>
+								<li>o2 设置弹性盒对象元素的顺序为2</li>
+								<li class="ol-title">反向栅格方式：</li>
+								<li>wz 一行需要放置几列的栅格，</li>
+								<li class="ol-title">例如：</li>
+								<li>wz5 一行可以放置5列的栅格，相当于100% / 5</li>
+								<li>wz3 一行可以放置3列的栅格，相当于100% / 3</li>
+							</ol>
+							<div class="tip bg-red mt20">
+								很多人会把w与wz混淆，我举个例子来说明一下，例如：w6与wz6，w6是占据了6列宽的格子，基于栅格系统整行12列的宽度，宽度占据整行的100%/(12/6)；wz6是可以放置6列，宽度占据整行的100%/6
+							</div>
+
+							<div class="title-l">栅格系统规则</div>
+							<ol class="ol">
+								<li>使用行来创建水平的列组</li>
+								<li>内容需要放置在列中，并且只有列可以是行的直接子节点</li>
+								<li>w字母开头的列宽，需要放在<code>.row</code>之中</li>
+								<li>网格列是通过跨越指定的12个列来创建。 例如，设置三个相等的列，需要使用用三个<code>.w4 </code>来设置</li>
+								<li>iceui使用flexbox（弹性盒子）而不是传统方式的浮动（例如国外的Bootstrap3「Bootstrap4才改为flexbox」，国内的layui），Flexbox
+									的一大优势是，没有指定宽度的网格列将自动设置为等宽与等高列</li>
+							</ol>
+
+							<div class="title-l">栅格基本结构</div>
+							<template class="iceCode:html">
+								<!-- 第一个例子：控制列的宽度及在不同的设备上如何显示 -->
+								<div class="row">
+									<div class="w12">
+										<p>内容</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="w4">
+										<p>内容</p>
+									</div>
+									<div class="w4">
+										<p>内容</p>
+									</div>
+									<div class="w4">
+										<p>内容</p>
+									</div>
+								</div>
+
+								<!-- 第二个例子：或让iceui自动处理布局 -->
+								<div class="row">
+									<div class="col">
+										<p>内容</p>
+									</div>
+									<div class="col">
+										<p>内容</p>
+									</div>
+									<div class="col">
+										<p>内容</p>
+									</div>
+								</div>
+							</template>
+
+							<div class="title-l">等高响应式列</div>
+							<template class="iceCode:html">
+								<div class="row">
+									<div class="w4">
+										<p>内容1</p>
+										<p>内容2</p>
+										<p>内容3</p>
+										<p>内容4</p>
+									</div>
+									<div class="w4">
+										<p>内容</p>
+									</div>
+									<div class="w4">
+										<p>内容</p>
+									</div>
+								</div>
+							</template>
+							<div class="row no-m">
+								<div class="w4 bg-green">
+									<p>我们内容多1</p>
+									<p>我们内容多2</p>
+									<p>我们内容多3</p>
+									<p>我们内容多4</p>
+								</div>
+								<div class="w4 bg-cyan">
+									<p>内容再多也与你等高</p>
+								</div>
+								<div class="w4 bg-blue">
+									<p>内容再多也与你等高</p>
+								</div>
+							</div>
+
+							<div class="title-l">等宽响应式列</div>
+							<template class="iceCode:html">
+								<!-- 第一种：无论插入多少col列，全部等宽 -->
+								<div class="row">
+									<div class="col">
+										<p>col</p>
+									</div>
+									<div class="col">
+										<p>col</p>
+									</div>
+									<div class="col">
+										<p>col</p>
+									</div>
+								</div>
+								<!-- 第二种：w方式，w后面的数字为占据的列数，全宽为12列 -->
+								<div class="row">
+									<div class="w4">
+										<p>w4</p>
+									</div>
+									<div class="w4">
+										<p>w4</p>
+									</div>
+									<div class="w4">
+										<p>w4</p>
+									</div>
+								</div>
+								<!-- 第二种：wz方式，wz后面的数字为占据的列数，根据列数放置多少个wz -->
+
+								<!-- 提示：不要与w混淆，wz的诞生非常强大，例如你需要5列等宽，第一种方式无法自适应多种设备来自定义每行显示多少列，-->
+								<!-- 第二种方式没法做到，因为12必须被除尽才行，第三种就是为此而诞生的，1-12列全部可等宽，并且遵循w自适应多种尺寸屏幕规格 -->
+								<div class="row">
+									<div class="wz3">
+										<p>wz3</p>
+									</div>
+									<div class="wz3">
+										<p>wz3</p>
+									</div>
+									<div class="wz3">
+										<p>wz3</p>
+									</div>
+								</div>
+							</template>
+							<div class="row">
+								<div class="col">
+									<p class="bg-green">col</p>
+								</div>
+								<div class="col">
+									<p class="bg-cyan">col</p>
+								</div>
+								<div class="col">
+									<p class="bg-blue">col</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="w4">
+									<p class="bg-green">w4</p>
+								</div>
+								<div class="w4">
+									<p class="bg-cyan">w4</p>
+								</div>
+								<div class="w4">
+									<p class="bg-blue">w4</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="wz3">
+									<p class="bg-green">wz3</p>
+								</div>
+								<div class="wz3">
+									<p class="bg-cyan">wz3</p>
+								</div>
+								<div class="wz3">
+									<p class="bg-blue">wz3</p>
+								</div>
+							</div>
+
+							<div class="title-l">不等宽响应式列</div>
+							<template class="iceCode:html">
+								<div class="row">
+									<div class="w4">
+										<p>w4</p>
+									</div>
+									<div class="w8">
+										<p>w8</p>
+									</div>
+								</div>
+							</template>
+							<div class="row">
+								<div class="w4">
+									<p class="bg-green">w4</p>
+								</div>
+								<div class="w8">
+									<p class="bg-cyan">w8</p>
+								</div>
+							</div>
+
+							<div class="title-l">手机、平板和桌面端</div>
+							<template class="iceCode:html">
+								<div class="row">
+									<div class="w3 wm6 ws4">
+										<p class="bg-green">w3 wm6 ws4</p>
+									</div>
+									<div class="w3 wm6 ws8">
+										<p class="bg-cyan">w3 wm6 ws8</p>
+									</div>
+									<div class="w3 wm6 ws4">
+										<p class="bg-green">w3 wm6 ws4</p>
+									</div>
+									<div class="w3 wm6 ws8">
+										<p class="bg-cyan">w3 wm6 ws8</p>
+									</div>
+								</div>
+							</template>
+							<div class="row">
+								<div class="w3 wm6 ws4">
+									<p class="bg-green">w3 wm6 ws4</p>
+								</div>
+								<div class="w3 wm6 ws8">
+									<p class="bg-cyan">w3 wm6 ws8</p>
+								</div>
+								<div class="w3 wm6 ws4">
+									<p class="bg-green">w3 wm6 ws4</p>
+								</div>
+								<div class="w3 wm6 ws8">
+									<p class="bg-cyan">w3 wm6 ws8</p>
+								</div>
+							</div>
+
+							<div class="title-l">列偏移</div>
+							<template class="iceCode:html">
+								<div class="row">
+									<div class="w3">
+										<p>内容</p>
+									</div>
+									<div class="w3">
+										<p>内容</p>
+									</div>
+									<div class="w3">
+										<p>内容</p>
+									</div>
+									<div class="w3">
+										<p>内容</p>
+									</div>
+								</div>
+								<!-- 向右偏移6个网格 -->
+								<div class="row">
+									<div class="w-6 w3">
+										<p>内容</p>
+									</div>
+									<div class="w3">
+										<p>内容</p>
+									</div>
+								</div>
+							</template>
+							<div class="row">
+								<div class="w3">
+									<p class="bg-green">w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-cyan">w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-green">w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-cyan">w3</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="w-6 w3">
+									<p class="bg-green">w-6 w3</p>
+								</div>
+								<div class="w3">
+									<p class="bg-cyan">w3</p>
+								</div>
+							</div>
+
+							<div class="title-l">排序</div>
+							<template class="iceCode:html">
+								<div class="row">
+									<div class="w3 o3">
+										<p>内容1 o3</p>
+									</div>
+									<div class="w3 o4">
+										<p>内容2 o4</p>
+									</div>
+									<div class="w3 o1">
+										<p>内容3 o1</p>
+									</div>
+									<div class="w3 o2">
+										<p>内容4 o2</p>
+									</div>
+								</div>
+							</template>
+							<div class="row">
+								<div class="w3 o3">
+									<p class="bg-green">内容1 o3</p>
+								</div>
+								<div class="w3 o4">
+									<p class="bg-green">内容2 o4</p>
+								</div>
+								<div class="w3 o1">
+									<p class="bg-green">内容3 o1</p>
+								</div>
+								<div class="w3 o2">
+									<p class="bg-green">内容4 o2</p>
+								</div>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

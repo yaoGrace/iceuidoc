@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nav导航菜单</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Nav导航菜单</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">主要用于网站的导航菜单</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content">
+							<div class="title-l">标准</div>
+							<template id="run-1">
+								<nav id="header" class="nav">
+									<div class="nav-wap">
+										<a href="javascript:;">
+											<img src="../img/logo-black.png" class="nav-wap-logo" alt="logo" />
+											<span class="nav-wap-name">ICEUI</span>
+										</a>
+										<div class="nav-wap-toggle">
+											<div class="toggle-menu"></div>
+										</div>
+									</div>
+									<div class="nav-logo"><a href="#"><img src="../img/logo-black.png"
+												alt="logo" /><span>ICEUI</span></a></div>
+									<div class="nav-menu">
+										<ul class="nav-list hover">
+											<li><a href="javascript:;">首页</a></li>
+											<li><a href="javascript:;">关于</a></li>
+											<li>
+												<a href="javascript:;">下拉</a>
+												<ul class="nav-dropdown">
+													<li><a href="javascript:;">菜单一</a></li>
+													<li><a href="javascript:;">菜单二</a></li>
+												</ul>
+											</li>
+										</ul>
+										<div class="nav-other">
+											<a href="javascript:;">后台</a>
+										</div>
+									</div>
+								</nav>
+							</template>
+							<div data-show="#run-1"></div>
+							<div data-run="#run-1" class="btn-ani bg-black mt40"><span>代码调试<i></i></span></div>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<template data-id="run-1"></template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			//配置运行代码环境
+			ice.run({
+				style: 'p{margin-top:30px;}',
+			})
+			setTimeout(function () { ui.init() }, 100)
+		</script>
+	</template>
+</body>
+</html>

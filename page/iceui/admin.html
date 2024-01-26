@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>后台框架文档</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="doc-nav">
+			<div class="doc-main doc">
+				<div class="doc-head">后台框架文档<span class="doc-version">v1.01</span></div>
+				<div class="title-l">后台框架介绍</div>
+				<div class="p">
+					<p>本后台框架不仅展示了ICEUI的基本组件示例，同时也展示了一套Admin后台框架的基本组成，这套后台框架基于ice的pjax技术开发，pjax结合了html5的pushState和ajax技术，从而实现了网站无刷新加载的技术，这要比hash更加方便，url上的锚点#很让人难受，至少我是这么认为的。</p>
+				</div>
+
+				<div class="title-l">后台框架的基本结构</div>
+				<template class="iceCode:html">
+					&lt;!DOCTYPE html&gt;
+					&lt;html lang="zh-Hans"&gt;
+					&lt;head&gt;
+					<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+					<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+					<title>ICEUI后台框架</title>
+					&lt;link rel="shortcut icon" href="../../img/favicon.ico"/&gt;
+
+					<!-- 主要引用 -->
+					&lt;link type="text/css" rel="stylesheet" href="/iceui/src/ui/ui.css"/&gt;
+					&lt;link type="text/css" rel="stylesheet" href="style/adminXL.css"/&gt;
+					&lt;script src="/iceui/src/ice.js"&gt;&lt;/script&gt;
+					&lt;script src="/iceui/src/ui/ui.js"&gt;&lt;/script&gt;
+					&lt;/head&gt;
+					&lt;body data-load="true"&gt;
+						<div class="admin-page">
+							<!-- 侧栏 -->
+							<div class="admin-sidebar">
+								<!-- logo -->
+								<div class="admin-logo">
+									<a href="../../../index.html" class="admin-logo-web">&lt;img src="../img/logo-white.png" class="logo" alt="iceui"/&gt;ICEUI</a>
+									<a href="../../../index.html" class="admin-logo-wap">
+										&lt;img src="../img/logo-white.png" class="logo" alt="iceui"/&gt;
+										<span>ICEUI</span>
+									</a>
+									<div class="admin-toggle-right"><span></span></div>
+									<div class="admin-toggle"><span></span></div>
+								</div>
+								<!-- 菜单 -->
+								<ul id="tree" class="admin-sidebar-menu">
+									<li><a href="../../../index.html"><i class="icon ice-home"></i><span class="title">首页</span></a></li>
+									<li>
+										<a href="javascript:;">
+											<i class="icon ice-lattice"></i>
+											<span class="title">一级分类</span>
+											<span class="arrow"><i class="icon ice-arrow-line-r"></i></span>
+										</a>
+										<ul class="admin-menu-dropdown">
+											<li><a href="../../../index.html"><span class="title">二级分类</span></a></li>
+											<li><a href="../../../index.html"><span class="title">二级分类</span></a></li>
+										</ul>
+									</li>
+								</ul>
+								<div class="admin-menu-move"></div>
+							</div>
+
+							<!-- 内容 -->
+							<div class="admin-main">
+								<div class="admin-right">
+									<!-- 顶部菜单 -->
+									<div class="admin-header">
+										<div class="admin-menu">
+											<!-- 顶部左侧菜单 -->
+											<div class="admin-menu-left">
+												<a href="../../../index.html"><i class="icon ice-opera"></i><span class="title">菜单一</span></a>
+												<a href="../../../index.html"><i class="icon ice-opera"></i><span class="title">菜单二</span></a>
+											</div>
+
+											<!-- 顶部右侧菜单 -->
+											<div class="admin-menu-right">
+												<!-- 可以放置下拉菜单 -->
+												<div class="dropdown">
+													<a href="#" class="dropdown-toggle"><i class="icon ice-inventory"></i>下拉菜单<i class="icon ice-arrow-line-b"></i></a>
+													<ul class="dropdown-menu dropdown-menu-right">
+														<li><a href="../../../index.html">菜单演示</a></li>
+														<li><a href="../../../index.html">菜单演示</a></li>
+														<li><a href="../../../index.html">菜单演示</a></li>
+													</ul>
+												</div>
+												<a href="../../../index.html" target="_blank"><i class="icon ice-revoke-left"></i><span class="title">返回首页</span></a>
+												<a href="../../../index.html"><i class="icon ice-message"></i><span class="title">联系我们</span></a>
+											</div>
+										</div>
+									</div>
+									<!-- 主要内容 -->
+									<div id="admin-content">
+										<div class="box">
+											<div class="box-content">
+												<div class="title-t1">标题</div>
+												<p>内容</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<script type="module" src="style/adminXL.js.html"></script>
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</template>
+
+			</div>
+			<div class="doc-menu">
+				<div class="doc-menu-title">文档目录</div>
+				<ul></ul>
+			</div>	
+		</div>
+		<script>
+			//初始化文档
+			docInit();
+		</script>
+	</template>
+</body>
+</html>

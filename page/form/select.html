@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Select下拉选择框</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Select下拉选择框</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">下拉选择框是表单中必不可缺少的组件，在iceui中，下拉选择框使用html原生的select标签，而option标签用于定义列表中的可选项，这一切对于前端开发者来说是很亲切的，因为你不需要再花时间来学习，本select下拉选择框完全惯用原生的写法，什么都不变，只需要给select标签添加一条class：<code>select</code>即可。</div>
+				<div class="doc-intro">本下拉选择框的美化是直接操作原生的select，也就是说就算你不会写任何js脚本，也能通过最基本的form提交使用，这是其它框架中select所不具备的，iceui的所有表单组件都支持通过form标签同步提交。</div>
+				<div class="tip bg-red">最新更新：已经支持搜索功能</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo" style="padding-bottom:200px;">
+							<div class="title-l">原生的select标签，无任何美化，我都不好意思在这里展示了（为什么设计的这么丑？这特么是人干的？……省略五千字的吐槽）</div>
+							<select>
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select disabled>
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l">添加class<code>select</code>后，自动格式化，禁用选择框与原生一致，添加<code>disabled</code></div>
+							<select class="select">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select" disabled>
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l">默认选择某项，需要给option添加<code>selected</code>，这与原生select使用是完全一致的</div>
+							<select class="select">
+								<option value="1">红袖天香</option>
+								<option value="2" selected>断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3" selected>墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l">也可以在select上直接添加<code>value</code>属性来设置默认选择某项，有助于回显</div>
+							<select class="select" value="3">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l">修改选框中的默认提示，通过<code>data-title</code>修改默认提示</div>
+							<select class="select" data-title="请选择分类">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select" data-title="选一个吧">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l">禁用清空选择项，通过设置<code>data-clear</code>为<code>false</code></div>
+							<select class="select" data-clear="false">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l"><span
+									class="tag bg-green">新增</span>开启搜索功能，通过设置<code>data-search</code>为<code>true</code></div>
+							<select class="select" data-search="true">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l"><span
+									class="tag bg-green">新增</span>通过url动态获取下拉菜单的数据，设置<code>data-url</code>为你的接口地址</div>
+							<div class="item-disc">
+								<p>该功能支持搜索</p>
+								<p>注意：如果你需要通过js添加监听事件，你应该写onchange</p>
+								<p>该data-url附带5个配置项用于设置ajax接口调用和数据格式，如下：</p>
+							</div>
+							<template class="iceCode:html">
+								<!-- 请求类型：post、get，默认值：post -->
+								data-ajax="post"
+
+								<!-- 传参：json格式 -->
+								data-param="{user:1, type:2}"
+
+								<!-- 数据列表的字段，如果直接返回下拉菜单的集合，无需设置该参数 -->
+								data-list="data"
+
+								<!-- 指定下拉菜单的value字段，默认值：value -->
+								data-value="brandId"
+
+								<!-- 指定下拉菜单的标题字段，默认值：name -->
+								data-name="brandName"
+							</template>
+							<select class="select" data-search="true" data-ajax="get"
+								data-url="../../data/select.json"></select>
+
+							<div class="title-l">分组<code>optgroup</code>示例</div>
+							<select class="select">
+								<optgroup label="议论文">
+									<option value="1">红袖天香</option>
+									<option value="2" selected>断桥残雪</option>
+									<option value="3">墨染双蕊</option>
+								</optgroup>
+								<optgroup label="叙述文">
+									<option value="3">墨染双蕊</option>
+									<option value="4">悠悠我心</option>
+									<option value="5">镜花水月</option>
+								</optgroup>
+							</select>
+
+							<div class="title-l">多选<code>multiple</code>，依然使用原生的select标签，只需要按照原生的写法加上multiple属性即可</div>
+							<select class="select" multiple>
+								<option value="1">红袖</option>
+								<option value="2" selected>天香</option>
+								<option value="3">墨染</option>
+								<option value="4">悠悠</option>
+								<option value="5">镜花</option>
+								<option value="6">双蕊</option>
+							</select>
+
+							<div class="title-l">多级联动，通过<code>data-connect</code>设置相同的属性值来关联</div>
+							<select class="select" data-connect="demo">
+								<optgroup label="本宫美不美？">
+									<option value="1">那是肯定的</option>
+									<option value="2">你是最美的</option>
+									<option value="3">只有你最美</option>
+									<option value="4">最美丽女神</option>
+								</optgroup>
+							</select>
+							<select class="select" data-connect="demo">
+								<optgroup label="那说点好听的">
+									<option value="1">I IOVE YOU</option>
+									<option value="2">我愿意为你做任何事</option>
+									<option value="3">我能把心摘出来送你</option>
+									<option value="4">都让开，给你520亿</option>
+								</optgroup>
+							</select>
+							<select class="select" data-connect="demo" onchange="pop">
+								<optgroup label="臣服本宫裙下吧">
+									<option value="1">十分愿意</option>
+									<option value="2">死也值了</option>
+									<option value="3">至死不渝</option>
+								</optgroup>
+							</select>
+							<script>
+								function pop() {
+									ice.pop('这还差不多呢');
+								}
+							</script>
+
+							<div class="title-l">如果需要100%宽，需要添加class<code>select-block</code></div>
+							<select class="select select-block">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+
+							<div class="title-l">下拉选择框支持主题颜色<code>bg-color</code>、<code>border-color</code></div>
+							<select class="select bg-red">
+								<option value="1" selected>红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select bg-blue">
+								<option value="1">红袖天香</option>
+								<option value="2" selected>断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select bg-green">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3" selected>墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select border-red">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4" selected>悠悠我心</option>
+								<option value="5">镜花水月</option>
+							</select>
+							<select class="select border-blue">
+								<option value="1">红袖天香</option>
+								<option value="2">断桥残雪</option>
+								<option value="3">墨染双蕊</option>
+								<option value="4">悠悠我心</option>
+								<option value="5" selected>镜花水月</option>
+							</select>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">取值和赋值</div>
+							<p>下拉选择框的取值和赋值方式与操作原生的select一致，在这里你可以使用ice(select).val()。</p>
+							<template class="iceCode:js">
+								//假设html为：<select class="select" id="demo1"><option value="1">男</option><option value="2">女</option></select>
+								//取值
+								ice('#demo1').val();
+								//赋值
+								ice('#demo1').val(2);
+							</template>
+
+							<div class="title-l">动态创建option选择项</div>
+							<p>如果select的选择项需要通过js动态创建，下面提供三种方式，推荐使用第三种方式哦！</p>
+							<p>第一种方式创建：通过html</p>
+							<template class="iceCode:js">
+								//假设html为：<select class="select" id="demo2"></select>
+								//动态创建option选择项
+								ice('#demo2').html('<option value="1">男</option><option value="2">女</option>');
+								//重新渲染
+								ui.select();
+							</template>
+							<p>第二种方式创建：通过ui.setSelect</p>
+							<template class="iceCode:js">
+								//假设html为：<select class="select" id="demo3"></select>
+								//动态创建option选择项，这种方式不需要再调用ui.select();
+								//第一个参数为选择器值，第二个为数组，字段最少包含value和name，selected用于默认选中
+								ui.setSelect('#demo2',[{value:1,name:'男',selected:true},{value:2,name:'女'}]);
+
+								//如果数组的格式并没有value和name，那么可以传一个对象，具体操作：
+								ui.setSelect('#demo2',{
+									list:[{id:1,title:'男',active:true},{id:2,title:'女'}], //必传
+									value:'id', //必传
+									name:'title', //必传
+									selected:'active' //可传可不传
+								});
+							</template>
+							<p>第三种方式创建：ice选择器的select，等同于ui.setSelect，这种写法更加一目了然</p>
+							<template class="iceCode:js">
+								//假设html为：<select class="select" id="demo3"></select>
+								//动态创建option选择项，这种方式不需要再调用ui.select();
+								ice('#demo2').select([{value:1,name:'男'},{value:2,name:'女'}]);
+							</template>
+
+							<div class="title-l">通过data-url动态创建option选择项，设置<code>data-url</code>为你的接口地址</div>
+							<p>该data-url附带5个配置项用于设置ajax接口调用和数据格式，如下：</p>
+							<template class="iceCode:html">
+								<!-- 请求类型：post、get，默认值：post -->
+								data-ajax="post"
+
+								<!-- 传参：json格式 -->
+								data-param="{user:1, type:2}"
+
+								<!-- 数据列表的字段，如果直接返回下拉菜单的集合，无需设置该参数，具体说明请看后面的文档 -->
+								data-list="data"
+
+								<!-- 指定下拉菜单的value字段，默认值：value -->
+								data-value="brandId"
+
+								<!-- 指定下拉菜单的标题字段，默认值：name -->
+								data-name="brandName"
+							</template>
+							<div class="title-l">data-list具体说明：</div>
+							<p><span class="red">一定注意，</span>该参数不是必传的，接口的返回数据应该是一个集合，数据格式如下：</p>
+							<template class="iceCode:js">
+								[
+									{value:1, name:"沧桑年倦"},
+									{value:2, name:"千秋几世"},
+									{value:3, name:"如烟若梦"}
+								]
+							</template>
+							<p>但你非要搞些反人类的操作，你的接口返回值可能是二维数组，甚至是三维数组，如下：</p>
+							<template class="iceCode:js">
+								{
+									code:200,
+									message:"请求成功",
+									data:{
+										title:"下拉菜单",
+										content:"一世情缘",
+										list:[
+											{value:1, name:"沧桑年倦"},
+											{value:2, name:"千秋几世"},
+											{value:3, name:"如烟若梦"}
+										]
+									}
+								}
+							</template>
+							这时，你应该设置data-list参数，应该为：data-list="data.list"
+
+							<div class="title-l">代码示例</div>
+							<template id="doc" class="iceCode:html"></template>
+							<script>
+								ice('#doc').html(ice('#demo').html());
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

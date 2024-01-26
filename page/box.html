@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Box面板</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Box面板</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">box标题栏的背景颜色支持主题列表，将bg-color放在<code>.box-title</code>同级class中即可。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="doc">
+					<div class="title-l">代码基本结构</div>
+					<template class="iceCode:html">
+						<div class="box">
+							<div class="box-title">控制面板</div>
+							<div class="box-content">内容</div>
+						</div>
+					</template>
+
+					<div class="title-l">菜单+下拉菜单的代码示例</div>
+					<template class="iceCode:html">
+						<div class="box">
+							<div class="box-title">
+								<div class="left">控制面板</div>
+								<a href="javascript:ice.prompt('Hello，我是一个prompt类型弹窗，欢迎使用哦！');">网站设置</a>
+								<a href="javascript:ice.pop('Hello，我是一个pop类型弹窗，欢迎使用哦！','success');">应用中心</a>
+								<div class="right">
+									<div class="dropdown">
+										<div class="icon-more dropdown-toggle"><span></span></div>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li class="dropdown-header">基本设置</li>
+											<li><a href="#">菜单一</a></li>
+											<li><a href="#">菜单二</a></li>
+											<li class="divider"></li>
+											<li class="dropdown-header">高级设置</li>
+											<li><a href="#">菜单一</a></li>
+											<li><a href="#">菜单二</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="box-content">
+								内容
+							</div>
+						</div>
+					</template>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="wl8">
+				<div class="row">
+					<div class="wl6">
+						<div class="box">
+							<div class="box-title">
+								<div class="left">控制面板</div>
+								<a href="javascript:ice.prompt('Hello，我是一个prompt类型弹窗，欢迎使用哦！');">网站设置</a>
+								<a href="javascript:ice.pop('Hello，我是一个pop类型弹窗，欢迎使用哦！','success');">应用中心</a>
+								<div class="right">
+									<div class="dropdown">
+										<div class="icon-more dropdown-toggle"><span></span></div>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li class="dropdown-header">基本设置</li>
+											<li><a href="#">菜单一</a></li>
+											<li><a href="#">菜单二</a></li>
+											<li class="divider"></li>
+											<li class="dropdown-header">高级设置</li>
+											<li><a href="#">菜单一</a></li>
+											<li><a href="#">菜单二</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="box-content">
+								<ul class="list">
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-service"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-discount"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-bail"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-chart-c"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-chart-b"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-chart-a"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+									<li class="list-item">
+										<span class="list-icon"><i class="icon ice-gift"></i></span>
+										<span class="list-title">ICEUI最好的唯美简约设计</span>
+										<span class="list-time">2019-05-20</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="wl6">
+						<div class="box">
+							<div class="box-title icon ice-custom-service">
+								<div class="left">自定义标题图标</div>
+								<div class="right">
+									<div class="dropdown">
+										<div class="icon-menu dropdown-toggle"><span></span></div>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li class="dropdown-header">基本设置</li>
+											<li><a href="#">菜单一</a></li>
+											<li><a href="#">菜单二</a></li>
+											<li class="divider"></li>
+											<li class="dropdown-header">高级设置</li>
+											<li><a href="#">菜单一</a></li>
+											<li><a href="#">菜单二</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="box-content">
+								<ul class="list">
+									<li class="list-item">
+										<div class="list-round bg-red"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计<span class="tag bg-red">最新</span></div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+									<li class="list-item">
+										<div class="list-round bg-orange"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计<span class="tag bg-orange">推荐</span></div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+									<li class="list-item">
+										<div class="list-round bg-green"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计</div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+									<li class="list-item">
+										<div class="list-round"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计</div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+									<li class="list-item">
+										<div class="list-round"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计</div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+									<li class="list-item">
+										<div class="list-round"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计</div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+									<li class="list-item">
+										<div class="list-round"></div>
+										<div class="list-title">ICEUI最好的唯美简约设计</div>
+										<div class="list-time">2019-05-20</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="ws12">
+						<div class="box slider" data-slider-ani="ud" data-slider-time="2000">
+							<div class="box-title">
+								<div class="left">轮播图</div>
+								<div class="slider-buttons"></div>
+							</div>
+							<div class="box-content slider-box">
+								<div class="slider-list">
+									<div class="slider-item active"><img src="../img/banner1.jpg" alt="" /></div>
+									<div class="slider-item"><img src="../img/banner2.jpg" alt="" /></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wl4">
+				<div class="box">
+					<div class="box-title">
+						<div class="left">数据操作</div>
+						<div class="right">
+							<div class="icon-arrow-r"><span></span></div>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="list1">
+							<li class="list-item">
+								<div class="list-round bg-red"></div>
+								<div class="list-title el">管理员ICE刚刚登录本后台<span class="tag bg-red">最新</span></div>
+								<div class="list-desc">数据</div>
+								<div class="list-time">刚刚</div>
+							</li>
+							<li class="list-item">
+								<div class="list-round bg-orange"></div>
+								<div class="list-title">今日新增14篇文章<span class="tag bg-red">新增</span></div>
+								<div class="list-time">2小时前</div>
+							</li>
+							<li class="list-item">
+								<div class="list-round bg-green"></div>
+								<div class="list-title">新注册1位用户<span class="tag bg-orange">新增</span></div>
+								<div class="list-time">4小时前</div>
+							</li>
+							<li class="list-item">
+								<div class="list-round"></div>
+								<div class="list-title">删除1篇文章</div>
+								<div class="list-time">1天前</div>
+							</li>
+							<li class="list-item">
+								<div class="list-round"></div>
+								<div class="list-title">查询数据</div>
+								<div class="list-time">2天前</div>
+							</li>
+							<li class="list-item">
+								<div class="list-round"></div>
+								<div class="list-title">更新一篇文章《ICEUI是最简约的前后端框架》</div>
+								<div class="list-time">2天前</div>
+							</li>
+							<li class="list-item">
+								<div class="list-round"></div>
+								<div class="list-title">uz框架更新到代码V1.29</div>
+								<div class="list-time">1周前</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="w4">
+				<div class="box">
+					<div class="box-title bg-red">彩色面板
+						<a class="a-line" href="javascript:ice.prompt('Hello，我是一个prompt类型弹窗，欢迎使用哦！');">网站设置</a>
+						<div class="right">
+							<div class="dropdown">
+								<div class="box-icon icon-more dropdown-toggle"><span></span></div>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li class="dropdown-header">基本设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+									<li class="divider"></li>
+									<li class="dropdown-header">高级设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="list">
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-service"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-discount"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-bail"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-c"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-b"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-a"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-gift"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="w4">
+				<div class="box">
+					<div class="box-title bg-blue">彩色面板</div>
+					<div class="box-content">
+						<ul class="list">
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-service"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-discount"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-bail"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-c"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-b"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-a"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-gift"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="w4">
+				<div class="box">
+					<div class="box-title bg-gray">彩色面板</div>
+					<div class="box-content">
+						<ul class="list">
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-service"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-discount"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-bail"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-c"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-b"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-chart-a"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+							<li class="list-item">
+								<span class="list-icon"><i class="icon ice-gift"></i></span>
+								<span class="list-title">ICEUI最好的唯美简约设计</span>
+								<span class="list-time">2019-05-20</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

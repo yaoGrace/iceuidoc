@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dropdown下拉菜单</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Dropdown下拉菜单</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">下拉菜单是表单中必不可缺少的组件，在iceui中，下拉菜单使用html原生的select标签，而option
+					标签用于定义列表中的可选项，这一切对于前端开发者来说是很亲切的，因为你不需要再花时间来学习。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">下拉菜单</div>
+							<div class="dropdown">
+								<a href="#" class="btn dropdown-toggle">菜单列表<i class="icon arrow ice-arrow-line-b"></i></a>
+								<ul class="dropdown-menu">
+									<li class="dropdown-header">基本设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+									<li class="divider"></li>
+									<li class="dropdown-header">高级设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+								</ul>
+							</div>
+
+							<div class="title-l">
+								按钮可使用<code>btn</code>，所以支持主题颜色<code>bg-color</code>、<code>border-color</code>，当然你也可以自定义
+							</div>
+							<div class="dropdown">
+								<a href="#" class="btn bg-red dropdown-toggle">菜单列表<i
+										class="icon arrow ice-arrow-line-b"></i></a>
+								<ul class="dropdown-menu">
+									<li class="dropdown-header">基本设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+									<li class="divider"></li>
+									<li class="dropdown-header">高级设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+								</ul>
+							</div>
+
+							<div class="dropdown">
+								<a href="#" class="btn bg-blue dropdown-toggle">菜单列表<i
+										class="icon arrow ice-arrow-line-b"></i></a>
+								<ul class="dropdown-menu">
+									<li class="dropdown-header">基本设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+									<li class="divider"></li>
+									<li class="dropdown-header">高级设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+								</ul>
+							</div>
+
+							<div class="dropdown">
+								<a href="#" class="btn border-gray dropdown-toggle">菜单列表<i
+										class="icon arrow ice-arrow-line-b"></i></a>
+								<ul class="dropdown-menu">
+									<li class="dropdown-header">基本设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+									<li class="divider"></li>
+									<li class="dropdown-header">高级设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+								</ul>
+							</div>
+
+							<div class="title-l">我在右边弹出</div>
+							<div class="dropdown">
+								<a href="#" class="btn bg-gray dropdown-toggle">菜单列表<i
+										class="icon arrow ice-arrow-line-b"></i></a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li class="dropdown-header">基本设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+									<li class="divider"></li>
+									<li class="dropdown-header">高级设置</li>
+									<li><a href="#">菜单一</a></li>
+									<li><a href="#">菜单二</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

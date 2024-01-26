@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>文档示例-adminXL后台框架</title>
+  <meta name="keywords" content="iceui,adminXL,adminXL后台框架,html5,html5框架,css3响应式"/>
+  <meta name="description" content="adminXL后台框架基于优秀的ICEUI开发，是一款漂亮的后台html5框架，干净优美，内部拥有十分丰富的js控件，随意调用使用，纯原生开发，无任何依赖，冰清玉洁，高贵典雅！"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/doc/img/favicon.png"/>
+
+  <!-- 框架引用 -->
+  <link type="text/css" rel="stylesheet" href="/adminXL/iceui/src/ui/ui.css"/>
+  <link type="text/css" rel="stylesheet" href="/adminXL/adminXL.css"/>
+  <link type="text/css" rel="stylesheet" href="/style/main.css"/>
+  <script src="/adminXL/iceui/src/ice.js"></script>
+  <script src="/adminXL/iceui/src/ui/ui.js"></script>
+
+  <!-- 用户引用 -->
+  <link type="text/css" rel="stylesheet" href="/style/main.css"/>
+  <script src="/style/main.js"></script>
+</head>
+<body data-load="true">
+<div class="adminXL-page">
+  <!-- 侧栏 -->
+  <div class="adminXL-sidebar">
+    <!-- logo -->
+    <div class="adminXL-logo">
+      <a href="/doc-index" class="adminXL-logo-web"><img src="/img/logo.png" class="logo" alt="iceui"/>示例文档</a>
+      <a href="page/home.html" class="adminXL-logo-wap">
+        <img src=" /img/logo.png" class="logo" alt="iceui"/>
+        <span>adminXL</span>
+      </a>
+      <div class="adminXL-toggle-right"><span></span></div>
+      <div class="adminXL-toggle"><span></span></div>
+    </div>
+    <ul id="adminXL-tree" class="adminXL-sidebar-menu">
+      <li><a href="page/home.html"><i class="icon ice-home"></i><span class="title">首页</span></a></li>
+      <li><a href="page/iceui-doc.html"><i class="icon ice-help"></i><span class="title">如何使用ICEUI</span></a></li>
+      <li><a href="page/adminXL-doc.html"><i class="icon ice-code"></i><span class="title">adminXL开发文档</span></a></li>
+      <li>
+        <a href="javascript:;">
+          <i class="icon ice-lattice"></i>
+          <span class="title">ICEUI框架</span>
+          <span class="arrow"><i class="icon ice-arrow-line-r"></i></span>
+        </a>
+        <ul class="adminXL-menu-dropdown">
+          <li><a href="page/iceui/ice.html"><span class="title">ICE库</span></a></li>
+          <li><a href="page/iceui/ui.html"><span class="title">UI库</span></a></li>
+          <li><a href="page/iceui/admin.html"><span class="title">后台框架</span></a></li>
+          <li><a href="page/iceui/design.html"><span class="title">设计规范</span></a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="icon ice-page"></i>
+          <span class="title">表单</span><span class="tag tag-dot bg-red"></span>
+          <span class="arrow"><i class="icon ice-arrow-line-r"></i></span>
+        </a>
+        <ul class="adminXL-menu-dropdown">
+          <li><a href="page/form/basic-list.html"><span class="title">普通表单</span></a></li>
+          <li><a href="page/form/fieldset-list.html"><span class="title">Fieldset 方式表单</span></a></li>
+          <li><a href="page/form/tab-list.html"><span class="title">Tab 方式表单</span></a></li>
+          <li><a href="page/form/box-list.html"><span class="title">Box 方式表单</span></a></li>
+          <li><a href="page/form/control-list.html"><span class="title">表单控件</span></a></li>
+          <li><a href="page/form/fieldset.html"><span class="title">Fieldset 方式表单</span></a></li>
+          <li><a href="page/form/inputGroup.html"><span class="title">inputGroup 组合输入框</span></a></li>
+          <li><a href="page/form/select.html"><span class="title">select 下拉选择框</span></a></li>
+          <li><a href="page/form/dropdown.html"><span class="title">dropdown 下拉菜单</span></a></li>
+          <li><a href="page/form/checkbox.html"><span class="title">checkbox 复选框</span></a></li>
+          <li><a href="page/form/radio.html"><span class="title">radio 单选框</span></a></li>
+          <li><a href="page/form/input.html"><span class="title">input 文本框</span></a></li>
+          <li><a href="page/form/textarea.html"><span class="title">textarea 多行文本框</span></a></li>
+          <li><a href="page/form/toggle.html"><span class="title">toggle 开关</span></a></li>
+          <li><a href="page/form/upload.html"><span class="title">upload 文件上传</span></a></li>
+          <li><a href="page/form/form.html"><span class="title">form 表单</span></a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="icon ice-table"></i>
+          <span class="title">表格</span><span class="tag tag-dot bg-red"></span>
+          <span class="arrow"><i class="icon ice-arrow-line-r"></i></span>
+        </a>
+        <ul class="adminXL-menu-dropdown">
+          <li><a href="page/table/style.html"><span class="title">表格样式</span></a></li>
+          <li><a href="page/table/data.html"><span class="title">数据渲染</span><span class="tag tag-dot bg-red"></span></a></li>
+          <li><a href="page/table/doc.html"><span class="title">文档说明</span></a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="icon ice-category"></i>
+          <span class="title">布局</span><span class="tag tag-dot bg-red"></span>
+          <span class="arrow"><i class="icon ice-arrow-line-r"></i></span>
+        </a>
+        <ul class="adminXL-menu-dropdown">
+          <li><a href="page/layout/margin.html"><span class="title">元素间距</span></a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="icon ice-page"></i>
+          <span class="title">页面</span>
+          <span class="arrow"><i class="icon ice-arrow-line-r"></i></span>
+        </a>
+        <ul class="adminXL-menu-dropdown">
+          <li><a href="page/examples/article.html"><span class="title">文章管理</span></a></li>
+          <li><a href="page/examples/setting.html"><span class="title">网站设置</span></a></li>
+          <li><a href="page/examples/loading.html"><span class="title">页面加载动画</span></a></li>
+          <li><a href="page/examples/login.html" target="_blank"><span class="title">登录页</span></a></li>
+          <li><a href="page/examples/list.html"><span class="title">图文列表</span></a></li>
+          <li><a href="page/examples/404.html"><span class="title">404错误</span></a></li>
+          <li><a href="page/examples/ani-num.html"><span class="title">动态数字</span></a></li>
+          <li><a href="page/examples/parallax.html"><span class="title">视差背景图</span></a></li>
+          <li><a href="page/examples/img-view.html"><span class="title">点击图片放大</span></a></li>
+        </ul>
+      </li>
+      <li><a href="page/common.html"><i class="icon ice-product"></i><span class="title">常用样式</span></a></li>
+      <li><a href="page/icon.html"><i class="icon ice-face"></i><span class="title">图标库</span></a></li>
+      <li><a href="page/color.html"><i class="icon ice-div-color"></i><span class="title">颜色列表</span></a></li>
+      <li><a href="page/button.html"><i class="icon ice-button"></i><span class="title">按钮</span></a></li>
+      <li><a href="page/box.html"><i class="icon ice-lattice"></i><span class="title">面板</span></a></li>
+      <li><a href="page/grid.html"><i class="icon ice-layout"></i><span class="title">栅格系统</span></a></li>
+      <li><a href="page/tip.html"><i class="icon ice-dropdown"></i><span class="title">介绍框</span></a></li>
+      <li><a href="page/popup.html">
+        <i class="icon ice-page-list"></i><span class="title">弹窗</span><span class="tag tag-dot bg-red"></span>
+      </a>
+      </li>
+      <li><a href="page/nav.html"><i class="icon ice-dropdown"></i><span class="title">导航菜单</span></a></li>
+      <li><a href="page/breadcrumb.html"><i class="icon ice-dropdown"></i><span class="title">面包屑导航</span></a></li>
+      <li><a href="page/tree.html"><i class="icon ice-dendrogram-children"></i><span class="title">树形菜单</span></a></li>
+      <li><a href="page/slider.html"><i class="icon ice-carousel"></i><span class="title">轮播图</span></a></li>
+      <li><a href="page/tab.html"><i class="icon ice-tab"></i><span class="title">选项卡</span></a></li>
+      <li><a href="page/title.html"><i class="icon ice-h1"></i><span class="title">标题</span></a></li>
+      <li><a href="page/tag.html"><i class="icon ice-tag"></i><span class="title">标签</span></a></li>
+      <li><a href="page/badge.html"><i class="icon ice-picture"></i><span class="title">徽章</span><span class="tag tag-dot bg-red"></span></a></li>
+      <li><a href="page/paging.html"><i class="icon ice-inventory"></i><span class="title">分页</span></a></li>
+      <li><a href="page/progress.html"><i class="icon ice-progress"></i><span class="title">进度条</span></a></li>
+      <li><a href="page/view.html"><i class="icon ice-doughnut-chart"></i><span class="title">模板引擎</span><span class="tag tag-dot bg-red"></span></a></li>
+      <li><a href="page/date.html"><i class="icon ice-time"></i><span class="title">日历</span></a></li>
+      <li><a href="page/colorpicker.html"><i class="icon ice-div-color"></i><span class="title">颜色选择器</span><span class="tag tag-dot bg-red"></span></a></li>
+      <li><a href="page/area.html"><i class="icon ice-add"></i><span class="title">地区选择器</span><span class="tag tag-dot bg-red"></span></a></li>
+      <li><a href="page/code.html"><i class="icon ice-code"></i><span class="title">代码高亮</span></a></li>
+      <li><a href="page/editor.html"><i class="icon ice-writing"></i><span class="title">富文本编辑器</span></a></li>
+      <li><a href="page/darg.html"><i class="icon ice-choose"></i><span class="title">拖动排序</span></a></li>
+    </ul>
+    <div class="adminXL-menu-move"></div>
+  </div>
+  <!-- 内容 -->
+  <div class="adminXL-main">
+    <!-- 顶部 -->
+    <div class="adminXL-header">
+      <!-- 菜单 -->
+      <div class="adminXL-menu">
+
+        <!-- 顶部左侧菜单 -->
+        <div class="adminXL-menu-left">
+          <a href="page/update.html"><i class="icon ice-renovate"></i><span class="title">更新日志</span><span class="tag tag-dot bg-red"></span></a>
+          <a href="javascript:;" data-run="#code-console"><i class="icon ice-code"></i><span class="title">代码调试</span></a>
+          <div class="toggle tab-toggle">
+            多标签版
+            <input type="checkbox" id="tab-toggle" checked="checked">
+            <label for="tab-toggle"></label>
+          </div>
+        </div>
+
+        <!-- 顶部右侧菜单 -->
+        <div class="adminXL-menu-right">
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle"><i class="icon ice-set-up"></i>下拉菜单<i class="icon ice-arrow-line-b"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="/">菜单演示</a></li>
+              <li class="divider"></li><li class="dropdown-header">菜单演示</li>
+              <li><a href="/">菜单演示</a></li>
+            </ul>
+          </div>
+          <a href="https://iceui.cn" data-pjax="false" target="_blank"><i class="icon ice-revoke-left"></i><span class="title">返回首页</span></a>
+          <a href="javascript:message();"><i class="icon ice-message"></i><span class="title">联系我们</span></a>
+        </div>
+        <script>
+          //提示框
+          function message(){
+            ice.prompt({
+              content:'ICEUI是一个高端精美的前端框架，官方网站：<a href="https://www.iceui.cn">www.iceui.cn</a>',
+              btn:['知道了']
+            });
+          }
+        </script>
+      </div>
+      <!-- 标签列表 -->
+      <!-- <div class="adminXL-tab"></div> -->
+    </div>
+    <!-- 内容 -->
+    <div class="adminXL-content"></div>
+  </div>
+</div>
+<template id="code-console">
+  <div class="title-l">唯美青丝</div>
+  <p></p>
+  <script>
+    ice('p').html('看她折纤腰以微步，呈皓腕于轻纱。眸含春水清波流盼，头上倭堕髻斜插碧玉龙凤钗。香娇玉嫩秀靥艳比花娇，指如削葱根口如含朱丹，一颦一笑动人心魂');
+  </script>
+</template>
+<script>
+  //实际开发项目过程中用不到这行代码，这里主要用于高亮文档中的代码示例------------
+  //页面加载完成后的回调
+  var adminXLCallback = function(aa){
+    //配置运行代码环境
+    ice.run({
+      js: ['/adminXL/iceui/src/view/iceView.js'],
+      style: 'p{margin-top:30px;}',
+    })
+    ice.code();
+  }
+  //------------------------------------------------------------------------
+</script>
+<script type="module" src="./adminXL/adminXL.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iceColor颜色选择器</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">ColorPicker颜色选择器</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<p>iceColor是一款js颜色选择器，由ICEUI出品，拥有精美的界面，支持HEX、RGB、RGBA等颜色模式，支持手机端，使用方便，小巧玲珑，整个插件只有一个js，方便集成到任何web端，高效的可视化颜色编辑插件。
+				</p>
+				<p>作者：我已经习惯了chrome浏览器开发者工具自带的颜色选择器，用着很顺心，比较人性化，更重要的是HEX和RGB可以自由切换。</p>
+				<p>而现在网上的一些js颜色选择器用着都不顺手，所以打算自己开发，并放置在ICEUI框架中，当然你也可以单独使用，无任何依赖，纯原生开发。</p>
+				<p>经过一些时日最终完成了这个作品，界面与chrome的开发者工具自带的颜色选择器相仿，并且更加智能化，RGB可自动转为RGBA，同时HEX又可以转为RGB，三个关系可以相互转换。至此，已将颜色选择器控件补齐，这会有助于HTML5可视化编辑的开发，不仅如此，网站风格主题颜色的定制都可以方便的使用，现已经支持HEX、RGB、RGBA颜色模式。
+				</p>
+				<div class="tip bg-red">已支持手机端了，颜色块滑动很丝滑哦！</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="title-s">应用示例</div>
+				<p>使用方便，无需指定id或对象，遵循ICEUI理念，简化脚本上的逻辑，只需要添加一条class<code>iceColor</code>即可，可放在<code>div</code>或<code>input</code>中，根据环境自动格式化。预置颜色请用<code>data-color</code>，颜色值任意！
+				</p>
+
+				<div class="title-l">简单div形式</div>
+				<p>使用方式：div标签上添加一条class<code>iceColor-simple</code>即可</p>
+				<p>说明：该方式不影响原有的div排版样式，点击触发，选择颜色后自动改变div的背景色。</p>
+				<div class="color-demo">
+					<div class="demo-div iceColor-simple" data-color="#ff9800"></div>
+					<div class="demo-div iceColor-simple" data-color="#CDDC39"></div>
+					<div class="demo-div iceColor-simple" data-color="#4caf50"></div>
+					<div class="demo-div iceColor-simple" data-color="#2196f3"></div>
+					<div class="demo-div iceColor-simple" data-color="#E91E63"></div>
+				</div>
+				<template class="iceCode:html">
+					<!-- 属性data-color并不是必需的，它只是起到预置颜色的作用 -->
+					<div class="iceColor-simple" data-color="#ff9800"></div>
+				</template>
+
+				<div class="title-l">简单input形式</div>
+				<p>使用方式：input标签上添加一条class<code>iceColor-simple</code>即可</p>
+				<p>说明：该方式不影响原有的input样式，点击触发，选择颜色后自动改变input中的颜色值。</p>
+				<div class="color-demo">
+					<input class="iceColor-simple" data-color="#ff9800" type="text" />
+					<input class="iceColor-simple" data-color="#CDDC39" type="text" />
+					<input class="iceColor-simple" data-color="#4caf50" type="text" />
+					<input class="iceColor-simple" data-color="#2196f3" type="text" />
+					<input class="iceColor-simple" data-color="#E91E63" type="text" />
+				</div>
+				<template class="iceCode:html">
+					<input type="text" class="iceColor-simple" />
+				</template>
+
+				<div class="title-l">标准版形式</div>
+				<p>使用方式：div、input或任何标签上添加一条class<code>iceColor</code>即可</p>
+				<p>说明：该方式会直接将原有的元素删除，并在该位置创建一个新的颜色选择样式，可在该标签上添加data-name属性值，因为该方式会创建一个带有name属性的input空间，方便提交表单。</p>
+				<div class="color-demo">
+					<div class="iceColor" data-name="demo1" data-color="#ff9800"></div>
+					<div class="iceColor" data-name="demo2" data-color="#CDDC39"></div>
+					<div class="iceColor" data-name="demo3" data-color="#4caf50"></div>
+					<div class="iceColor" data-name="demo4" data-color="#E91E63"></div>
+				</div>
+				<template class="iceCode:html">
+					<!-- 属性data-name的值等同于创建的input的name值，方便提交表单，用不到可以不写 -->
+					<div class="iceColor" data-name="demo" data-color="#4caf50"></div>
+				</template>
+				<script>
+					ice.color(function (e) {
+						// console.log(e);
+					})
+				</script>
+
+				<div class="title-s">使用方法</div>
+				<template class="iceCode:js">
+					//方式一：先引入 /iceui/src/color/iceColor.js
+					ice.color(function(e){
+						console.log(e);
+					})
+
+					//方式二：如果在iceui框架环境中，可直接使用
+					ice.color(function(e){
+						console.log(e);
+					});
+
+					//回调中的返回值
+					{
+						r: 255, //RGB中的R值
+						g: 0, //RGB中的G值
+						b: 0, //RGB中的B值
+						a: 0.5, //RGB中的A值
+						h: 360, //HSV中的H值
+						s: 1, //HSV中的S值
+						v: 1, //HSV中的V值
+						hex: "#ff0000", //HEX值
+						rgb: "rgba(255,0,0,0.5)", //RGB值
+						type: "HEX", //当前值的类型
+						value: "#ff0000", //当前值
+					}
+				</template>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

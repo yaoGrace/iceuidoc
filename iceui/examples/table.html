@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>query方法的示例用法</title>
+    <link type="text/css" rel="stylesheet" href="../src/ui/ui.css">
+    <script src="../src/ice.js"></script>
+    <script src="../src/ui/ui.js"></script>
+    <style>
+        .table tr.active {
+            background: #f8f9fa;
+        }
+    </style>        
+</head>
+<body>
+    <div class="page">
+        <div class="box">
+            <div class="box-content">
+                <div class="title-l">数据表格示例：</div>
+                
+                <div class="row">
+                    <div class="w6">
+                        <div class="btn" id="btn1">全选</div>
+                        <div class="btn" id="btn2">反选</div>
+                        <div class="btn" id="btn3">取消选择</div>
+                        <div class="btn" id="btn4">打印选择的数据</div>
+                        <div class="btn" id="btn5">删除</div>
+                    </div>
+                    <form action="#" id="tab1-form" class="w6">
+                        <div class="group-input">
+                            <div class="group-label">名称查询</div>
+                            <input type="text" name="title" placeholder="请输入">
+                            <button type="submit" class="group-label btn">查询</button>
+                        </div>
+                    </form>
+                </div>
+
+                <table id="tab1" data-size="10"  data-highlight="true" data-url="table.json" class="table table-border table-hover">
+                    <thead>
+                        <tr>
+                            <th data-type="checkbox">
+                                多选
+                            </th>
+                            <th data-type="order" data-sort="true">
+                                序号
+                            </th>
+                            <th data-field="title">
+                                标题
+                            </th>
+                            <th data-field="content">
+                                内容
+                            </th>
+                            <th data-width=280>
+                                操作
+                                <template>
+                                    <span class="btn" data-click="edit">编辑</span>
+                                    <span class="btn" data-click="del">删除</span>
+                                    <span class="btn" data-click="render">刷新</span>
+                                </template>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function edit(e){
+            console.log(e)
+        }
+        function del(e){
+            console.log(e)
+            this.del(e.index)
+        }
+        function render(e){
+            this.render();
+        }
+        function test(e){
+            console.log(this)
+        }
+        ice.table({
+            id: 'tab1',
+            type: 'get',
+            query: {
+                form:'tab1-form',
+                submit:'tab1-submit',
+                success: function(){
+                    console.log(`查询成功了`);
+                }
+            },
+            success: function(e){
+                console.log(e);
+                ice('#btn1').click(function(){
+                    e.checkall();
+                });
+                ice('#btn2').click(function(){
+                    e.inverse();
+                });
+                ice('#btn3').click(function(){
+                    e.deselect();
+                });
+                ice('#btn4').click(function(){
+                    let arr = e.getCheckbox();
+                    console.log(arr)
+                });
+                ice('#btn5').click(function(){
+                    let arr = e.getCheckbox();
+                    ice.each(arr,function(){
+                        e.del(this.index);
+                    })
+                });
+            }
+        });
+    </script>
+</body>
+</html>

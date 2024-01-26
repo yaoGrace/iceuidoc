@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fieldset集合示例</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Fieldset集合示例</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">fieldset元素可将表单内的相关元素分组，当一组表单元素放到fieldset标签内时，浏览器会以特殊方式来显示它们，它们可能有特殊的边界、3D效果，或者甚至可创建一个子表单来处理这些元素，所以在前端中使用到它的地方并不多，不过在iceui框架中，我专门将fieldset的样式做了很大程度的优化。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+
+							<div class="title-l">普通样式</div>
+							<fieldset>
+								<legend>用户信息</legend>
+								<div class="row">
+									<div class="w4">
+										<div class="group-form">
+											<div class="group-label">姓名</div>
+											<div class="group-content">
+												<input type="text" class="group-input" name="fieldset1" placeholder="姓名"
+													value="" />
+											</div>
+										</div>
+									</div>
+									<div class="w4">
+										<div class="group-form">
+											<div class="group-label">出生</div>
+											<div class="group-content">
+												<input type="text" class="group-input" name="fieldset1" placeholder="出生"
+													value="" />
+											</div>
+										</div>
+									</div>
+									<div class="w4">
+										<div class="group-form">
+											<div class="group-label">籍贯</div>
+											<div class="group-content">
+												<input type="text" class="group-input" name="fieldset1" placeholder="籍贯"
+													value="" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="w4">
+										<div class="group-form">
+											<div class="group-label">出生地</div>
+											<div class="group-content">
+												<input type="text" class="group-input" name="fieldset1" placeholder="出生地"
+													value="" />
+											</div>
+										</div>
+									</div>
+									<div class="w4">
+										<div class="group-form">
+											<div class="group-label">邮箱</div>
+											<div class="group-content">
+												<input type="text" class="group-input" name="fieldset1" placeholder="邮箱"
+													value="" />
+											</div>
+										</div>
+									</div>
+									<div class="w4">
+										<div class="group-form">
+											<div class="group-label">电话</div>
+											<div class="group-content">
+												<input type="text" class="group-input" name="fieldset1" placeholder="电话"
+													value="" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+
+							<div class="title-l">标题居中</div>
+							<fieldset>
+								<legend class="legend-center">用户信息</legend>
+								<p>内容</p>
+							</fieldset>
+
+							<div class="title-l">各种颜色</div>
+							<div class="doc-intro pb20">fieldset中的legend标签添加<code>bg-color</code>就可以更改标题颜色哦！</div>
+							<fieldset>
+								<legend class="bg-red">用户信息</legend>
+								<p>内容</p>
+							</fieldset>
+							<fieldset>
+								<legend class="bg-green">用户信息</legend>
+								<p>内容</p>
+							</fieldset>
+							<fieldset>
+								<legend class="bg-blue">用户信息</legend>
+								<p>内容</p>
+							</fieldset>
+							<fieldset>
+								<legend class="bg-gray">用户信息</legend>
+								<p>内容</p>
+							</fieldset>
+
+							<div class="title-l">fieldset中不仅可以放表单哦，还可以这样</div>
+							<fieldset>
+								<legend>用户信息</legend>
+								<div class="tab tab-line">
+									<div class="tab-menu">
+										<div class="tab-menu">
+											<a href="#">示例</a>
+											<a href="#">文档</a>
+										</div>
+									</div>
+									<div class="tab-main">
+										<div class="tab-content">
+											<div class="title-l">支持主体颜色列表</div>
+										</div>
+										<div class="tab-content">
+											<div class="doc-intro">
+												<p>标题底色：fieldset中的legend标签添加class<code>bg-color</code>就可以更改标题颜色哦！</p>
+												<p>标题居中：legend标签添加class<code>legend-center</code></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">说明</div>
+							<div class="doc-intro">
+								<p>标题添加底色：legend标签添加class<code>bg-color</code></p>
+								<p>标题设为居中：legend标签添加class<code>legend-center</code></p>
+							</div>
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

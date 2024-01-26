@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>adminXL开发文档</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="doc-nav">
+			<div class="doc-main">
+				<div class="doc-head">adminXL开发文档<span class="doc-version">v1.02</span></div>
+				<div class="title-l">介绍</div>
+				<p>adminXL后台框架基于优秀的ICEUI开发，是一款漂亮的html5后台框架，干净优美，内部拥有十分丰富的js控件，随意调用使用，纯原生开发，无任何依赖，冰清玉洁，高贵典雅！</p>
+				<p>adminXL不仅展示了ICEUI的基本组件示例，同时也展示了一套Admin后台框架的基本组成，这套后台框架基于PJAX技术开发，PJAX结合了html5的<code>pushState</code>和<code>ajax</code>技术，从而实现了网站无刷新加载的技术，这要比<code>hash</code>更加方便，url上的锚点#对我来说是无法忍受的。
+				</p>
+				<p>提示：不得恶意分享本产品源代码、二次转售等，违者必究。</p>
+				<p>本产品在使用过程中如有疑问请联系我QQ：46769985，或加入官方QQ群：324415936</p>
+				<p>凡是购买本产品的，拥有永久的售后服务，提供技术指导。</p>
+				<p>如果您未获取授权，请移步这里：<a href="../../product/view/AdminXL.html"
+						target="_blank">https://iceui.cn/product/view/AdminXL</a></p>
+
+				<div class="title-l">adminXL结构</div>
+				<template class="iceCode:text">
+					目录结构
+					├─adminXL (存放视图页面)
+					│ ├─iceui (iceui框架)
+					│ ├─adminXL.js (核心类)
+					│ ├─adminXL.css (核心样式)
+					│ └─page.js (page页面引入)
+					├─img (存放图片)
+					├─style (存放css和js)
+					│ ├─main.css (用户自定义的公共样式)
+					│ └─main.js (用户自定义的公共代码)
+					├─page (存放视图页面)
+					│ └─home.html (视图页面)
+					├─config.js (项目配置文件)
+					└─index.html (后台模板)
+				</template>
+				<p>adminXL框架的结构十分简洁，<code>page</code>文件夹不是必须的，用户可自定义，此处用于演示，其它请尽量保持一致。</p>
+				<p>1. <b>adminXL</b>
+					adminXL的核心文件，一般无需改动此处，如有需要改动某些iceui的样式，请将样式文件放在<code>style</code>文件夹中，以优先级的方式覆盖需要修改的样式。</p>
+				<p>2. <b>img</b> 文件夹用于存放图片，应将所有的图片放于此处，方便管理，复杂的功能模块请以模块名称命名，并放于<code>img</code>文件夹下。</p>
+				<p>3. <b>style</b> 用户自定义的js和css请放入<code>style</code>中。</p>
+				<p>4. <b>page</b>
+					文件夹用于存放视图页面（例如html文件），该文件夹的名称不是必须的，包括该文件夹都不是必须的，具体由用户自己定义，这里只举例，但为了保持规范，用户应当将所有的视图页面放于一个文件夹中去管理。</p>
+				<p>5. <b>index.html</b> 位于项目的根目录，是后台模板，也就是整个后台的页面框架，具体结构请查看源码文件，这里不过多赘述。</p>
+				<p>6. <b>config.js</b> 是项目的配置文件，具体信息如下。</p>
+				<template class="iceCode:js">
+					/**
+					* ------------------------------------------------------------
+					* adminXL - 全局配置
+					* ------------------------------------------------------------
+					*/
+					export var config = {
+
+					//adminXL项目所在目录，目录结尾必须要有斜杠
+					//如果部署在根目录中，则应为 host:'/'
+					//如果部署在admin目录中，则应为 host:'/admin/'
+					host:'/doc/',
+
+					//默认首页
+					index:'/page/home.html',
+
+					//默认错误页
+					error:'/page/error.html',
+
+					//页面请求的方式，有效值：get、post
+					ajax:'get',
+
+					//项目是否部署在纯静态环境中，如果没有动态语言支持，纯前后端分离请填写：true
+					static:false,
+
+					//导航侧栏
+					sidebar: {
+					//初始化时，默认不展开全部菜单，注意：开启展开时，closeAll参数必须为false
+					spread: false,
+					//点击二级菜单时，展开当前选中菜单，关闭其它已展开的菜单
+					closeAll: true,
+					//点击二级菜单时，展开与收缩的动画速度，单位毫秒，值越小速度越快
+					time: 2
+					}
+
+					//用户可以在这里自定义添加其它配置项
+					};
+				</template>
+
+				<div class="title-l">adminXL项目部署</div>
+				<p>第一步一定先打开<code>config.js</code>文件配置一下，每个参数都有详细注释说明，按需求修改即可。</p>
+				<p>这里需要注意的是<code>static</code>参数，如果在纯html环境下部署（前后端分离，页面视图为纯html，并与adminXL部署在一起），需要设为<code>true</code>。
+				</p>
+				<p>如果部署在动态语言环境中，页面视图也可以用纯html文件来做，如果由于安全问题怕页面视图文件泄露，可通过伪静态或动态语言提供的路由来屏蔽直链或隐藏真实路径。</p>
+				<p>本程序推荐部署在动态语言环境中，html视图文件与adminXL放在一起，方便管理，方便迁移到任何环境中，然后通过路由来控制视图，设置伪静态比较安全，链接随意定制化，这里提供一个php版本(apache+php)的简单路由。
+				</p>
+				<p class="bold">.htaccess(伪静态)文件</p>
+				<template class="iceCode:.htaccess">
+					&lt;IfModule mod_rewrite.c&gt;
+					RewriteEngine on
+
+					RewriteCond %{REQUEST_URI} ^.*\.html\??.*?$
+					RewriteRule ^(.*?)([^/]*)$ index.php?$2 [QSA,PT,L]
+
+					&lt;/IfModule&gt;
+				</template>
+				<p class="bold">index.php文件</p>
+				<template class="iceCode:php">
+					//例如访问：https://xxx.xx/article/list.html
+					//假设视图文件真实路径为：/admin/page/article/list.html，用户并不知道视图文件的路径，视图文件也可以为php文件
+
+					//判断是否为Ajax请求
+					$ajax = (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+					strtolower(trim($_SERVER['HTTP_X_REQUESTED_WITH'])) == 'xmlhttprequest');
+
+					//通过获取URL信息拼接视图文件路径
+					//实际用到REQUEST_URI时，还是应该做一些处理的，用户可能在url附带参数，例如：https://xxx.xx/article/list.html?page=3
+					$viewFile = '/admin/page'.$_SERVER['REQUEST_URI'];
+
+					//判断视图文件是否存在
+					if(is_file($viewFile)){
+					//引入视图文件
+					include $viewFile;
+					exit;
+					}
+				</template>
+				<p>不管是php还是其它编程语言，一般都可以通过请求头的<code>X-Requested-With</code>参数来判断是否为ajax，这里不做过多的赘述。</p>
+
+				<div class="title-l">adminXL页面开发</div>
+				<p>此处假设为前后端分离的项目，那么前端的静态页面编写十分简单，只需要单独的写【后台框架内容区】的代码即可。</p>
+				<p class="bold">模板示例：</p>
+				<template class="iceCode:html">
+					&lt;script type="module" src="../adminXL/page.js"&gt;&lt;/script&gt;
+
+					<!-- 视图代码 -->
+					<template class="adminXL-content">
+						<div class="adminXL-box">
+							<!-- 标题 -->
+							<div class="admin-title">标题</div>
+
+							<!-- 顶部表单区，一般放检索数据列表的表单 -->
+							<div class="admin-top"></div>
+
+							<!-- 内容区，一般放数据列表 -->
+							<div class="admin-middle"></div>
+
+							<!-- 底部区，一般放操作数据列表的按钮或者其它 -->
+							<div class="admin-bottom"></div>
+						</div>
+
+						<!-- 脚本 -->
+						&lt;script&gt;
+						//脚本
+						&lt;/script&gt;
+					</template>
+				</template>
+				<p>例如编写一个文章管理的功能模块，html文件：<code>/page/article.html</code></p>
+				<template class="iceCode:html">
+					<!-- 
+						1. 如果为纯静态html环境，那么每个页面的第一行代码必须引用page.js文件，注意tpye为module
+						这么做的理由是为了用户刷新页面能重新打开该视图。
+						2. 如果当前项目由动态语言编写，就不在需要这行script代码了，服务端判断该页面请求是否为异步就行了
+						如果为异步，只需要返回该页面的html内容即可，如果为同步，则返回包含整个后台的html内容。
+						-------------
+						这里的template标签并不是必须的，只适用于纯静态的html环境中，这是为了防止刷新当前页面造
+						成页面一瞬间出现错乱的网站内容，有了该标签之后，浏览器并不会解析template的内容，但adminXL
+						接收到后会进行解析，所以这里不要疑惑，你只需要当做这只是个模板就好，剩下的交给程序来做。
+					-->
+					&lt;script type="module" src="../adminXL/page.js"&gt;&lt;/script&gt;
+
+					<!-- 内容 -->
+					<template class="adminXL-content">
+						<div class="adminXL-box">
+							<!-- 标题 -->
+							<div class="admin-title">
+								<!-- 标题名称 -->
+								<span>文章列表</span>
+								<!-- 标题右侧按钮 -->
+								<a href="../../page/article/add.html" class="btn">添加文章</a>
+							</div>
+
+
+							<!-- 顶部表单区，一般放检索数据列表的表单 -->
+							<div class="admin-top">
+								<form action="#" data-table="table">
+									<div class="admin-form-item">
+										<label>文章名称</label>
+										<input type="text" name="title" placeholder="请输入文章名称" />
+									</div>
+									<div class="admin-form-item">
+										<label>作者名称</label>
+										<input type="text" name="user" placeholder="请输入作者名称" />
+									</div>
+									<div class="admin-form-item">
+										<button type="submit" class="btn">搜索</button>
+									</div>
+								</form>
+							</div>
+
+							<!-- 内容区，一般放数据列表 -->
+							<div class="admin-middle">
+								<table id="table" class="iceTable-height table table-border"></table>
+							</div>
+
+							<!-- 底部区，一般放操作数据列表的按钮或者其它 -->
+							<div class="admin-bottom">
+								<div class="btn bg-blue" id="checkall">全选</div>
+								<div class="btn bg-blue" id="inverse">反选</div>
+								<div class="btn bg-red" id="delete">批量删除</div>
+							</div>
+
+						</div>
+
+						<!-- 脚本 -->
+						&lt;script&gt;
+						//表格
+						ice.table({
+						id: 'table',
+						url: 'api/getList',
+						size: 30,
+						thead:[
+						{type:'checkbox',name:'选择'},
+						{type:'order',name:'序号'},
+						{field:'title',name:'文章名称'},
+						{field:'createTime',name:'创建时间'},
+						{name:'操作',width:280,template:`
+						<span class="btn bg-gray" data-click="edit">编辑</span>
+						<span class="btn bg-red" data-click="del">删除</span>
+						`},
+						],
+						success: function(e){
+						//全选
+						ice('#checkall').click(function(){
+						e.checkall();
+						});
+						//反选
+						ice('#inverse').click(function(){
+						e.inverse();
+						});
+						//批量删除
+						ice('#delete').click(function(){
+						//获取所选择的数据id集合
+						console.log(e.getCheckId('id'));
+						});
+						}
+						});
+
+						//编辑
+						function edit(e){
+						console.log(e.data.id)
+						}
+
+						//删除
+						function del(e){
+						console.log(e.data.id)
+						}
+						&lt;/script&gt;
+					</template>
+				</template>
+				<p>这是一个简单的通用示例。</p>
+
+				<div class="title-l">adminXL的a链接设置和跳转问题</div>
+				<p>a链接规范：请尽量使用【绝对路径】来设置a标签的url链接，如果adminXL放在了二级目录<code>demo</code>文件夹中，这里一定要注意，a标签的href不要写<code>/demo/page/home.html</code>，没有<code>/demo/</code>这个前缀，一定要写<code>/page/home.html</code>，重要的事情说三遍，【a标签中的href中不要加二级目录】，不然你的项目需要迁移至别的文件夹，莫非你还要一个一个更改所有的a标签？这是不可能的，adminXL中所有a标签的绝对路径指的都是当前adminXL框架的目录。
+				</p>
+				<p>这里你需要注意：adminXL的<code>config.js</code>配置中，host参数主要用于声明当前项目部署在根目录中，还是子级目录中，下来通过举例来说明：</p>
+				<template class="iceCode:html">
+					<!-- 
+						config.js文件
+						如果参数 host: '/'
+						此时的a链接实际访问地址为：/page/home.html
+					-->
+					<a href="../../page/home.html">首页</a>
+
+					<!-- 
+						config.js文件
+						如果参数 host: '/demo/'
+						此时的a链接实际访问地址为：/demo/page/home.html
+					-->
+					<a href="../../page/home.html">首页</a>
+				</template>
+				<p>如果再某个多级的文件夹中，你想使用相对路径，可以，这是支持的，请看一下示例：</p>
+				<template class="iceCode:html">
+					<!-- 
+						/page/article/list.html 中的代码
+						此时的a链接实际访问地址为：/page/article/create.html
+					-->
+					<a href="create.html">添加文章</a>
+				</template>
+				<p>注意：adminXL框架会劫持所有的a链接，将其a链接的视图内容动态加载到adminXL的内容区，如果你的本意是直接打开一个新链接，而不是局部加载的话，那么a标签上应该加上一个属性：<code>data-pjax="false"</code>，或者新窗口打开<code>target="_blank"</code>。
+				</p>
+				<template class="iceCode:html">
+					<!-- 当前页的内容区打开该链接，局部刷新 -->
+					<a href="../../page/home.html">首页</a>
+
+					<!-- 当前页打开该链接，会刷新当前页面 -->
+					<a href="../../page/home.html" data-pjax="false">首页</a>
+
+					<!-- 新窗口打开页面，注意：这里是受config中host的影响的
+						如果host设为'/demo/'，那么此链接跳转的实际页面为 /demo/page/home.html -->
+					<a href="../../page/home.html" target="_blank">首页</a>
+
+					<!-- 新窗口打开页面，这种方式将不受config中host的影响
+						此链接跳转的实际页面为 /page/home.html -->
+					<a href="../../page/home.html" data-pjax="false" target="_blank">首页</a>
+				</template>
+
+				<div class="title-l">adminXL函数</div>
+				<p>adminXL框架驱动基于自身的adminXL类（注意名称，框架名称的首字母为大写，编程中统一为小驼峰命名法），具体使用如下。</p>
+				<template class="iceCode:js">
+					//每次页面加载完成后的回调
+					//该回调必须放在引用adminXL.js之前
+					var adminXLCallback = function(url, res){
+					console.log(url);
+					}
+
+					//每次页面加载完成后的回调
+					//与adminXLCallback不同的是该函数在初始化页面时不会被调用，在点击链接加载页面时才会生效。
+					adminXL.callback = function(url, res){
+					console.log(url);
+					}
+
+					//获取config.js的全局配置信息
+					adminXL.config;
+
+					//pjax主函数，主要针对adminXL框架自身使用，用户一般用不到，这里记录一下。
+					adminXL.pjax(json);
+
+					//重新加载当前视图页面，但不是刷新整个页面哦，是局部加载内容区的视图
+					adminXL.render();
+
+					//返回使用host的url
+					adminXL.url('/page/home.html');
+
+					//打开指定url - 局部加载页面方式
+					adminXL.open('/page/home.html');
+
+					//打开指定url - 打开一个全新的页面，会刷新整个视图
+					adminXL.href('/page/home.html');
+
+					//打开指定url - 第二个参数用于控制url是否使用host，参数为布尔类型，ture或false，默认为ture
+					//如果为ture: 例如config.js文件中配置了host: '/adminXL/'，那么实际打开的链接为'/adminXL/page/home.html'
+					//如果为false: 实际打开的链接为'/page/home.html'
+					//如果url是一个有效的网址（https://或http://开头），那么第二个参数将无效
+					adminXL.href('/page/home.html', false);
+
+					//展开侧栏菜单
+					adminXL.sidebar.open();
+
+					//收缩侧栏菜单
+					adminXL.sidebar.close();
+
+					//设置侧栏菜单
+					//后台的侧栏菜单可以直接在index.html后台模板中用html来写，也可以通过本函数来直接传递一个Array来格式化侧栏菜单。
+					//菜单项的参数说明（子级菜单与父级菜单参数一样）：
+					//name {String} 【必填】 菜单名称
+					//url {String} 【必填】 打开的页面链接
+					//icon {String} 【必填】 菜单图标，如果是子级，无需填写，这里可以填写第三方图标库
+					//dot {String} 【选填】 菜单上的小圆点，指定一个颜色，颜色值参考iceui中的颜色列表
+					//child {Array} 【必填】 子级菜单
+					//------------------------------------------------------
+					//示例：
+					adminXL.menu([
+					{
+					name: '后台首页',
+					url: '/page/home.html',
+					icon: 'ice-home'
+					},
+					{
+					name: '用户留言',
+					url: '/page/message.html',
+					icon: 'ice-speak',
+					dot: 'red'
+					},
+					{
+					name: '文章管理',
+					url: '/page/article.html',
+					icon: 'ice-page',
+					child: [
+					{
+					name: '添加文章',
+					url: '/page/article/add.html',
+					},
+					{
+					name: '分类管理',
+					url: '/page/article/category.html',
+					}
+					]
+					}
+					]);
+
+					//设置侧栏菜单选中状态 - 判断依据菜单上的url
+					adminXL.menuActive('/page/article.html');
+
+					//初始化链接
+					//点击内容区动态生成的a链接，会刷新当前整个页面，所以需要再次使用该方法重新劫持a链接，使其点击时局部刷新
+					//一般用于内容区有js生成的a链接，点击a链接需要刷新内容区的内容
+					adminXL.linkInit('.class a');
+				</template>
+				<p></p>
+
+			</div>
+			<div class="doc-menu">
+				<div class="doc-menu-title">文档目录</div>
+				<ul></ul>
+			</div>
+		</div>
+		<script>
+			//初始化文档
+			docInit();
+		</script>
+	</template>
+</body>
+</html>

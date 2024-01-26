@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form表单</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">Form表单</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="doc-intro">这里是表单的一些示例。</div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="tab tab-line">
+                    <div class="tab-menu">
+                        <div class="tab-menu">
+                            <a href="#">示例</a>
+                            <a href="#">文档</a>
+                        </div>
+                    </div>
+                    <div class="tab-main">
+                        <div class="tab-content" id="demo">
+                            <div class="title-l">示例样式</div>
+                            <div class="group-form">
+                                <div class="group-label">文章标题</div>
+                                <div class="group-content">
+                                    <input type="text" class="form-control" placeholder="请输入" />
+                                    <small class="help">建议50个字符以内</small>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">文章简介</div>
+                                <div class="group-content">
+                                    <textarea class="form-control" placeholder="请输入"></textarea>
+                                    <small class="help">默认截取300字做为简介</small>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">所属分类</div>
+                                <div class="group-content">
+                                    <select class="select">
+                                        <option value="1">红袖天香</option>
+                                        <option value="2" selected>断桥残雪</option>
+                                        <option value="3">墨染双蕊</option>
+                                        <option value="4">悠悠我心</option>
+                                        <option value="5">镜花水月</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">时间选择</div>
+                                <div class="group-content">
+                                    <input type="text" name="time" id="time" placeholder="默认为当前创建时间" />
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">时间筛选</div>
+                                <div class="group-content">
+                                    <input type="text" id="startTime" name="startTime" placeholder="起始时间" value="" />
+                                    -
+                                    <input type="text" id="endTime" name="endTime" placeholder="结束时间" value="" />
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">属性操作</div>
+                                <div class="group-content">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="d1-1" value="1" checked />
+                                        <label for="d1-1">免费</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="d2-1" value="2" />
+                                        <label for="d2-1">推荐</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="d3-1" value="3" />
+                                        <label for="d3-1">热门</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="d4-1" value="4" />
+                                        <label for="d4-1">最新</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">活动管理</div>
+                                <div class="group-content">
+                                    <div class="radio">
+                                        <input type="radio" name="d2" id="d1-2" value="1" checked />
+                                        <label for="d1-2">首页推广</label>
+                                    </div>
+                                    <div class="radio">
+                                        <input type="radio" name="d2" id="d2-2" value="2" />
+                                        <label for="d2-2">分类推广</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">主题颜色</div>
+                                <div class="group-content">
+                                    <div class="iceColor" data-name="demo" data-color="#4caf50"></div>
+                                </div>
+                                <script>
+                                    //设置回调
+                                    ice.color(function (e) {
+                                        console.log(e);
+                                    })
+                                </script>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">是否置顶</div>
+                                <div class="group-content">
+                                    <div class="toggle">
+                                        <input type="checkbox" id="d1-3" value="1" checked />
+                                        <label for="d1-3"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">是否收费</div>
+                                <div class="group-content">
+                                    <div class="toggle-text">
+                                        <input type="checkbox" id="d1-4" value="1" checked />
+                                        <label for="d1-4"><span>ON</span><span>OFF</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">单文件上传</div>
+                                <div class="group-content">
+                                    <div class="iceUpload-single">
+                                        <input type="file" name="singleFile" />
+                                        <a href="#" class="btn bg-green">添加附件</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">多图片上传</div>
+                                <div class="group-content">
+                                    <div class="iceUpload-img" data-name="file" data-accept="image/*"
+                                        data-url="/lib/upload.php" data-del="imgDel" data-success="imgSuccess">
+                                        <div class="btn bg-blue">添加图片</div>
+                                    </div>
+                                    <script>
+                                        function imgDel(e, list) {
+                                            console.log('删除某项的回调');
+                                            console.log('删除图片：', e);
+                                            console.log('删除后的图片列表：', list.join(','));
+                                        }
+                                        function imgSuccess(e, list) {
+                                            console.log('上传成功的回调');
+                                            console.log('上传的图片：', e.url);
+                                            console.log('上传后的图片列表：', list.join(','));
+                                        }
+                                    </script>
+                                    <small class="help">自带缩略图展示，可自定义上传图片的格式</small>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">多附件上传</div>
+                                <div class="group-content">
+                                    <div class="iceUpload-file" data-name="file" data-url="/lib/upload.php"
+                                        data-del="fileDel" data-success="fileSuccess">
+                                        <div class="btn bg-black">添加文件</div>
+                                    </div>
+                                    <script>
+                                        function fileDel(e, list) {
+                                            console.log('删除某项的回调');
+                                            console.log('删除文件：', e);
+                                            console.log('删除后的文件列表：', list.join(','));
+                                        }
+                                        function fileSuccess(e, list) {
+                                            console.log('上传成功的回调');
+                                            console.log('上传的文件：', e.url);
+                                            console.log('上传后的文件列表：', list.join(','));
+                                        }
+                                    </script>
+                                    <small class="help">自带存储大小，可自定义上传附件的格式</small>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label">内容编辑</div>
+                                <div class="group-content">
+                                    <textarea id="content"
+                                        name="content"><p>本编辑器由<font color="#4bacc6">原生JS</font>编写，不依赖任何框架和Css文件，只需要插入<font color="#4bacc6">iceEditor.js</font>文件就可以使用！就跟整个iceui一样，所有的插件模块均保持惯有的<font color="#4bacc6">「纯洁」</font>，不依赖Jquery和任何插件，这是iceui独有的<font color="#4bacc6">「高尚情操」</font>！本座认为，面对如今如此复杂的世界，应该没有任何框架能保持如此的纯洁性了……</p></textarea>
+                                </div>
+                            </div>
+                            <div class="group-form">
+                                <div class="group-label"></div>
+                                <div class="group-content">
+                                    <input type="submit" class="btn bg-green mr20" value="提交" /> <input type="reset"
+                                        class="btn bg-orange" value="重置" />
+                                </div>
+                            </div>
+                            <script>
+                                ice.editor('content', function () {
+                                    this.height = '200px';
+                                    this.uploadUrl = '/iceui/src/editor/upload/php-upload.php';
+                                    this.create();
+                                });
+                                ice.date({ id: 'time', format: 'y-m-d h:i:s' });
+                                ice.date({ id: 'startTime' });
+                                ice.date({ id: 'endTime' });
+                            </script>
+                        </div>
+                        <div class="tab-content">
+                            <div class="title-l">代码示例</div>
+                            <pre data-id="demo"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

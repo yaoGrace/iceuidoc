@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>InputGroup组合输入框</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">InputGroup组合输入框</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">组合输入框在表单中是最常用的，一般形式为标题+输入框，这种方式更加直观，尤其是标题与输入框的鲜明对比可以让用户更加直观的知道需要输入什么信息。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">标题+输入框</div>
+							<div class="group-input">
+								<div class="group-label">您的账号</div>
+								<input type="text" placeholder="账号" />
+							</div>
+							<div class="group-input">
+								<div class="group-label">您的密码</div>
+								<input type="password" placeholder="密码" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-blue">您的邮箱</div>
+								<input type="text" placeholder="邮箱" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-red">您的微信</div>
+								<input type="text" placeholder="微信" />
+							</div>
+
+							<div class="title-l">标题支持图标</div>
+							<div class="group-input">
+								<div class="group-label"><i class="icon ice-user"></i>用户</div>
+								<input type="text" placeholder="用户" />
+							</div>
+							<div class="group-input">
+								<div class="group-label"><i class="icon ice-tel"></i>电话</div>
+								<input type="text" placeholder="电话" />
+							</div>
+
+							<div class="title-l">支持标题在右侧</div>
+							<div class="group-input">
+								<input type="text" placeholder="内容" />
+								<div class="group-label">右侧标题</div>
+							</div>
+
+							<div class="title-l">当然也可以通过栅格系统一行放置多列</div>
+							<div class="row">
+								<div class="group-input w6">
+									<div class="group-label"><i class="icon ice-user"></i>用户</div>
+									<input type="text" placeholder="用户" />
+								</div>
+								<div class="group-input w6">
+									<div class="group-label"><i class="icon ice-tel"></i>电话</div>
+									<input type="text" placeholder="电话" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="group-input w4">
+									<div class="group-label"><i class="icon ice-user"></i>用户</div>
+									<input type="text" placeholder="用户" />
+								</div>
+								<div class="group-input w4">
+									<div class="group-label"><i class="icon ice-tel"></i>电话</div>
+									<input type="text" placeholder="电话" />
+								</div>
+
+								<div class="group-input w4">
+									<div class="group-label"><i class="icon ice-weixin"></i>微信</div>
+									<input type="text" placeholder="微信" />
+								</div>
+							</div>
+
+							<div class="title-l">如果你以为这就结束了，大错特错，按钮必须支持</div>
+							<div class="doc-intro">按钮的底色支持主题颜色<code>bg-color</code></div>
+							<div class="group-input">
+								<div class="group-label">获取验证码</div>
+								<input type="text" placeholder="手机号" />
+								<div class="group-label btn">发送</div>
+							</div>
+
+							<div class="title-l">还没结束，既然是组合输入框，那么是支持多列的，或者说无限列，随意组合</div>
+							<div class="group-input">
+								<div class="group-label"><i class="icon ice-calendar"></i>起始时间</div>
+								<input type="text" id="groupStartTime" name="startTime" placeholder="起始时间" />
+								<div class="group-label"><i class="icon ice-calendar"></i>结束时间</div>
+								<input type="text" id="groupEndTime" name="startTime" placeholder="结束时间" />
+							</div>
+							<div class="title-l">不同颜色的标题、不同颜色的按钮都可以通过主题色<code>bg-color</code>来设置</div>
+							<div class="group-input">
+								<div class="group-label bg-red"><i class="icon ice-div-color"></i>红色</div>
+								<input type="text" placeholder="内容" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-orange"><i class="icon ice-div-color"></i>红色</div>
+								<input type="text" placeholder="内容" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-green"><i class="icon ice-div-color"></i>绿色</div>
+								<input type="text" placeholder="内容" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-gray"><i class="icon ice-div-color"></i>灰色</div>
+								<input type="text" placeholder="内容" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-black"><i class="icon ice-div-color"></i>黑色</div>
+								<input type="text" placeholder="内容" />
+							</div>
+							<div class="group-input">
+								<div class="group-label bg-blue"><i class="icon ice-div-color"></i>蓝色</div>
+								<input type="text" placeholder="内容" />
+							</div>
+							<div class="row">
+								<div class="group-input w6">
+									<div class="group-label bg-cyan">获取验证码</div>
+									<input type="text" placeholder="手机号" />
+									<div class="group-label btn bg-cyan">发送</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			ice.date({ id: 'groupStartTime' });
+			ice.date({ id: 'groupEndTime' });
+		</script>
+	</template>
+</body>
+</html>

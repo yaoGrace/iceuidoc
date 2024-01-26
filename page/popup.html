@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Popup弹窗</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">Popup弹窗</div>
+
+            <!-- 顶部 -->
+            <div class="adminXL-top">
+                <div class="doc-intro">弹窗的应用十分普遍，这里提供了几种弹窗风格，具体请看示例。</div>
+            </div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="tab tab-line">
+                    <div class="tab-menu">
+                        <div class="tab-menu">
+                            <a href="#">示例</a>
+                            <a href="#">文档</a>
+                        </div>
+                    </div>
+                    <div class="tab-main">
+                        <div class="tab-content" id="demo">
+                            <div class="title-l">Popup弹出层</div>
+
+                            <div class="title-h4">状态</div>
+                            <div onclick="popup_a()" class="btn">标准弹窗</div>
+                            <div onclick="popup_c()" class="btn bg-orange">无标题栏弹窗</div>
+                            <div onclick="popup_d()" class="btn bg-green">有页脚栏弹窗</div>
+                            <div onclick="popup_e()" class="btn bg-green">有背景弹窗</div>
+                            <div onclick="popup_f()" class="btn bg-green">iframe弹窗</div>
+
+                            <div class="title-h4">动画</div>
+                            <div onclick="popup_ani('ani-up-in')" class="btn">上边滑入</div>
+                            <div onclick="popup_ani('ani-right-in')" class="btn bg-blue">右边滑入</div>
+                            <div onclick="popup_ani('ani-down-in')" class="btn bg-orange">下边滑入</div>
+                            <div onclick="popup_ani('ani-left-in')" class="btn bg-green">左边滑入</div>
+
+                            <div class="title-h4">位置</div>
+                            <div onclick="popup_p('t')" class="btn">顶部弹出</div>
+                            <div onclick="popup_p('b')" class="btn bg-blue">底部弹出</div>
+                            <div onclick="popup_p('l')" class="btn bg-orange">左边弹出</div>
+                            <div onclick="popup_p('r')" class="btn bg-green">右边弹出</div>
+                            <div onclick="popup_p('lt')" class="btn bg-red">左上角弹出</div>
+                            <div onclick="popup_p('lb')" class="btn bg-blue">左下角弹出</div>
+                            <div onclick="popup_p('rt')" class="btn bg-orange">右上角弹出</div>
+                            <div onclick="popup_p('rb')" class="btn bg-green">右下角弹出</div>
+
+                            <div class="title-h4">颜色</div>
+                            <div onclick="popup_color('black')" class="btn bg-black">黑色</div>
+                            <div onclick="popup_color('gray')" class="btn bg-gray">灰色</div>
+                            <div onclick="popup_color('red')" class="btn bg-red">红色</div>
+                            <div onclick="popup_color('orange')" class="btn bg-orange">橙色</div>
+                            <div onclick="popup_color('yellow')" class="btn bg-yellow">黄色</div>
+                            <div onclick="popup_color('green')" class="btn bg-green">绿色</div>
+                            <div onclick="popup_color('cyan')" class="btn bg-cyan">青色</div>
+                            <div onclick="popup_color('blue')" class="btn bg-blue">蓝色</div>
+                            <div onclick="popup_color('purple')" class="btn bg-purple">紫色</div>
+
+                            <div class="title-l">Modal模态弹窗</div>
+                            <div class="doc-intro">使用<code>data-open</code>方式打开对应的视图层，可以为id或class，注意前缀符号#和.</div>
+                            <div data-open="#diy1" data-ani="up-in" class="btn">自定义1</div>
+                            <div data-open="#diy2" data-ani="right-in" class="btn">自定义2</div>
+                            <div id="diy1" class="popup-box none" style="width:60%;height:70%;">
+                                <div class="popup-header">
+                                    <div class="popup-title">标题</div>
+                                    <div class="popup-close close"></div>
+                                </div>
+                                <div class="popup-content">
+                                    <table id="table" class="table table-border table-hover"></table>
+                                </div>
+                            </div>
+                            <script>
+                                var list = [];
+                                for (var i = 0; i <= 100; i++) {
+                                    list.push({ title: '标题' + i, content: '内容' + i, views: '浏览量' + i });
+                                }
+                                ice.table({
+                                    id: 'table',
+                                    thead: [
+                                        { type: 'order', name: '序号' },
+                                        { field: 'title', name: '标题' },
+                                        { field: 'content', name: '内容' },
+                                        { field: 'views', name: '浏览量' }
+                                    ],
+                                    data: list
+                                })
+                            </script>
+                            <div id="diy2" class="mt20 none">
+                                红尘浅遇，散去流年花开。路过的落幕，注定只是生命中的痕迹。从此再无余温。也没有任何残留。
+                                剩下的只有这个无言的画面，和这座荒凉的天空。从此。这个地方和那段往昔。
+                                与相遇划出了永远的界线，再也没有任何理由和借口。来偷偷的怀念这段曾经的你，和这段曾经的执着。
+                                以一颗曾少年追琢的心，来经营自己的天涯。
+                            </div>
+
+                            <div class="title-l">Notes小便贴提示</div>
+                            <template class="iceCode:html">
+                                <div data-notes="{content:'Hi，我在右侧弹出了。'}" class="btn">默认右侧弹出</div>
+                                <div data-notes="{position:'left',content:'Hi，我在左侧弹出了。'}" class="btn bg-orange">左侧弹出</div>
+                                <div data-notes="{position:'top',content:'Hi，我在上面弹出了。'}" class="btn bg-yellow">上面弹出</div>
+                                <div data-notes="{position:'bottom',content:'Hi，我在下面弹出了。'}" class="btn bg-red">下面弹出</div>
+                            </template>
+                            <template class="iceCode:js">
+                                {
+                                type:'hover', //鼠标触发类型：选填 hover(鼠标经过) click(鼠标点击)
+                                position:'bottom', //弹出位置：选填 left(左) right(右) top(上) bottom(下)
+                                content:'Hi，我在下面弹出了。' //内容：必填
+                                }
+                            </template>
+                            <div data-notes="{content:'Hi，我在右侧弹出了。'}" class="btn">默认右侧弹出</div>
+                            <div data-notes="{position:'left',content:'Hi，我在左侧弹出了。'}" class="btn bg-orange">左侧弹出</div>
+                            <div data-notes="{position:'top',content:'Hi，我在上面弹出了。'}" class="btn bg-yellow">上面弹出</div>
+                            <div data-notes="{position:'bottom',content:'Hi，我在下面弹出了。'}" class="btn bg-red">下面弹出</div>
+
+                            <div class="title-l">Prompt提示对话框</div>
+                            <div onclick="prompt_a()" class="btn">点击我看看吧</div>
+                            <div onclick="prompt_b()" class="btn bg-orange">标准提示框</div>
+                            <div onclick="prompt_c()" class="btn bg-yellow">无按钮提示框</div>
+
+                            <div class="title-l">Pop提示框</div>
+                            <div onclick="ice.pop({content:'默认提示框'})" class="btn">默认提示框</div>
+                            <div onclick="ice.pop({content:'成功提示框',icon:'success'})" class="btn bg-orange">成功提示框</div>
+                            <div onclick="ice.pop({content:'失败提示框',icon:'fail'})" class="btn bg-yellow">失败提示框</div>
+                            <div onclick="ice.pop({content:'警告提示框',icon:'warning'})" class="btn bg-green">警告提示框</div>
+                            <div onclick="ice.pop({content:'询问提示框',icon:'ask'})" class="btn bg-cyan">询问提示框</div>
+                            <div onclick="ice.pop({content:'无图标提示框',icon:'none'})" class="btn bg-blue">无图标提示框</div>
+
+                            <div class="title-l">Alert询问框</div>
+                            <div onclick="alert_a()" class="btn">alert小弹窗</div>
+
+                            <script>
+                                //提示框
+                                function alert_a() {
+                                    ice.alert({
+                                        content: '嗨！我是冰冰女神的alert',
+                                        btn: ['嗯嗯', '知道了'],
+                                        yes: function () {
+                                            ice.alert({
+                                                content: '你真的知道了？',
+                                                btn: ['真的知道了'],
+                                                yes: function () {
+                                                    ice.alert({
+                                                        content: '快说你爱我！',
+                                                        btn: ['我爱你'],
+                                                        yes: function () {
+                                                            ice.pop({ content: '放过你了', icon: 'success' });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        },
+                                        no: function () {
+                                            ice.alert({
+                                                content: '嗯什么？快夸我！',
+                                                btn: ['你是最美的'],
+                                                yes: function () {
+                                                    ice.pop({ content: '这还差不多', icon: 'success' });
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                                //提示框
+                                function prompt_a() {
+                                    ice.prompt({
+                                        content: '嗨！你好，我是你的好朋友Prompt，我可以很好的兼容任何屏幕尺寸的设备，快试试吧！（10秒后自动关闭）',
+                                        time: 10000,
+                                        btn: ['知道了'],
+                                        yes: function () {
+                                            console.log('点击了:知道了');
+                                        }
+                                    });
+                                }
+                                //提示框
+                                function prompt_b() {
+                                    ice.prompt({
+                                        content: '我是你的好朋友Prompt，我可以很好的兼容任何屏幕尺寸的设备，如果需要我在规定的时间内自动关闭，可配置time参数哦！',
+                                        btn: ['取消', '确认'],
+                                        yes: function () {
+                                            console.log('点击了:确认');
+                                        }
+                                    });
+                                }
+                                //提示框
+                                function prompt_c() {
+                                    ice.prompt({
+                                        content: '我是你的好朋友Prompt，我可以不显示按钮，如果没配置time自动关闭时间的话，默认是3000ms（3秒）后关闭！',
+                                        btn: false,
+                                        time:3000
+                                    });
+                                }
+                                //标准弹窗
+                                function popup_a() {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        content: '这是标准弹窗'
+                                    });
+                                }
+                                //无标题栏弹窗
+                                function popup_c() {
+                                    ice.popup({
+                                        content: '这是无标题栏弹窗,2秒后自动关闭',
+                                        time: 2000
+                                    });
+                                }
+                                //有页脚栏弹窗
+                                function popup_d() {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        content: '这是无标题栏弹窗',
+                                        btn: ['取消', '确认'],
+                                        yes: function () { alert('你点击了确认') },
+                                        no: function () { alert('你点击了取消') },
+                                    });
+                                }
+                                //有背景弹窗
+                                function popup_e() {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        content: '这是有背景弹窗',
+                                        background: true
+                                    });
+                                }
+                                //iframe弹窗
+                                function popup_f() {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        url: 'https://www.baidu.com'
+                                    });
+                                }
+                                //动画
+                                function popup_ani(ani) {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        content: '这是标准弹窗',
+                                        animate: ani
+                                    });
+                                }
+                                //相关位置弹出
+                                function popup_p(p) {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        content: '这是标准弹窗',
+                                        position: p
+                                    });
+                                }
+                                //颜色
+                                function popup_color(c) {
+                                    ice.popup({
+                                        title: '这是标题',
+                                        content: '这是标准弹窗',
+                                        color: c
+                                    });
+                                }
+                            </script>
+                        </div>
+                        <div class="tab-content">
+                            <div class="title-l">Popup API</div>
+                            <div class="doc-box">
+                                <div class="doc-title">Popup 弹出层</div>
+                                <div class="doc-list">
+                                    <p><b>语法：</b>ice.popup(Json)</p>
+                                    <p><b>Popup参数(Json)</b></p>
+                                    <table class="doc-table table">
+                                        <thead>
+                                            <tr>
+                                                <th nowrap>参数</th>
+                                                <th nowrap>类型</th>
+                                                <th nowrap>默认</th>
+                                                <th nowrap>必填</th>
+                                                <th nowrap>描述</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td nowrap>title</td>
+                                                <td nowrap>String bool</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">标题，false为隐藏标题栏</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>content</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>是</td>
+                                                <td width="100%">内容，当设置url字段时，为非必传</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>width</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>400px</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">宽度设置</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>height</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>270px</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">高度设置</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>url</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">iframe的方式加载，url为网址或页面路径</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>animate</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>ani-up-in</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">弹出的动画特效：
+                                                    <div>ani-in：淡入</div>
+                                                    <div>ani-up-in：向下下滑淡入</div>
+                                                    <div>ani-down-in：向上滑淡入</div>
+                                                    <div>ani-left-in：向右滑淡入</div>
+                                                    <div>ani-right-in：向左滑淡入</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>position</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">弹出位置：
+                                                    <div>t：顶部居中对齐</div>
+                                                    <div>b：底部居中对齐</div>
+                                                    <div>l：左边垂直对齐</div>
+                                                    <div>r：右边垂直对齐</div>
+                                                    <div>lt：左上角垂直对齐</div>
+                                                    <div>lb：左下角垂直对齐</div>
+                                                    <div>rt：右上角垂直对齐</div>
+                                                    <div>rb：右下角垂直对齐</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>color</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>white</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">支持 <a href="../index.html" class="a-line">主题颜色</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>background</td>
+                                                <td nowrap>String</td>
+                                                <td nowrap>false</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">是否显示背景</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>time</td>
+                                                <td nowrap>int</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">设置多久自动关闭，单位毫秒（1s=1000ms），默认不自动关闭弹窗</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>btn</td>
+                                                <td nowrap>array false</td>
+                                                <td nowrap>['取消', '确认']</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">按钮设置，如果为false，不显示按钮，如果为数组，第一个为确认，第二个为取消</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>yes</td>
+                                                <td nowrap>function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">确认按钮的回调函数</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>no</td>
+                                                <td nowrap>function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">取消按钮和关闭回调函数</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>success</td>
+                                                <td nowrap>function</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">弹窗打开后的回调函数</td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>disable</td>
+                                                <td nowrap>array</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">
+                                                    用于禁用取消和确定按钮点击后自动关闭页面，可以在yes或no回调中使用e.close()手动关闭，该功能主要用于弹窗内的表单处理结果返回来以后需要通过程序来判断是否关闭当前弹窗。
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap>footer</td>
+                                                <td nowrap>string</td>
+                                                <td nowrap>-</td>
+                                                <td nowrap>否</td>
+                                                <td width="100%">弹窗footer底部左下角内容</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><b>让我们来看一个简单的示例</b></p>
+                                    <p>
+                                    <div class="btn" onclick="ice.popup({title:'示例',content:'ICEUI'})">示例</div>
+                                    </p>
+                                    <template class="iceCode:js">
+                                        //<div class="btn" onclick="ice.popup({title:'示例',content:'ICEUI'})">示例</div>
+                                        ice.popup({
+                                        title:'示例',
+                                        content:'ICEUI'
+                                        })
+                                    </template>
+                                    <p><b>如何在弹窗中自定义一个关闭弹窗的按钮，看示例。</b></p>
+                                    <p>
+                                    <div class="btn" onclick="demo()">示例</div>
+                                    </p>
+                                    <script>
+                                        function demo() {
+                                            ice.popup({
+                                                title: '示例',
+                                                content: '<div class="btn">关闭本窗口</div>',
+                                                success(e) {
+                                                    ice(e).find('.btn').click(function () {
+                                                        //用来关闭本窗口的，yes和no回调中也支持该参数
+                                                        e.close();
+                                                    })
+                                                }
+                                            })
+                                        }
+                                    </script>
+                                    <template class="iceCode:js">
+                                        //如果你需要在弹窗中自定义一个关闭弹窗的按钮，可以这么操作
+                                        ice.popup({
+                                        title:'示例',
+                                        content:'<div class="btn">关闭本窗口</div>',
+                                        success(e){
+                                        ice(e).find('.btn').click(function(){
+                                        //用来关闭本窗口的，yes和no回调中也支持该参数
+                                        e.close();
+                                        })
+                                        }
+                                        })
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div class="title-l">Prompt API</div>
+                            <div class="doc-box">
+                                <div class="doc-title">Prompt提示对话框</div>
+                                <div class="doc-list">
+                                    <p><b>语法：</b>ice.prompt(Json|String)</p>
+                                    <p><b>prompt参数(String)，等同传递Json参数{content:String}</b></p>
+                                    <p><b>prompt参数(Json)</b></p>
+                                    <div class="mb20">
+                                        <table class="doc-table table">
+                                            <thead>
+                                                <tr>
+                                                    <th nowrap>参数</th>
+                                                    <th nowrap>类型</th>
+                                                    <th nowrap>默认</th>
+                                                    <th nowrap>必填</th>
+                                                    <th nowrap>描述</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td nowrap>title</td>
+                                                    <td nowrap>String bool</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">标题，false为隐藏标题栏</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>content</td>
+                                                    <td nowrap>String</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>是</td>
+                                                    <td width="100%">内容</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>time</td>
+                                                    <td nowrap>int</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">设置多久自动关闭，单位毫秒（1s=1000ms），默认不自动关闭弹窗</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>btn</td>
+                                                    <td nowrap>array false</td>
+                                                    <td nowrap>false</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">按钮设置，如果为false，不显示按钮，如果为数组，第一个为确认，第二个为取消</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>yes</td>
+                                                    <td nowrap>function</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">确认按钮的回调函数</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>no</td>
+                                                    <td nowrap>function</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">取消按钮和关闭回调函数</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><b>让我们来看一个简单的示例</b></p>
+                                        <p>
+                                        <div class="btn" onclick="ice.prompt({title:'示例',content:'倾国倾城之貌'})">示例</div>
+                                        </p>
+                                        <template class="iceCode:js">
+                                            //<div class="btn" onclick="ice.prompt({title:'示例',content:'倾国倾城之貌'})">示例</div>
+                                            ice.prompt({
+                                            title:'示例',
+                                            content:'倾国倾城之貌'
+                                            })
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="title-l">Pop API</div>
+                            <div class="doc-box">
+                                <div class="doc-title">Pop提示对话框</div>
+                                <div class="doc-list">
+                                    <p><b>语法：</b>ice.pop(Json|String)</p>
+                                    <p><b>Pop参数(String)，等同传递Json参数{content:String}</b></p>
+                                    <p><b>Pop参数(Json)</b></p>
+                                    <div class="mb20">
+                                        <table class="doc-table table">
+                                            <thead>
+                                                <tr>
+                                                    <th nowrap>参数</th>
+                                                    <th nowrap>类型</th>
+                                                    <th nowrap>默认</th>
+                                                    <th nowrap>必填</th>
+                                                    <th nowrap>描述</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td nowrap>content</td>
+                                                    <td nowrap>String</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>是</td>
+                                                    <td width="100%">内容</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>icon</td>
+                                                    <td nowrap>String</td>
+                                                    <td nowrap>default</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">图标：default: 默认 success: 成功 fail: 失败 warning: 警告 ask: 询问
+                                                        none: 无图标</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>time</td>
+                                                    <td nowrap>int</td>
+                                                    <td nowrap>2000</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">设置多久自动关闭，单位毫秒（1s=1000ms），默认不自动关闭弹窗</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>url</td>
+                                                    <td nowrap>String</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">弹窗结束后的跳转链接</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>callback</td>
+                                                    <td nowrap>function</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">弹窗结束后的回调函数</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><b>让我们来看一个简单的示例</b></p>
+                                        <p>
+                                        <div class="btn" onclick="ice.pop({content:'倾国倾城之貌'})">示例</div>
+                                        </p>
+                                        <template class="iceCode:js">
+                                            //<div class="btn" onclick="ice.pop({content:'倾国倾城之貌'})">示例</div>
+                                            ice.pop({
+                                            content:'倾国倾城之貌'
+                                            })
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="title-l">Modal模态弹窗</div>
+                            <div class="doc-box">
+                                <div class="doc-title">Modal模态弹窗</div>
+                                <div class="doc-list">
+                                    <p><b>语法：</b>data-open="元素.class或#id"</p>
+                                    <p><b>语法：</b>data-ani="ani-in"</p>
+                                    <div class="mb20">
+                                        <p>data-ani为弹窗的动画显示方式，设定值如下：（也可以自定义其它）</p>
+                                        <p>ani-in：淡入</p>
+                                        <p>ani-up-in：向下下滑淡入</p>
+                                        <p>ani-down-in：向上滑淡入</p>
+                                        <p>ani-left-in：向右滑淡入</p>
+                                        <p>ani-right-in：向左滑淡入</p>
+                                        <p><b>让我们来看一个简单的示例</b></p>
+                                        <p>提示，关闭模态弹窗可以给按钮添加一个close的class即可！</p>
+                                        <p>
+                                        <div class="btn" data-open="#demo1" data-ani="up-in">示例</div>
+                                        </p>
+                                        <div id="demo1" class="popup-box none" style="width:60%;height:70%;">
+                                            <div class="popup-header">
+                                                <div class="popup-title">标题</div>
+                                                <div class="popup-close close"></div>
+                                            </div>
+                                            <div class="popup-content">
+                                                <p>hello</p>
+                                                <div class="btn close">关闭本窗口</div>
+                                            </div>
+                                        </div>
+                                        <template class="iceCode:html">
+                                            <div class="btn" data-open="#demo1" data-ani="up-in">示例</div>
+                                            <div id="demo1" class="popup-box none" style="width:60%;height:70%;">
+                                                <div class="popup-header">
+                                                    <div class="popup-title">标题</div>
+                                                    <div class="popup-close close"></div>
+                                                </div>
+                                                <div class="popup-content">
+                                                    <p>hello</p>
+                                                    <div class="btn close">关闭本窗口</div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="title-l">Alert API</div>
+                            <div class="doc-box">
+                                <div class="doc-title">Alert提示对话框</div>
+                                <div class="doc-list">
+                                    <p><b>语法：</b>ice.alert(Json|String)</p>
+                                    <p><b>alert参数(String)，等同传递Json参数{content:String}</b></p>
+                                    <p><b>alert参数(Json)</b></p>
+                                    <div class="mb20">
+                                        <table class="doc-table table">
+                                            <thead>
+                                                <tr>
+                                                    <th nowrap>参数</th>
+                                                    <th nowrap>类型</th>
+                                                    <th nowrap>默认</th>
+                                                    <th nowrap>必填</th>
+                                                    <th nowrap>描述</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td nowrap>content</td>
+                                                    <td nowrap>String</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>是</td>
+                                                    <td width="100%">内容</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>btn</td>
+                                                    <td nowrap>array false</td>
+                                                    <td nowrap>false</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">按钮设置，如果为false，不显示按钮，如果为数组，第一个为确认，第二个为取消</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>yes</td>
+                                                    <td nowrap>function</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">确认按钮的回调函数</td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>no</td>
+                                                    <td nowrap>function</td>
+                                                    <td nowrap>-</td>
+                                                    <td nowrap>否</td>
+                                                    <td width="100%">取消按钮和关闭回调函数</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><b>让我们来看一个简单的示例</b></p>
+                                        <p>
+                                        <div class="btn" onclick="ice.alert({content:'倾国倾城之貌'})">示例</div>
+                                        </p>
+                                        <template class="iceCode:js">
+                                            //<div class="btn" onclick="ice.alert({content:'倾国倾城之貌'})">示例</div>
+                                            ice.alert({
+                                            content:'倾国倾城之貌'
+                                            })
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="title-l">代码示例</div>
+                            <pre data-id="demo"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

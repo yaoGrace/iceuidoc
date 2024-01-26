@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Progress进度条</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Progress进度条</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">一些精美的进度条样式</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">各种颜色</div>
+							<div class="progress">
+								<div class="progress-bar progress-red" style="width:50%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-orange" style="width:52%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-yellow" style="width:54%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-green" style="width:56%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-cyan" style="width:58%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-blue" style="width:60%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-purple" style="width:62%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-white" style="width:66%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-gray" style="width:66%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-black" style="width:68%;"></div>
+							</div>
+
+							<div class="title-l">静态条纹和动态条纹</div>
+							<div class="progress">
+								<div class="progress-bar progress-stripe progress-green" style="width:50%;">50%</div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-stripe progress-blue" style="width:52%;">52%</div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-stripe progress-ani progress-purple" style="width:54%;">
+									54%</div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-stripe progress-ani progress-orange" style="width:56%;">
+									56%</div>
+							</div>
+							<progress value="25" max="100">25%</progress>
+							<progress value="50" max="100">50%</progress>
+							<progress class="progress-orange progress-stripe" value="75" max="100">75%</progress>
+							<progress class="progress-cyan progress-stripe progress-ani" value="90" max="100">90%</progress>
+
+							<div class="title-l">大小</div>
+							<div class="progress min">
+								<div class="progress-bar progress-red" style="width:80%;"></div>
+							</div>
+							<div class="progress small">
+								<div class="progress-bar progress-orange" style="width:80%;"></div>
+							</div>
+							<div class="progress">
+								<div class="progress-bar progress-yellow" style="width:80%;"></div>
+							</div>
+							<div class="progress big">
+								<div class="progress-bar progress-green" style="width:80%;"></div>
+							</div>
+							<div class="progress max">
+								<div class="progress-bar progress-cyan" style="width:80%;"></div>
+							</div>
+							<progress class="progress small" value="25" max="100">25%</progress>
+							<progress class="progress" value="50" max="100">50%</progress>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

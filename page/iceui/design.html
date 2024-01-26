@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>设计规范</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="doc-nav">
+			<div class="doc-main doc">
+				<div class="doc-head">设计规范<span class="doc-version">v1.01</span></div>
+				<div class="title-l">说明</div>
+				<p>代码的规范在开发中起到事半功倍的作用，拥有良好的设计规范对开发者来说非常有必要，规范的代码可以促进团队合作、减少bug处理、降低维护成本、有助于代码审查等等好处，对于ICEUI来说，规范十分重要，无论我们在写HTML还是JS时，尽量保持代码的整洁以及格式的对齐，这不仅对我们自己来说更加易读，对别人也是。写注释是个好的编程习惯，所以尽量详细一些，规范一些。</p>
+
+				<div class="title-l">基于ICEUI的模块开发规范</div>
+				<p>模块的开发如果用到prototype原型对象，尽量使用ES6的Class来做，代码会更加简洁易懂</p>
+				<p>下面是模块开发的基本结构</p>
+				<template class="iceCode:js">
+					/**
+					************************************************************************
+					* ice.module 模块开发示例
+					* 作者：闫立峰
+					* 官网：https://iceui.cn
+					* 创建：2018-12-18
+					* 更新：2022-04-27
+					* MIT License By iceui.cn
+					************************************************************************
+					* 版权声明：该版权完全归ICEUI官方所有，可转载使用和学习，但请务必保留版权信息
+					************************************************************************
+					*/
+					var ice = ice || {};
+					ice.module = function (callback) {
+						class iceModule {
+							//构造函数
+							constructor(callback) {
+								this.name = 'ICEUI';
+
+								//如果有回调函数，尽量call this
+								callback && callback.call(this);
+
+								return this;
+							}
+							//自定义方法
+							edit (name) {
+								this.name = name;
+							}
+						}
+						//返回实例
+						return new iceModule(callback);
+
+						//返回实例，如果怕暴露this的一些敏感成员，可以直接自定义一个对象
+						// var el = new iceColor(callback);
+						// return {
+						// 	  edit:function(name){
+						// 		  return el.edit(name);
+						// 	  }
+						// }
+
+					};
+
+					//下面为测试：无论是直接调用返回值，还是回调中调用this都很方便
+					let el = ice.module(function(){
+						this.edit('冰优女神');
+					});
+					el.edit('倾国倾城');
+				</template>
+
+				<p>由于作用域问题，尽量使用let声明变量</p>
+				<template class="iceCode:js">
+					let title = 'ICEUI是最美的框架';
+				</template>
+
+				<p>定义字符串时使用单引号，代码更清晰</p>
+				<template class="iceCode:js">
+					let title = 'ICEUI是最美的框架';
+				</template>
+
+				<p>变量名使用小驼峰命名法</p>
+				<template class="iceCode:js">
+					let firstName = 'John';
+					let lastName = 'Doe';
+				</template>
+				
+			</div>
+			<div class="doc-menu">
+				<div class="doc-menu-title">文档目录</div>
+				<ul></ul>
+			</div>	
+		</div>
+		<script>
+			//初始化文档
+			docInit();
+		</script>
+	</template>
+</body>
+</html>

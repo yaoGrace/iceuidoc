@@ -1,0 +1,23 @@
+@charset "utf-8";
+.tab-toggle label{zoom:.82}
+.color-list{margin-top:10px;}
+.color-list span{width:140px;display:inline-block;padding:0 10px;height:30px;line-height:30px;margin-right:10px;margin-bottom:10px;font-size:13px;border: 1px solid;}
+.grid-demo p{text-align:center;margin-bottom:0;padding:20px;}
+.grid-demo .row{margin-bottom:10px;}
+.color-demo{margin:10px 0;}
+.color-demo .demo-div{width:122px;height:35px;display:inline-block;}
+.color-demo input{margin-right:10px;}
+fieldset p{color:#888;}
+.section-box {background: #f5f5f5;}
+.img-parallax h3{padding:60px 30px;}
+
+/* 图标列表 */
+.icon-list{color:#525252;text-align:center;display: flex;flex-wrap: wrap;}
+.icon-list li{flex: 0 0 150px;position:relative;display:inline-block;text-align:center;padding: 15px;cursor:pointer;}
+.icon-list li:hover{background: #f5f5f5;transition: all .3s;}
+.icon-list .icon{font-size:32px;}
+.icon-list .title{font-size: 14px;color: #7e7e7e;}
+.icon-list .name{font-size: 13px;color: #767676;}
+
+/* 文档 */
+.doc-main img {vertical-align: middle;}

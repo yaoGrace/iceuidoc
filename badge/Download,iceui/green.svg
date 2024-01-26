@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="20" role="img" aria-label="Download: iceui">
+    <title>Download: iceui</title>
+    <linearGradient id="l" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+    </linearGradient>
+    <clipPath id="c"><rect width="102" height="20" rx="3" fill="#fff"/></clipPath>
+    <g clip-path="url(#c)">
+            <rect width="67" height="20" fill="#555"/>
+    <rect x="67" width="35" height="20" fill="#26bc5c"/>
+    <rect width="102" height="20" fill="url(#l)"/>
+    </g>
+    <g fill="#fff" text-anchor="start" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="11">
+        <text aria-hidden="true" x="5" y="15" fill="#010101" fill-opacity=".3" textLength="57">Download</text>
+        <text x="5" y="14" fill="#fff" textLength="57">Download</text>
+            <text aria-hidden="true" x="72" y="15" fill="#010101" fill-opacity=".3" textLength="25">iceui</text>
+    <text x="72" y="14" fill="#fff" textLength="25">iceui</text>
+    </g>
+</svg>

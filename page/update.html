@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>更新日志</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+    <template class="adminXL-content">
+        <style>/*uzDoc*/
+            .uzDoc{text-size-adjust:100%;color: #313131;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",微软雅黑;font-size:16px;line-height:1.5;overflow-wrap:break-word;}
+            .uzDoc .uzDoc-color-R{color:#FF5722;}
+            .uzDoc .uzDoc-color-O{color:#FF9800;}
+            .uzDoc .uzDoc-color-Y{color:#FFC107;}
+            .uzDoc .uzDoc-color-G{color:#009688;}
+            .uzDoc .uzDoc-color-C{color:#8BC34A;}
+            .uzDoc .uzDoc-color-B{color:#2196F3;}
+            .uzDoc .uzDoc-color-P{color:#9C27B0;}
+            .uzDoc .uzDoc-italic{font-style:italic;}
+            .uzDoc .uzDoc-bold{font-weight:bold;}
+            .uzDoc .uzDoc-del{text-decoration:line-through;}
+            .uzDoc .uzDoc-underline{text-decoration:underline;}
+            .uzDoc .uzDoc-title{text-align:center;}
+            .uzDoc .uzDoc-u{border-bottom:1px solid #dcdcdc;padding-bottom:8px;padding-top:20px;}
+            .uzDoc .uzDoc-tag{color:white;background-color:#525D76;padding:0 5px;display:inline-block;margin:2px 0;border-radius:2px;}
+            .uzDoc .uzDoc-tag-R{background:#FF5722;}
+            .uzDoc .uzDoc-tag-O{background:#FF9800;}
+            .uzDoc .uzDoc-tag-Y{background:#FFC107;}
+            .uzDoc .uzDoc-tag-G{background:#009688;}
+            .uzDoc .uzDoc-tag-C{background:#8BC34A;}
+            .uzDoc .uzDoc-tag-B{background:#2196F3;}
+            .uzDoc .uzDoc-tag-P{background:#9C27B0;}
+            .uzDoc .uzDoc-tag-W{color:#525D76;/* border: 1px solid #ddd; */background:#efefef;}
+            .uzDoc a{color:#839ee3;text-decoration:underline;}
+            .uzDoc hr{height:1px;overflow:hidden;border:none;background:#d5d5d5;}
+            .uzDoc blockquote{color:#8f8f8f;padding:7px 10px;border-left:4px solid #a7a7a7;background:#f8f8f8;}
+            .uzDoc blockquote.uzDoc-blockquote-R{border-left:4px solid #FF5722;}
+            .uzDoc blockquote.uzDoc-blockquote-O{border-left:4px solid #FF9800;}
+            .uzDoc blockquote.uzDoc-blockquote-Y{border-left:4px solid #FFC107;}
+            .uzDoc blockquote.uzDoc-blockquote-G{border-left:4px solid #009688;}
+            .uzDoc blockquote.uzDoc-blockquote-C{border-left:4px solid #8BC34A;}
+            .uzDoc blockquote.uzDoc-blockquote-B{border-left:4px solid #2196F3;}
+            .uzDoc blockquote.uzDoc-blockquote-P{border-left:4px solid #9C27B0;}
+            .uzDoc ol,.uzDoc ul{padding-left:2em;}
+            .uzDoc li{margin-bottom:2px;}
+            .uzDoc > ol li{list-style:decimal;margin-bottom:10px;}
+            .uzDoc > ul li{list-style:disc;}
+            .uzDoc > ul li > ul li{list-style:circle;}
+            .uzDoc > ol li > ul li{list-style:disc;}
+            .uzDoc > ol li > ul li > ul li{list-style:circle;}
+            .uzDoc blockquote,.uzDoc dl,.uzDoc ol,.uzDoc p,.uzDoc pre,.uzDoc table,.uzDoc ul{margin-top:0;margin-bottom:16px;}
+            .uzDoc pre{border:1px solid #dbdbdb;background:#f8f8f8;position:relative;font-family:"YaHei Consolas Hybrid",Consolas,"Meiryo UI","Malgun Gothic","Segoe UI","Trebuchet MS",Helvetica,monospace,monospace;padding:10px 0;}
+            .uzDoc pre::before{content:'';display:inline-block;height:100%;width:40px;background:#ececec;position:absolute;top:0;left:0;}
+            .uzDoc pre p{color:#525d76;margin:0;padding:2px;display:list-item;list-style:decimal;margin-left:40px;padding-left:20px;position:relative;font-family:"YaHei Consolas Hybrid",Consolas,"Meiryo UI","Malgun Gothic","Segoe UI","Trebuchet MS",Helvetica,monospace,monospace;font-size:14px;border-bottom:1px solid #f2f2f2;}
+            .uzDoc pre p:hover{background:#f2f2f2;}
+            .uzDoc pre p:last-child{border-bottom:none;}
+            .uzDoc table{border-collapse:collapse;width:100%;}
+            .uzDoc table th{background:#eff0f5;}
+            .uzDoc table td,.uzDoc table th{border:1px solid #dbdbdb;padding:5px 15px;}
+            .uzDoc img{vertical-align:middle;}
+        </style>
+        <div class="adminXL-box">
+            <!-- 标题 -->
+            <div class="adminXL-title">更新日志</div>
+
+            <!-- 内容 -->
+            <div class="adminXL-middle">
+                <div class="update"></div>
+            </div>
+        </div>
+        <script>
+            ice.ajax('https://iceui.cn/update/adminXL').then((res)=>{ice('.update').html(res.data)});
+        </script>
+    </template>
+</body>
+</html>

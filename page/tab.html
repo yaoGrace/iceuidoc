@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tab选项卡</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<script>
+			//配置运行代码环境
+			ice.run({
+				style: 'p{margin-top:30px;}',
+			})
+		</script>
+
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Tab选项卡</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">本选项卡设计了多种风格，如下。</div>
+				<div class="doc-intro">选项卡标题栏的背景颜色支持主题颜色，将bg-color放在<code>tab-menu</code>class上。</div>
+			</div>
+		</div>
+
+		<div class="title-l">标准</div>
+		<div class="doc-intro">选项卡标题栏的背景颜色支持主题颜色，将bg-color放在<code>tab-menu</code>class上。</div>
+		<template id="run-1">
+			<div class="tab">
+				<div class="tab-menu">
+					<a href="#">菜单一</a>
+					<a href="#">菜单二</a>
+					<a href="#">菜单三</a>
+					<a href="#">菜单四</a>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">内容一</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-1"></div>
+		<div data-run="#run-1" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+
+		<div class="title-l">右侧放置菜单，菜单的class为<code>tab-menu-right</code></div>
+		<template id="run-2">
+			<div class="tab">
+				<div class="tab-menu">
+					<div class="tab-menu-left">
+						<a href="#">菜单一</a>
+						<a href="#">菜单二</a>
+						<a href="#">菜单三</a>
+						<a href="#">菜单四</a>
+					</div>
+					<div class="tab-menu-right">
+						<a href="#">菜单一</a>
+						<a href="#">菜单二</a>
+					</div>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">
+						<div class="title-l">TAB由心设计</div>
+						<p>TAB的简约设计风格，以其独特的表现方法及丰富的内涵特征向人们诠释了一个全新的设计理念，在设计中，简约风格越来越受人们的青眯，已成为设计界的流行元素。</p>
+						<p>iceui的选项卡使用非常简单，无需设置js，只需要控制css就可以完美的展示tab不同的风格。</p>
+						<p>兼容性良好，支持所有现代浏览器</p>
+						<p>无限层选项卡的套用完全不影响</p>
+						<p>保持iceui框架的「冰清玉洁，纤尘不染」</p>
+						<p>自适应PC端与移动端</p>
+					</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+					<div class="tab-content">内容五</div>
+					<div class="tab-content">内容六</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-2"></div>
+		<div data-run="#run-2" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+
+		<div class="title-l">流动的线，添加class为<code>tab-line</code>即可</div>
+		<template id="run-3">
+			<div class="tab tab-line">
+				<div class="tab-menu">
+					<a href="#">菜单1</a>
+					<a href="#">菜单2</a>
+					<a href="#">菜单3</a>
+					<a href="#">菜单4</a>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">
+						<div class="title-l">TAB由心设计</div>
+						<p>TAB的简约设计风格，以其独特的表现方法及丰富的内涵特征向人们诠释了一个全新的设计理念，在设计中，简约风格越来越受人们的青眯，已成为设计界的流行元素。</p>
+						<p>iceui的选项卡使用非常简单，无需设置js，只需要控制css就可以完美的展示tab不同的风格。</p>
+						<p>兼容性良好，支持所有现代浏览器</p>
+						<p>无限层选项卡的套用完全不影响</p>
+						<p>保持iceui框架的「冰清玉洁，纤尘不染」</p>
+						<p>自适应PC端与移动端</p>
+					</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-3"></div>
+		<div data-run="#run-3" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+
+		<div class="title-l">流动的块，添加class为<code>tab-block</code>即可</div>
+		<template id="run-4">
+			<div class="tab tab-block">
+				<div class="tab-menu">
+					<div class="tab-menu-left">
+						<a href="#">菜单一</a>
+						<a href="#">菜单二</a>
+						<a href="#">菜单三</a>
+						<a href="#">菜单四</a>
+					</div>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">
+						<div class="title-l">TAB由心设计</div>
+						<p>TAB的简约设计风格，以其独特的表现方法及丰富的内涵特征向人们诠释了一个全新的设计理念，在设计中，简约风格越来越受人们的青眯，已成为设计界的流行元素。</p>
+						<p>iceui的选项卡使用非常简单，无需设置js，只需要控制css就可以完美的展示tab不同的风格。</p>
+						<p>兼容性良好，支持所有现代浏览器</p>
+						<p>无限层选项卡的套用完全不影响</p>
+						<p>保持iceui框架的「冰清玉洁，纤尘不染」</p>
+						<p>自适应PC端与移动端</p>
+					</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-4"></div>
+		<div data-run="#run-4" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+
+		<div class="title-l">流动的块支持主题颜色bg-color，需要在.tab-menu上添加主题颜色class</div>
+		<template id="run-5">
+			<div class="tab tab-block">
+				<div class="tab-menu bg-blue">
+					<div class="tab-menu-left">
+						<a href="#">菜单一</a>
+						<a href="#">菜单二</a>
+						<a href="#">菜单三</a>
+						<a href="#">菜单四</a>
+					</div>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">
+						<div class="title-l">TAB由心设计</div>
+						<p>TAB的简约设计风格，以其独特的表现方法及丰富的内涵特征向人们诠释了一个全新的设计理念，在设计中，简约风格越来越受人们的青眯，已成为设计界的流行元素。</p>
+						<p>iceui的选项卡使用非常简单，无需设置js，只需要控制css就可以完美的展示tab不同的风格。</p>
+						<p>兼容性良好，支持所有现代浏览器</p>
+						<p>无限层选项卡的套用完全不影响</p>
+						<p>保持iceui框架的「冰清玉洁，纤尘不染」</p>
+						<p>自适应PC端与移动端</p>
+					</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-5"></div>
+		<div data-run="#run-5" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+
+		<div class="title-l">侧栏风格，添加class为<code>tab-sidebar</code>即可</div>
+		<template id="run-6">
+			<div class="tab tab-sidebar">
+				<div class="tab-menu">
+					<div class="tab-menu-left">
+						<a href="#">菜单一</a>
+						<a href="#">菜单二</a>
+						<a href="#">菜单三</a>
+						<a href="#">菜单四</a>
+					</div>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">
+						<div class="title-l">TAB由心设计</div>
+						<p>TAB的简约设计风格，以其独特的表现方法及丰富的内涵特征向人们诠释了一个全新的设计理念，在设计中，简约风格越来越受人们的青眯，已成为设计界的流行元素。</p>
+						<p>iceui的选项卡使用非常简单，无需设置js，只需要控制css就可以完美的展示tab不同的风格。</p>
+						<p>兼容性良好，支持所有现代浏览器</p>
+						<p>无限层选项卡的套用完全不影响</p>
+						<p>保持iceui框架的「冰清玉洁，纤尘不染」</p>
+						<p>自适应PC端与移动端</p>
+					</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-6"></div>
+		<div data-run="#run-6" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+
+		<div class="title-l">侧栏风格支持主题颜色bg-color，需要在.tab-menu上添加主题颜色class</div>
+		<template id="run-7">
+			<div class="tab tab-sidebar">
+				<div class="tab-menu bg-blue">
+					<div class="tab-menu-left">
+						<a href="#">菜单一</a>
+						<a href="#">菜单二</a>
+						<a href="#">菜单三</a>
+						<a href="#">菜单四</a>
+					</div>
+				</div>
+				<div class="tab-main">
+					<div class="tab-content">
+						<div class="title-l">TAB由心设计</div>
+						<p>TAB的简约设计风格，以其独特的表现方法及丰富的内涵特征向人们诠释了一个全新的设计理念，在设计中，简约风格越来越受人们的青眯，已成为设计界的流行元素。</p>
+						<p>iceui的选项卡使用非常简单，无需设置js，只需要控制css就可以完美的展示tab不同的风格。</p>
+						<p>兼容性良好，支持所有现代浏览器</p>
+						<p>无限层选项卡的套用完全不影响</p>
+						<p>保持iceui框架的「冰清玉洁，纤尘不染」</p>
+						<p>自适应PC端与移动端</p>
+					</div>
+					<div class="tab-content">内容二</div>
+					<div class="tab-content">内容三</div>
+					<div class="tab-content">内容四</div>
+				</div>
+			</div>
+		</template>
+		<div data-show="#run-7"></div>
+		<div data-run="#run-7" class="btn-ani bg-black"><span>代码调试<i></i></span></div>
+	</template>
+</body>
+</html>

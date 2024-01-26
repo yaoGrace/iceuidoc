@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iceArea地区选择器</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">地区选择-三级联动</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<p>地区选择器，包含港澳台哦。</p>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content">
+							<div class="title-l">标准</div>
+							<input id="city-picker1" class="form-control" type="text" placeholder="请选择地区" />
+							<div class="title-l">预置地区</div>
+							<input id="city-picker2" class="form-control" type="text" placeholder="请选择地区"
+								value="河北省 石家庄市 桥西区" />
+							<script id="demo-js">
+								//标准
+								ice.area('city-picker1', function (e) {
+									//this: 整个area对象，包含所有的元素节点和地区选择信息
+									//e: 地区返回值，是一个json对象，字段如下
+									//city: "石家庄市"
+									//district: "行唐县"
+									//province: "河北省"
+									//value: "河北省 石家庄市 行唐县"
+									console.log(e);
+								});
+
+								//预置地区
+								ice.area('city-picker2', function (e) {
+									console.log(e);
+								});
+							</script>
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<template class="iceCode:html">
+								<!-- 标准 -->
+								<input id="city-picker1" class="form-control" type="text" placeholder="请选择地区" />
+
+								<!-- input控件上value值为预置地区 -->
+								<input id="city-picker2" class="form-control" type="text" placeholder="请选择地区"
+									value="河北省 石家庄市 桥西区" />
+							</template>
+							<template data-id="demo-js" data-language="js"></template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

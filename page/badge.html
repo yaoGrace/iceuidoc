@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Badge徽章</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<style>.tab img {
+				vertical-align: middle;
+			}
+		</style>
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Badge徽章</div>
+
+			<!-- 顶部 -->
+			<div class="adminXL-top">
+				<div class="doc-intro">大家浏览GitHub Gitee的开源项目时，一定都见过很多README文档中会出现的五颜六色、各式各样的徽章图标，这些徽章图标大多都是通过https://shields.io 这个平台来生成的，而ICEUI中也增加了徽章生成功能。</div>
+			</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="tab tab-line">
+					<div class="tab-menu">
+						<div class="tab-menu">
+							<a href="#">示例</a>
+							<a href="#">文档</a>
+						</div>
+					</div>
+					<div class="tab-main">
+						<div class="tab-content" id="demo">
+							<div class="title-l">使用</div>
+							<p class="doc-intro">直接通过url的方式引用到img标签中，url的使用方式如下：</p>
+							<p><b>例如：</b><img src="../../badge/Mysql,5.7+/red.svg" /></p>
+							<p><b>该图片链接为：</b>https://iceui.cn/badge/Mysql,5.7+/red</p>
+							<p><b>url说明：</b>https://iceui.cn/badge/<code>标题</code>,<code>内容</code>/<code>颜色</code></p>
+							<p>标题和内容用英文逗号隔开，默认为标题，内容为选填，颜色也为选填，例如：<img src="../../badge/Mysql,5.7+.svg" /> <img
+									src="../../badge/Mysql/green.svg" /></p>
+							<p>设置颜色有两种形式，第一种使用平台内置的颜色列表：<img src="../../badge/red/red.svg" /> <img
+									src="../../badge/orange/orange.svg" /> <img
+									src="../../badge/yellow/yellow.svg" /> <img
+									src="../../badge/green/green.svg" /> <img src="../../badge/cyan/cyan.svg" />
+								<img src="../../badge/blue/blue.svg" /> <img
+									src="../../badge/purple/purple.svg" /> <img src="../../badge/gray/gray.svg" />
+								<img src="../../badge/black/black.svg" /></p>
+							<p>第二种使用十六进制颜色，参考CSS中颜色使用方式，注意没有#这个符号，如下：
+							<p><img src="../../badge/Mysql,5.7+/E97671.svg" /></p>
+
+							<div class="title-l">演示</div>
+							<p><img src="../../badge/License,Apache%202.4/red.svg" /></p>
+							<p><img src="../../badge/ICEUI,2.0.3/orange.svg" /></p>
+							<p><img src="../../badge/PHP,8.0+/yellow.svg" /></p>
+							<p><img src="../../badge/Github,iceEditor%203.2/green.svg" /></p>
+							<p><img src="../../badge/Download,Windows/cyan.svg" /></p>
+							<p><img src="../../badge/Upload,ICEUI2.0.3/blue.svg" /></p>
+							<p><img src="../../badge/Github,iceui%2039K/purple.svg" /></p>
+							<p><img src="../../badge/Bug,24/gray.svg" /></p>
+							<p><img src="../../badge/Redis,5.0+/black.svg" /></p>
+
+						</div>
+						<div class="tab-content">
+							<div class="title-l">代码示例</div>
+							<pre data-id="demo"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>

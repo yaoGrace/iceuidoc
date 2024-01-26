@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Table表格</title>
+	<script type="module" data-page="true" src="../../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="adminXL-box">
+			<!-- 标题 -->
+			<div class="adminXL-title">Table表格</div>
+
+			<!-- 内容 -->
+			<div class="adminXL-middle">
+				<div class="doc">
+					<div class="title-l">代码基本结构</div>
+					<template class="iceCode:html">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>标题</th>
+									<th>内容</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>ICEUI</td>
+									<td>唯美简约</td>
+								</tr>
+							</tbody>
+						</table>
+					</template>
+				</div>
+				<div class="title-s mt5">颜色设置</div>
+				<p>table标题栏的背景颜色支持以下颜色列表，将bg-color放在<code>thead</code>标签上。</p>
+				<p>如果想要设置某一行的背景颜色，请将bg-color放在<code>tr</code>标签上。</p>
+				<p>当然了，设置某一行的文字颜色也是可以的，请将color放在<code>tr</code>标签上，注意前缀没有<code>bg-</code>哦！</p>
+				<p>设置某一列的文字颜色，则需要将color放在<code>td</code>标签上，同样没有<code>bg-</code>前缀。</p>
+				<div class="title-s">表格排序</div>
+				<p>表格的排序可通过<code>table</code>上的attr属性来控制，使用<code>data-table-sort</code>。</p>
+				<p><code>data-table-sort='true'</code>则每列都可排序</p>
+				<p><code>data-table-sort='2,4'</code>则第3列与第5列可排序，从左到右并从0开始数，参照数组索引</p>
+			</div>
+		</div>
+		<div class="row mt20">
+			<div class="w6">
+				<div class="box">
+					<div class="box-title">标准表格 <div data-run="#run-1" class="right"><a href="javascript:;"
+								class="a-line">代码调试</a></div>
+					</div>
+					<div class="box-content" id="run-1">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>分类</th>
+									<th>标题</th>
+									<th>时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>00</td>
+									<td>箫声自蒹葭深处踏露而来，清音绵长</td>
+									<td>桃李天下</td>
+									<td>2019-07-10</td>
+								</tr>
+								<tr>
+									<td>01</td>
+									<td>将锦书层层折叠，付与烟尘</td>
+									<td>仓央兮措</td>
+									<td>2019-07-11</td>
+								</tr>
+								<tr>
+									<td>02</td>
+									<td>箫声自蒹葭深处踏露而来，清音绵长</td>
+									<td>苍生何辜</td>
+									<td>2019-07-12</td>
+								</tr>
+								<tr>
+									<td>03</td>
+									<td>谁的画笔，蘸了月色</td>
+									<td>惊才绝艳</td>
+									<td>2019-07-13</td>
+								</tr>
+								<tr>
+									<td>04</td>
+									<td>来不及抬眸的惊诧，在水意幽然的弦上</td>
+									<td>歌尽倾君</td>
+									<td>2019-07-14</td>
+								</tr>
+								<tr>
+									<td>05</td>
+									<td>轻嘘一口气，睫毛噏动的时候</td>
+									<td>谁堪共语</td>
+									<td>2019-07-15</td>
+								</tr>
+								<tr>
+									<td>06</td>
+									<td>月色轻寒，凉了书简里的离愁别绪</td>
+									<td>山河永寂</td>
+									<td>2019-07-16</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="w6">
+				<div class="box">
+					<div class="box-title">带线框表格，可根据升序和降序排序 <div data-run="#run-2" class="right"><a href="javascript:;"
+								class="a-line">代码调试</a></div>
+					</div>
+					<div class="box-content">
+						<template id="run-2">
+							<table class="table table-border" data-table-sort="0,1">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>分类</th>
+										<th>标题</th>
+										<th>时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>00</td>
+										<td>箫声自蒹葭深处踏露而来，清音绵长</td>
+										<td>在水伊芳</td>
+										<td>2019-07-10</td>
+									</tr>
+									<tr>
+										<td>01</td>
+										<td>桃木梳下，长发如瀑</td>
+										<td>月舞神殇</td>
+										<td>2019-07-11</td>
+									</tr>
+									<tr>
+										<td>02</td>
+										<td>淡蓝梦语在幽怨的侵蚀下</td>
+										<td>歌尽倾君</td>
+										<td>2019-07-12</td>
+									</tr>
+									<tr>
+										<td>03</td>
+										<td>笼住水畔小院，也笼住一汪染蓝的心事</td>
+										<td>九重宫阙</td>
+										<td>2019-07-13</td>
+									</tr>
+									<tr>
+										<td>04</td>
+										<td>皓腕轻举，绾绿鬓堆云</td>
+										<td>剑指狂沙</td>
+										<td>2019-07-14</td>
+									</tr>
+									<tr>
+										<td>05</td>
+										<td>无怨亦无嗔，从此写满尘世的安然</td>
+										<td>惊才绝艳</td>
+										<td>2019-07-15</td>
+									</tr>
+									<tr>
+										<td>06</td>
+										<td>将锦书层层折叠，付与烟尘</td>
+										<td>晦人不倦</td>
+										<td>2019-07-16</td>
+									</tr>
+								</tbody>
+							</table>
+						</template>
+						<div data-show="#run-2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="w6">
+				<div class="box">
+					<div class="box-title">鼠标经过，高亮某一行文字 <div data-run="#run-3" class="right"><a href="javascript:;"
+								class="a-line">代码调试</a></div>
+					</div>
+					<div class="box-content" id="run-3">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>分类</th>
+									<th>标题</th>
+									<th>时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>00</td>
+									<td>划出一波轻颤，水蓝点点飞溅</td>
+									<td>昔云楚楚</td>
+									<td>2019-07-10</td>
+								</tr>
+								<tr>
+									<td>01</td>
+									<td>却忆当年，同样的蓝月下</td>
+									<td>桃李不言</td>
+									<td>2019-07-11</td>
+								</tr>
+								<tr class="green">
+									<td>02</td>
+									<td>笼住水畔小院，也笼住一汪染蓝的心事</td>
+									<td>流荆默望</td>
+									<td>2019-07-12</td>
+								</tr>
+								<tr class="orange">
+									<td>03</td>
+									<td>梦已经轻巧着陆，波澜不惊</td>
+									<td>阳春白雪</td>
+									<td>2019-07-13</td>
+								</tr>
+								<tr class="red">
+									<td>04</td>
+									<td>无怨亦无嗔，从此写满尘世的安然</td>
+									<td>风流云散</td>
+									<td>2019-07-14</td>
+								</tr>
+								<tr>
+									<td>05</td>
+									<td>黛眉描罢却回首，笑问深浅入时无</td>
+									<td>惊才绝艳</td>
+									<td>2019-07-15</td>
+								</tr>
+								<tr>
+									<td>06</td>
+									<td>淡蓝梦语在幽怨的侵蚀下</td>
+									<td>仓央兮措</td>
+									<td>2019-07-16</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="w6">
+				<div class="box">
+					<div class="box-title">带线框表格，高亮某一行背景 <div data-run="#run-4" class="right"><a href="javascript:;"
+								class="a-line">代码调试</a></div>
+					</div>
+					<div class="box-content" id="run-4">
+						<table class="table table-border table-responsive table-hover">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>分类</th>
+									<th>标题</th>
+									<th>时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>00</td>
+									<td>风尘起，竹帘卷</td>
+									<td>宛如红袖</td>
+									<td>2019-07-10</td>
+								</tr>
+								<tr>
+									<td>01</td>
+									<td>一袭青衫自万水千山之外打马而至</td>
+									<td>谁堪共语</td>
+									<td>2019-07-11</td>
+								</tr>
+								<tr class="bg-green">
+									<td>02</td>
+									<td>却忆当年，同样的蓝月下</td>
+									<td>苍生何辜</td>
+									<td>2019-07-12</td>
+								</tr>
+								<tr class="bg-orange">
+									<td>03</td>
+									<td>箫音再起，卷一树梨花飞雪</td>
+									<td>九重宫阙</td>
+									<td>2019-07-13</td>
+								</tr>
+								<tr class="bg-red">
+									<td>04</td>
+									<td>沉默的辞藻描不出一城荒芜</td>
+									<td>似水流年</td>
+									<td>2019-07-14</td>
+								</tr>
+								<tr>
+									<td>05</td>
+									<td>绕着月色织出一方素笺</td>
+									<td>钟鼎之家</td>
+									<td>2019-07-15</td>
+								</tr>
+								<tr>
+									<td>06</td>
+									<td>云烟散去，又聚拢</td>
+									<td>古道热肠</td>
+									<td>2019-07-16</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="w6">
+				<div class="box">
+					<div class="box-title">彩色头部 <div data-run="#run-5" class="right"><a href="javascript:;"
+								class="a-line">代码调试</a></div>
+					</div>
+					<div class="box-content" id="run-5">
+						<table class="table table-hover">
+							<thead class="bg-green">
+								<tr>
+									<th>序号</th>
+									<th>分类</th>
+									<th>标题</th>
+									<th>时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>00</td>
+									<td>蓝底白花的梦帕上，无风也无月</td>
+									<td>苍生莫问</td>
+									<td>2019-07-10</td>
+								</tr>
+								<tr>
+									<td>01</td>
+									<td>轻嘘一口气，睫毛噏动的时候</td>
+									<td>剑指狂沙</td>
+									<td>2019-07-11</td>
+								</tr>
+								<tr>
+									<td>02</td>
+									<td>箫声自蒹葭深处踏露而来，清音绵长</td>
+									<td>月舞神殇</td>
+									<td>2019-07-12</td>
+								</tr>
+								<tr>
+									<td>03</td>
+									<td>烟雨深处，一枕蓝梦独自消瘦</td>
+									<td>残破旧年</td>
+									<td>2019-07-13</td>
+								</tr>
+								<tr>
+									<td>04</td>
+									<td>在落寞的字里行间</td>
+									<td>阳春白雪</td>
+									<td>2019-07-14</td>
+								</tr>
+								<tr>
+									<td>05</td>
+									<td>蓝底白花的梦帕上，无风也无月</td>
+									<td>暮鼓晨钟</td>
+									<td>2019-07-15</td>
+								</tr>
+								<tr>
+									<td>06</td>
+									<td>云烟散去，又聚拢</td>
+									<td>古道西风</td>
+									<td>2019-07-16</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="w6">
+				<div class="box">
+					<div class="box-title">彩色头部 <div data-run="#run-6" class="right"><a href="javascript:;"
+								class="a-line">代码调试</a></div>
+					</div>
+					<div class="box-content" id="run-6">
+						<table class="table table-border">
+							<thead class="bg-blue">
+								<tr>
+									<th>序号</th>
+									<th>分类</th>
+									<th>标题</th>
+									<th>时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>00</td>
+									<td>绕着月色织出一方素笺</td>
+									<td>仓央兮措</td>
+									<td>2019-07-10</td>
+								</tr>
+								<tr>
+									<td>01</td>
+									<td>烟雨深处，一枕蓝梦独自消瘦</td>
+									<td>笑若扶风</td>
+									<td>2019-07-11</td>
+								</tr>
+								<tr>
+									<td>02</td>
+									<td>梦已经轻巧着陆，波澜不惊</td>
+									<td>九凤临朝</td>
+									<td>2019-07-12</td>
+								</tr>
+								<tr>
+									<td>03</td>
+									<td>皓腕轻举，绾绿鬓堆云</td>
+									<td>阳春白雪</td>
+									<td>2019-07-13</td>
+								</tr>
+								<tr>
+									<td>04</td>
+									<td>笼住水畔小院，也笼住一汪染蓝的心事</td>
+									<td>平易近人</td>
+									<td>2019-07-14</td>
+								</tr>
+								<tr>
+									<td>05</td>
+									<td>烟雨深处，一枕蓝梦独自消瘦</td>
+									<td>静水流深</td>
+									<td>2019-07-15</td>
+								</tr>
+								<tr>
+									<td>06</td>
+									<td>划出一波轻颤，水蓝点点飞溅</td>
+									<td>晦人不倦</td>
+									<td>2019-07-16</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			//运行代码
+			ice.run()
+		</script>
+	</template>
+</body>
+</html>

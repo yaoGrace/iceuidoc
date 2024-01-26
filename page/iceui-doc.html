@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ICEUI文档</title>
+	<script type="module" data-page="true" src="../adminXL/page.js"></script>
+</head>
+<body>
+	<template class="adminXL-content">
+		<div class="doc-nav">
+			<div class="doc-main">
+				<div class="doc-head">如何使用ICEUI<span class="doc-version">v1.01</span></div>
+				<div class="title-l">第一步：下载</div>
+				<p>将下载的iceui框架源码放置于网站项目内，例如根目录。</p>
+				<p>本地下载：<a href="../../download/iceui-2.0.4.zip" data-pjax="false" target="_blank"><img src="../../badge/Download,iceui/green.svg" alt="点击下载" title="点击下载"></a></p>
+				<p>Gitee下载：<a href="https://gitee.com/iceui/iceui" data-pjax="false" target="_blank"><img src="../../badge/Download,iceui/red.svg" alt="点击下载" title="点击下载"></a></p>
+
+				<div class="title-l">第二步：引用框架</div>
+				<p>主要会用到这三个文件，引用到head中即可。</p>
+				<template class="iceCode:html">
+					<!-- 放在head中 -->
+					&lt;link rel="stylesheet" href="/iceui/src/ui/ui.css"/&gt;
+					&lt;script src="/iceui/src/ice.js"&gt;&lt;/script&gt;
+					&lt;script src="/iceui/src/ui/ui.js"&gt;&lt;/script&gt;
+				</template>
+
+				<div class="title-l">第三步：愉快的使用框架</div>
+				<p>完成上一步后，说明我们的女神框架已经安装完毕，接下来我们就可以泡一杯茶，愉快的使用她了，例如下面的一个小例子:</p>
+				<p>例如我们需要点击一个按钮，来显示一个漂亮的小弹窗。<div class="btn bg-blue" onclick="ice.alert('相顾无言，惟有泪千行！')">点我吧</div></p>
+				<template class="iceCode:html">
+					<!-- 就是这么简单 -->
+					<div class="btn bg-blue" onclick="ice.alert('相顾无言，惟有泪千行！')">点我吧</div>
+				</template>
+				<p>到这里要告一段落了，具体其它用法和示例请参考本站文档，如有不清楚的地方，欢迎加入官方QQ群：324415936</p>
+
+				<div class="title-l">一个简单页面的完整示例</div>
+				<template class="iceCode:html">
+					&lt;!DOCTYPE html&gt;
+					&lt;html lang="zh-Hans"&gt;
+					&lt;head&gt;
+						<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+						<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+						<title>ICEUI前端框架示例</title>
+						&lt;link rel="stylesheet" href="/iceui/src/ui/ui.css"/&gt;
+						&lt;script src="/iceui/src/ice.js"&gt;&lt;/script&gt;
+						&lt;script src="/iceui/src/ui/ui.js"&gt;&lt;/script&gt;
+					&lt;/head&gt;
+					&lt;body&gt;
+						<nav class="nav">
+							<div class="nav-wap">
+								<a href="../../index.html">
+									<img src="../../img/logo-black.png.html" class="nav-wap-logo" title="ICEUI前端框架" alt="logo"/>
+									<span class="nav-wap-name">ICEUI</span>
+								</a>
+								<div class="nav-wap-toggle"><div class="toggle-menu"></div></div>
+							</div>
+							<div class="nav-logo"><a href="../../index.html"><img src="../../img/logo-black.png.html" title="ICEUI前端框架" alt="Logo"/><span>ICEUI</span></a></div>
+							<div class="nav-menu">
+								<ul class="nav-list hover">
+									<li><a href="../../index.html">首页</a></li>
+									<li><a href="../index.html">示例</a></li>
+								</ul>
+								<div class="nav-other">
+									<a href="../../index.html">登录</a>
+									<a href="../../index.html">注册</a>
+								</div>
+							</div>
+						</nav>
+						<section class="section-white">
+							<div class="page">
+								<div class="title-l">ICEUI-HTML5前后端框架</div>
+								<div class="doc-intro">ICEUI是一款高效的HTML5前端框架，她的灵魂来自于自身顶级艺术的设计风格，像冰一样清明，像玉一样纯洁，以其独特的艺术表现及丰富的内涵特征向人们诠释了一个全新的前端框架理念，纯原生开发，无任何依赖，冰清玉洁，高贵典雅！</div>
+								<a href="../../index.html" class="btn-ani bg-black"><span>ICEUI官方<i></i></span></a>
+								<a href="../index.html" class="btn-ani bg-gray"><span>文档示例<i></i></span></a>
+								<a href="../../update/iceui.html" class="btn-ani bg-gray"><span>更新说明<i></i></span></a>
+								<div class="follow-disc"></div>
+							</div>
+						</section>
+						<section class="footer">
+							<div class="page">
+								© 2022 <a href="../../index.html" class="a-line">ICEUI</a> 高贵雅典
+							</div>
+						</section>
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</template>
+			</div>
+			<div class="doc-menu">
+				<div class="doc-menu-title">文档目录</div>
+				<ul></ul>
+			</div>	
+		</div>
+		<script>
+			ice.code();
+			//初始化文档
+			docInit();
+		</script>
+	</template>
+</body>
+</html>
